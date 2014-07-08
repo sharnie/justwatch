@@ -1,0 +1,47 @@
+<script>
+  $(document).ready(function(){
+    $('.panel-body').on('click', '#switch_gist_canvas', function(e){
+    e.preventDefault();
+      // console.log(this);
+      var gist   = $('#gist_content');
+      var canvas = $('#main-canvas');
+
+      if(gist.hasClass('front')){
+        gist.removeClass('front');
+      } else {
+        gist.addClass('front');
+      }
+
+    });
+  });
+</script>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="panel-title"></div>
+  </div>
+  <div class="panel-body">
+    <%= form_for(@gist) do |gist_f| %>
+      <div class="form-group">
+        <%= gist_f.label :name %>
+        <%= gist_f.text_field :name, class: "form-control", placeholder: "Name this project..." %>
+      </div>
+
+      <div id="gist_canvas">
+        <div class="form-group">
+          <%= gist_f.text_area :content, class: "form-control front", size: "100%x10" %>
+        </div>
+
+        <div class="form-group">
+          <%= gist_f.fields_for :visual_attributes do |visual_f| %>
+            <canvas id='main-canvas' width="1108px"></canvas>
+            <%= visual_f.hidden_field :url %>
+          <% end %>
+        </div>
+      </div>
+
+      <a href="#" class="pull-right btn btn-default" id="switch_gist_canvas">Text</a>
+      <%= gist_f.submit "Submit", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>     

@@ -1,1 +1,28 @@
 @import "bootstrap";
+
+// form
+.form-control {
+  border-radius: 2px;
+  background: transparent;
+}
+
+// panel 
+.panel {
+  border-radius: 2px;
+}
+.front {
+  z-index: 2;
+}
+#gist_canvas {
+  position: relative;
+}
+#gist_content {
+  position: relative;
+}
+#main-canvas {
+  position: absolute;
+  top: 0px;
+  border: 1px solid #000;
+  width: 100%;
+  height: 100%;
+}
