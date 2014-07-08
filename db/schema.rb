@@ -11,12 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140708134402) do
+ActiveRecord::Schema.define(version: 20140708141434) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "canvas", force: true do |t|
+    t.integer  "gist_id"
+    t.text     "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "visuals", force: true do |t|
     t.integer  "gist_id"
     t.text     "url"
     t.datetime "created_at"

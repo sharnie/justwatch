@@ -1,0 +1,9 @@
+<% @visuals.each do |v| %>
+  <%= image_tag(v.url) %>
+<% end %>
+
+<%= form_for(@visual) do |f| %>
+  <canvas id='main-canvas'></canvas>
+  <%= f.hidden_field :url %>
+  <%= f.submit "Submit" %>
+<% end %>
