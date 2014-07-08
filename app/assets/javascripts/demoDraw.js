@@ -20,7 +20,9 @@ $(document).on('page:change', function(){
       // context.stroke();
       // console.log(e);
     } else if(e.type === 'drag:end') {
-      context.closePath();
+      context.closePath(); 
+      var url = $('#gist_visual_attributes_url');
+      url.val(canvas[0].toDataURL());
       // console.log(e);
     }
 

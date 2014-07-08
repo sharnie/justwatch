@@ -15,11 +15,14 @@ class GistsController < ApplicationController
   def create
 
     if @gist.save
-      redirect_to gists_path
+      redirect_to gist_path(@gist)
     else
       redirect_to gists_path
     end
 
+  end
+
+  def show
   end
 
 
