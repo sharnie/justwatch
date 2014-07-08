@@ -5,21 +5,28 @@ $( document ).on('page:change', function() {
       $this = $( this ),
       eventData = {};
 
-    if ( !$this.data('mousedown') ){
-      $this.data('mousedown', false);
-    }
+      _.extend( eventData, _.pick( e, 'offsetX', 'offsetY' ) );
 
     if( e.type === 'mousedown'){
       $this.data('mousedown', true);
+      _.extend( eventData, { type: 'drag:begin' } );
       
+      $this.trigger( eventData );
+
+      return;
     }else if( e.type === 'mouseup'){
+      _.extend( eventData, { type: 'drag:end' } );
+      
+      $this.trigger( eventData );
       $this.data('mousedown', false);
+
+      return;
     }
 
     if( e.type === 'mousemove' && $this.data('mousedown') ){
 
-      _.extend( eventData, _.pick( e, 'offsetX', 'offsetY' ), { type: 'drag' } );
-
+      _.extend( eventData, { type: 'drag' } );
+      
       $this.trigger( eventData );
     }
 

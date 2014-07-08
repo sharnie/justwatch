@@ -1,0 +1,11 @@
+<%= form_for(@gist) do |gist_f| %>
+  <%= gist_f.label :name %>
+  <%= gist_f.text_field :name %>
+  <%= gist_f.text_area :content %>
+  <%= gist_f.fields_for :visual_attributes do |visual_f| %>
+    <canvas id='main-canvas'></canvas>
+    <%= visual_f.hidden_field :url %>
+  <% end %>
+
+  <%= f.submit "Submit" %>
+<% end %>
