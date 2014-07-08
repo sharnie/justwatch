@@ -12,10 +12,9 @@ class VisualsController < ApplicationController
     redirect_to visuals_path
   end
 
-  private
+private
 
-    def visual_params
-      params.require(:visual).permit(:url)
-    end
-
+  def visual_params
+    params.require(:visual).permit(:url)
+  end
 end

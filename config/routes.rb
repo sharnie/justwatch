@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'gist#new'
+  root "gists#index"
 
   resources :visuals
   resources :gists
