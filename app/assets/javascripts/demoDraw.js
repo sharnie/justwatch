@@ -11,11 +11,13 @@ $(document).on('page:change', function(){
       // console.log(e);
     } else if(e.type === 'drag') {
       context.moveTo(e.offsetX + 1, e.offsetY + 1);
-      context.lineTo(e.offsetX, e.offsetY);
-      context.lineWidth = 5;
-      context.fillStyle = '#8ED6FF';
+      // context.lineTo(e.offsetX, e.offsetY);
+      context.arc(e.offsetX, e.offsetY, 2, 0, 2 * Math.PI, false);
+      context.lineWidth = 1;
+      context.fillStyle = 'red';
       context.fill();
-      context.stroke();
+      // context.strokeStyle = '#003300';
+      // context.stroke();
       // console.log(e);
     } else if(e.type === 'drag:end') {
       context.closePath();

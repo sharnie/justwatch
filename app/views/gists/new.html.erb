@@ -8,8 +8,10 @@
 
       if(gist.hasClass('front')){
         gist.removeClass('front');
+        $('#switch_gist_canvas').html('Show Gist');
       } else {
         gist.addClass('front');
+        $('#switch_gist_canvas').html('Show Canvas');
       }
 
     });
@@ -40,7 +42,7 @@
         </div>
       </div>
 
-      <a href="#" class="pull-right btn btn-default" id="switch_gist_canvas">Text</a>
+      <a href="#" class="pull-right btn btn-default" id="switch_gist_canvas"><span class="glyphicon glyphicon-plus"></span>Show Canvas</a>
       <%= gist_f.submit "Submit", class: "btn btn-primary" %>
     <% end %>
   </div>
