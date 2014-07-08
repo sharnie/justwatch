@@ -9,7 +9,7 @@ $( document ).on('page:change', function(){
     context.beginPath();
   });
 
-  $canvas.on( 'drag', function( e ){
+  $canvas.on( 'drag:begin drag drag:end', function( e ){
     var 
       x = e.offsetX,
       y = e.offsetY;
