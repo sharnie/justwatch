@@ -20,6 +20,6 @@ $(document).ready(function(){
 
   var dataURL = canvas.toDataURL();
 
-  $( '#visual_url' ).val( dataURL );
+  $( '#gist_visual_attributes_url' ).val( dataURL );
   
 });

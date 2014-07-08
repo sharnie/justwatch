@@ -1,0 +1,19 @@
+<% @visuals.each do |v| %>
+  <%= image_tag(v.url) %>
+<% end %>
+
+<% @gists.each do |v| %>
+  <%= v.content %>
+<% end %>
+
+<%= form_for(@gist) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.text_area :content %>
+  <%= f.fields_for :visual_attributes do |visual_f| %>
+    <canvas id='main-canvas'></canvas>
+    <%= visual_f.hidden_field :url %>
+  <% end %>
+
+  <%= f.submit "Submit" %>
+<% end %>
