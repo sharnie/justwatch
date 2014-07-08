@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'canvas/index'
+
+  get 'canvas/view'
+
   root 'gist#new'
 
   get 'gist/new'
