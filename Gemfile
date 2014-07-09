@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
+
+#authentication gems
 gem 'figaro'
 gem 'devise'
+gem 'omniauth-github'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.4'
 # Use postgresql as the database for Active Record
