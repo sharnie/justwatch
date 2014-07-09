@@ -27,20 +27,17 @@
     <div class="panel-body">
 
       <div id="gist_canvas">
-        <div id="editor">
-function betterGist() {
-    console.log('I love it!');
-}
-        </div>
+
+        <div id="editor"></div>
 
         <%= gist_f.text_area :content, class: "front" %>
 
-        <div class="form-group">
+        <%= content_tag(:div, class: "form-group") do %>
           <%= gist_f.fields_for :visual_attributes do |visual_f| %>
             <canvas id='main-canvas' width="1108px"></canvas>
             <%= visual_f.hidden_field :url %>
           <% end %>
-        </div>
+        <% end %>
       </div>
 
     </div>

@@ -1,8 +1,8 @@
 @import "bootstrap";
-@import "http://fonts.googleapis.com/css?family=Bitter:400,700";
+@import "http://fonts.googleapis.com/css?family=Open+Sans:400,700,300";
 
 body {
-  font-family: 'Bitter';
+  font-family: 'Open Sans', sans-serif;
 }
 // helper
 .bold {
@@ -95,7 +95,7 @@ a.navbar-brand   {
 }
 
 .front {
-  z-index: 2;
+  z-index: 9999;
 }
 #gist_canvas {
   position: relative;
@@ -114,6 +114,7 @@ a.navbar-brand   {
   border-radius: 2px;
   width: 100%;
   height: 100%;
+  z-index: -9999;
 }
 
 // gist form 

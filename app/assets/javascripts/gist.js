@@ -1,15 +1,15 @@
 $(document).ready(function(){
   $('.panel-body').on('click', '#switch_gist_canvas', function(e){
     e.preventDefault();
-    var gist   = $('#gist_content');
+
     var canvas = $('#main-canvas');
 
-    if(gist.hasClass('front')){
-      gist.removeClass('front');
-      $('#switch_gist_canvas').html('<span class="glyphicon glyphicon-plus"></span> TEXT');
+    if(canvas.hasClass('front')){
+      canvas.removeClass('front');
+      $('#switch_gist_canvas').html('<span class="glyphicon glyphicon-plus"></span> HIDE');
     } else {
-      gist.addClass('front');
-      $('#switch_gist_canvas').html('<span class="glyphicon glyphicon-plus"></span> DRAW');
+      canvas.addClass('front');
+      $('#switch_gist_canvas').html('<span class="glyphicon glyphicon-plus"></span> SHOW');
     }
   });
 
@@ -18,8 +18,8 @@ $(document).ready(function(){
 
   var editor = ace.edit("editor");
 
-  editor.setTheme("ace/theme/chrome");
-  editor.getSession().setMode("ace/mode/ruby");
+  editor.setTheme("ace/theme/monokai");
+  editor.getSession().setMode("ace/mode/javascript");
 
   editor.getSession().on('change', function() {
     textarea.val(editor.getSession().getValue());
