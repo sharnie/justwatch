@@ -3,6 +3,7 @@ class GistsController < ApplicationController
   # also assigns attributes passed through params
   # to the @gist object
   before_action :set_gist_and_visual
+  before_filter :authenticate_user!, except: [:new, :create]
 
   def new
   end

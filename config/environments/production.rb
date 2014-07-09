@@ -79,4 +79,6 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  #from Natacha: set up the actual host of the application for Devise
 end
