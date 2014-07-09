@@ -32,9 +32,15 @@ $( document ).on('page:change', function() {
 
   });
 
+  var textarea = $('textarea[name="editor"]');
+  textarea.hide();
+
   var editor = ace.edit("editor");
-  editor.setTheme("ace/theme/monokai");
+  
+  editor.setTheme("ace/theme/ambiance");
   editor.getSession().setMode("ace/mode/javascript");
-  var textarea = $('#gist_content').hide();
-  textarea.val(editor.getSession().getValue());
+
+  $('#submit').on('click', function() {
+      textarea.val(editor.getSession().getValue());
+  });
 });

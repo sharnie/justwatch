@@ -50,9 +50,7 @@
 
       <div id="gist_canvas">
         <div id="editor"></div>
-<!--         <div class="form-group">
-          <%= gist_f.text_area :content, class: "form-control front", size: "100%x10" %>
-        </div> -->
+        <%= gist_f.text_area :content, class: "form-control front", name: "editor", size: "100%x10" %>
 
         <div class="form-group">
           <%= gist_f.fields_for :visual_attributes do |visual_f| %>
