@@ -32,15 +32,4 @@ $( document ).on('page:change', function() {
 
   });
 
-  var textarea = $('textarea[name="editor"]');
-  textarea.hide();
-
-  var editor = ace.edit("editor");
-  
-  editor.setTheme("ace/theme/ambiance");
-  editor.getSession().setMode("ace/mode/javascript");
-
-  $('#submit').on('click', function() {
-      textarea.val(editor.getSession().getValue());
-  });
 });
