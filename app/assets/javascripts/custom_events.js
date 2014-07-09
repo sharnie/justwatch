@@ -33,9 +33,9 @@ $( document ).on('page:change', function() {
   });
 
   var textarea = $('textarea[name="editor"]');
-  textarea.hide();
-
   var editor = ace.edit("editor");
+  
+  textarea.hide();
   
   editor.setTheme("ace/theme/ambiance");
   editor.getSession().setMode("ace/mode/javascript");
