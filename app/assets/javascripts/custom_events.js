@@ -1,36 +1,36 @@
-$( document ).on('page:change', function() {
+// $( document ).on('page:change', function() {
 
-  $( '*' ).on('mousedown mouseup mousemove', function( e ){
-    var 
-      $this = $( this ),
-      eventData = {};
+//   $( '*' ).on('mousedown mouseup mousemove', function( e ){
+//     var 
+//       $this = $( this ),
+//       eventData = {};
 
-      _.extend( eventData, _.pick( e, 'offsetX', 'offsetY' ) );
+//       _.extend( eventData, _.pick( e, 'offsetX', 'offsetY' ) );
 
-    if( e.type === 'mousedown'){
-      $this.data('mousedown', true);
-      _.extend( eventData, { type: 'drag:begin' } );
+//     if( e.type === 'mousedown'){
+//       $this.data('mousedown', true);
+//       _.extend( eventData, { type: 'drag:begin' } );
       
-      $this.trigger( eventData );
+//       $this.trigger( eventData );
 
-      return;
-    }else if( e.type === 'mouseup'){
-      _.extend( eventData, { type: 'drag:end' } );
+//       return;
+//     }else if( e.type === 'mouseup'){
+//       _.extend( eventData, { type: 'drag:end' } );
       
-      $this.trigger( eventData );
-      $this.data('mousedown', false);
+//       $this.trigger( eventData );
+//       $this.data('mousedown', false);
 
-      return;
-    }
+//       return;
+//     }
 
-    if( e.type === 'mousemove' && $this.data('mousedown') ){
+//     if( e.type === 'mousemove' && $this.data('mousedown') ){
 
-      _.extend( eventData, { type: 'drag' } );
+//       _.extend( eventData, { type: 'drag' } );
       
-      $this.trigger( eventData );
-    }
+//       $this.trigger( eventData );
+//     }
 
-  });
+//   });
 
 
-});
+// });
