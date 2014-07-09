@@ -3,6 +3,7 @@ class GistsController < ApplicationController
   # also assigns attributes passed through params
   # to the @gist object
   before_action :set_gist_and_visual
+  before_filter :authenticate_user!, except: [:new, :create]
 
   def new
   end
@@ -17,7 +18,8 @@ class GistsController < ApplicationController
     if @gist.save
       redirect_to gist_path(@gist)
     else
-      redirect_to gists_path
+      flash[:notice] = "Ouuups something went wrong, try again..."
+      redirect_to new_gist_path
     end
 
   end
