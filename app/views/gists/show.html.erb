@@ -1,6 +1,12 @@
-<pre class="line-numbers">
-  <code class="language-javascript">
-    <%= @gist.content%>
-  </code>
-</pre>
-<%= image_tag @gist.visual.url %>
+
+    <div id='gist_content'>
+      <pre class="line-numbers">
+        <code class="language-javascript">
+            <%= @gist.content%>
+        </code>
+      </pre>
+      <div id="show-canvas"><%= image_tag @gist.visual.url %></div>
+    </div>
+
+
+ 
