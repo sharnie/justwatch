@@ -49,12 +49,12 @@
         </form>
         <ul class="nav navbar-nav navbar-right">
     <% if user_signed_in? %>
-        Logged in as <strong><%= current_user.email %></strong>.
-        <%= link_to 'Edit profile', edit_user_registration_path %> |
-        <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+        <li>Logged in as <strong><%= current_user.email %></strong>.</li>
+        <li><%= link_to 'Edit profile', edit_user_registration_path %></li>
+        <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
     <% else %>
-        <%= link_to "Sign up", new_user_registration_path %> |
-        <%= link_to "Login", new_user_session_path %>
+        <li><%= link_to "Sign up", new_user_registration_path %> </li>
+        <li><%= link_to "Login", new_user_session_path %></li>
     <% end %>
           <li><a href="#">All Projects</a></li>
           <li class="dropdown">
