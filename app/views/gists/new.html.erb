@@ -1,3 +1,7 @@
+<!-- <script>
+
+</script>
+ -->
 <script>
   $(document).ready(function(){
     $('.panel-body').on('click', '#switch_gist_canvas', function(e){
@@ -16,34 +20,9 @@
     });
 
 
-    // $("textarea").keydown(function(e) {
-    //     if(e.keyCode === 9) { // tab was pressed
-    //         // get caret position/selection
-    //         var start = this.selectionStart;
-    //         var end = this.selectionEnd;
-
-    //         var $this = $(this);
-    //         var value = $this.val();
-
-    //         // set textarea value to: text before caret + tab + text after caret
-    //         $this.val(value.substring(0, start)
-    //                     + "\t"
-    //                     + value.substring(end));
-
-    //         // put caret at right position again (add one for the tab)
-    //         this.selectionStart = this.selectionEnd = start + 1;
-
-    //         // prevent the focus lose
-    //         e.preventDefault();
-    //     }
-    // });
-
-
   });
 </script>
 
-<!-- <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/styles/default.min.css">
-<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/highlight.min.js"></script> -->
 
 <div class="panel panel-default">
   <div class="panel-heading">
@@ -70,13 +49,14 @@
       </div>
 
       <div id="gist_canvas">
-        <div class="form-group">
+        <div id="editor"></div>
+<!--         <div class="form-group">
           <%= gist_f.text_area :content, class: "form-control front", size: "100%x10" %>
-        </div>
+        </div> -->
 
         <div class="form-group">
           <%= gist_f.fields_for :visual_attributes do |visual_f| %>
-            <canvas id='main-canvas' width="1108px"></canvas>
+            <!-- <canvas id='main-canvas' width="1108px"></canvas> -->
             <%= visual_f.hidden_field :url %>
           <% end %>
         </div>
@@ -88,4 +68,4 @@
       <%= gist_f.submit "Save", class: "btn btn-default" %>
     <% end %>
   </div>
-</div>     
+</div>

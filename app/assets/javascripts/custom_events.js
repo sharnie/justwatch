@@ -33,4 +33,10 @@ $( document ).on('page:change', function() {
   });
 
 
+  var editor = ace.edit("editor");
+  editor.setTheme("ace/theme/monokai");
+  editor.getSession().setMode("ace/mode/javascript");
+  var textarea = $('#gist_content').hide();
+  textarea.val(editor.getSession().getValue());
+
 });
