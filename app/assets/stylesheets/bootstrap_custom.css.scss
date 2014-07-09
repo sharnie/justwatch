@@ -110,6 +110,11 @@ a.navbar-brand   {
 #gist_content {
   position: relative;
 }
+#show-canvas {
+  position: absolute;
+  top: 0px;
+}
+
 #main-canvas {
   position: absolute;
   top: 0px;
@@ -118,3 +123,4 @@ a.navbar-brand   {
   width: 100%;
   height: 100%;
 }
+
