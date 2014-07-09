@@ -1,8 +1,7 @@
 <script>
   $(document).ready(function(){
     $('.panel-body').on('click', '#switch_gist_canvas', function(e){
-    e.preventDefault();
-      // console.log(this);
+      e.preventDefault();
       var gist   = $('#gist_content');
       var canvas = $('#main-canvas');
 
@@ -16,31 +15,35 @@
 
     });
 
-$("textarea").keydown(function(e) {
-    if(e.keyCode === 9) { // tab was pressed
-        // get caret position/selection
-        var start = this.selectionStart;
-        var end = this.selectionEnd;
 
-        var $this = $(this);
-        var value = $this.val();
+    // $("textarea").keydown(function(e) {
+    //     if(e.keyCode === 9) { // tab was pressed
+    //         // get caret position/selection
+    //         var start = this.selectionStart;
+    //         var end = this.selectionEnd;
 
-        // set textarea value to: text before caret + tab + text after caret
-        $this.val(value.substring(0, start)
-                    + "\t"
-                    + value.substring(end));
+    //         var $this = $(this);
+    //         var value = $this.val();
 
-        // put caret at right position again (add one for the tab)
-        this.selectionStart = this.selectionEnd = start + 1;
+    //         // set textarea value to: text before caret + tab + text after caret
+    //         $this.val(value.substring(0, start)
+    //                     + "\t"
+    //                     + value.substring(end));
 
-        // prevent the focus lose
-        e.preventDefault();
-    }
-});
+    //         // put caret at right position again (add one for the tab)
+    //         this.selectionStart = this.selectionEnd = start + 1;
+
+    //         // prevent the focus lose
+    //         e.preventDefault();
+    //     }
+    // });
 
 
   });
 </script>
+
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/styles/default.min.css">
+<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/highlight.min.js"></script>
 
 <div class="panel panel-default">
   <div class="panel-heading">
@@ -68,7 +71,7 @@ $("textarea").keydown(function(e) {
 
       <div id="gist_canvas">
         <div class="form-group">
-          <%= gist_f.text_area :content, class: "form-control front lined", size: "100%x10" %>
+          <%= gist_f.text_area :content, class: "form-control front", size: "100%x10" %>
         </div>
 
         <div class="form-group">
