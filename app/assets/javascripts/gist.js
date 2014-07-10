@@ -1,39 +1,46 @@
 $(document).on('page:change', function(){
-  $('#switch_gist_canvas').on('click', function(e){
+  // Here lives the code that allows the switching of context
+  // between editor and canvas
+
+  var
+    $mainEditor   = $( '#editor' ), // subject to change
+    $switchButton = $( '#switch_gist_canvas' ),
+    $textarea     = $( 'textarea#gist_content' ),
+    $mainCanvas    = window.mainCanvas.$canvas;
+
+
+  $switchButton.on('click', function(e){
     e.stopPropagation();
     e.preventDefault();
 
-    var canvas = window.mainCanvas.$canvas;
 
-    if(canvas.hasClass('front')){
-      canvas.removeClass('front');
-      $('#editor').removeClass( 'back' );
-      $('#editor').addClass('front');
-      canvas.addClass('back');
-      $('#switch_gist_canvas').html('<span class="glyphicon glyphicon-plus"></span> HIDE');
+    if($mainCanvas.hasClass('front')){
+
+      $mainEditor.removeClass( 'back' );
+      $mainEditor.addClass('front');
+
+      $mainCanvas.removeClass('front');
+      $mainCanvas.addClass('back');
+
+      $switchButton.html('<span class="glyphicon glyphicon-plus"></span> HIDE');
     } else {
-      canvas.addClass( 'front' );
-      $( '#editor' ).addClass( 'back' );
-      canvas.removeClass( 'back' );
-      $( '#editor' ).removeClass( 'front' );
-      $('#switch_gist_canvas').html('<span class="glyphicon glyphicon-plus"></span> SHOW');
+
+      $mainEditor.addClass( 'back' );
+      $mainEditor.removeClass( 'front' );
+
+      $mainCanvas.addClass( 'front' );
+      $mainCanvas.removeClass( 'back' );
+
+      $switchButton.html('<span class="glyphicon glyphicon-plus"></span> SHOW');
     }
   });
 
-  var textarea = $('textarea#gist_content');
-  textarea.hide();
 
-  window.editor = ace.edit("editor");
+  $textarea.hide();
+  $mainCanvas.on( 'drag:end', function(){
+    var url = window.mainCanvas.stateStack().url;
 
-  window.editor.setValue( textarea.val(), 1 );
-
-  window.editor.setTheme("ace/theme/eclipse");
-  window.editor.getSession().setMode("ace/mode/javascript");
-
-  window.editor.getSession().on('change', function() {
-    textarea.val(window.editor.getSession().getValue());
+    $( '#gist_visual_attributes_url' ).val( url );
   });
-
-  // window.editor.setReadOnly( true );
 
 });
