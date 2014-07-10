@@ -15,8 +15,10 @@ class GistsController < ApplicationController
   end
 
   def create
+    @gist.user = current_user
 
     if @gist.save
+      logger.info current_user
       redirect_to gist_path(@gist)
     else
       flash[:notice] = "Ouuups something went wrong, try again..."
