@@ -34,7 +34,7 @@
 
         <%= content_tag(:div, class: "form-group") do %>
           <%= gist_f.fields_for :visual_attributes do |visual_f| %>
-            <canvas id='main-canvas' width="1108px"></canvas>
+            <canvas id='main-canvas' width="768px" height='300px'></canvas>
             <%= visual_f.hidden_field :url %>
           <% end %>
         <% end %>

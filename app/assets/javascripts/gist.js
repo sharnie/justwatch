@@ -1,14 +1,21 @@
 $(document).on('page:change', function(){
-  $('.panel-body').on('click', '#switch_gist_canvas', function(e){
+  $('#switch_gist_canvas').on('click', function(e){
+    e.stopPropagation();
     e.preventDefault();
 
-    var canvas = $('#main-canvas');
+    var canvas = window.mainCanvas.$canvas;
 
     if(canvas.hasClass('front')){
       canvas.removeClass('front');
+      $('#editor').removeClass( 'back' );
+      $('#editor').addClass('front');
+      canvas.addClass('back');
       $('#switch_gist_canvas').html('<span class="glyphicon glyphicon-plus"></span> HIDE');
     } else {
-      canvas.addClass('front');
+      canvas.addClass( 'front' );
+      $( '#editor' ).addClass( 'back' );
+      canvas.removeClass( 'back' );
+      $( '#editor' ).removeClass( 'front' );
       $('#switch_gist_canvas').html('<span class="glyphicon glyphicon-plus"></span> SHOW');
     }
   });
@@ -24,5 +31,7 @@ $(document).on('page:change', function(){
   editor.getSession().on('change', function() {
     textarea.val(editor.getSession().getValue());
   });
+
+
 
 });
