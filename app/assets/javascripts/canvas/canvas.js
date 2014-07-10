@@ -50,6 +50,10 @@ function Canvas( selector ) {
     }
   };
 
+  this.stateStack = function(){
+    return STATE_STACK[0];
+  };
+
   var
     CACHE_CANVAS,
     CACHE_CONTEXT,

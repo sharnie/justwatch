@@ -159,5 +159,11 @@ $( document ).on( 'page:change', function(){
     }
   });
 
+  window.mainCanvas.$canvas.on( 'drag:end', function(){
+    var url = window.mainCanvas.stateStack().url;
+
+    $( '#gist_visual_attributes_url' ).val( url );
+  }); 
+
 
 });

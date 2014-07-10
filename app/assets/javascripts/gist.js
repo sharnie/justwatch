@@ -23,15 +23,17 @@ $(document).on('page:change', function(){
   var textarea = $('textarea#gist_content');
   textarea.hide();
 
-  var editor = ace.edit("editor");
+  window.editor = ace.edit("editor");
 
-  editor.setTheme("ace/theme/eclipse");
-  editor.getSession().setMode("ace/mode/javascript");
+  window.editor.setValue( textarea.val(), 1 );
 
-  editor.getSession().on('change', function() {
-    textarea.val(editor.getSession().getValue());
+  window.editor.setTheme("ace/theme/eclipse");
+  window.editor.getSession().setMode("ace/mode/javascript");
+
+  window.editor.getSession().on('change', function() {
+    textarea.val(window.editor.getSession().getValue());
   });
 
-
+  // window.editor.setReadOnly( true );
 
 });

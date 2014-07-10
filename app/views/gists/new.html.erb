@@ -7,7 +7,7 @@
             <div class="col-xs-3 col-3-gutter">
               <%= gist_f.text_field :name, class: "form-control", placeholder: "Name this project..." %>
             </div>
-            <div class="col-xs-2 col-3-gutter">
+            <!-- <div class="col-xs-2 col-3-gutter">
               <div class="dropdown">
                 <button href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                   Language: Text <span class="caret"></span>
@@ -20,7 +20,7 @@
                   <li><a href="#">C++</a></li>
                 </ul> 
               </div>
-            </div>
+            </div> -->
           </div>
       </div>
     </div>
@@ -28,13 +28,13 @@
 
       <div id="gist_canvas">
 
-        <div id="editor"></div>
+        <div id="editor" class='front'></div>
 
         <%= gist_f.text_area :content, class: "front" %>
 
         <%= content_tag(:div, class: "form-group") do %>
           <%= gist_f.fields_for :visual_attributes do |visual_f| %>
-            <canvas id='main-canvas' width="768px" height='300px'></canvas>
+            <canvas id='main-canvas' class='back' width="766px" height='298px'></canvas>
             <%= visual_f.hidden_field :url %>
           <% end %>
         <% end %>

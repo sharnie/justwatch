@@ -120,6 +120,7 @@ a.navbar-brand   {
   position: absolute;
   top: 0px;
 }
+
 #main-canvas {
   position: absolute;
   top: 0px;
@@ -134,4 +135,10 @@ a.navbar-brand   {
 #new_gist .panel-body {
   padding: 0px;
   margin-bottom: -15px;
+}
+
+
+.gist-visual-image {
+  position: absolute;
+  top: 0;
 }
