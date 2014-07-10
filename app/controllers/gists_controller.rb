@@ -15,8 +15,8 @@ class GistsController < ApplicationController
   end
 
   def create
-    @gist.user = current_user
-
+    
+    @gist.user_id = current_user.id
     if @gist.save
       logger.info current_user
       redirect_to gist_path(@gist)
@@ -28,13 +28,24 @@ class GistsController < ApplicationController
   end
 
   def show
+    
   end
 
   def embed
     @user = User.find(params[:user_id])
     @gist = @user.gists.find(params[:gist_id])
-
     respond_to {|format| format.js}
+    #render file: "gists/embed.js.erb"
+  end
+
+  def embed_stylesheet
+    @user = User.find(params[:user_id])
+    @gist = @user.gists.find(params[:gist_id])
+    render file: "gists/embed_stylesheet.css"
+  end
+
+  def encrypt_url
+
   end
 
 private

@@ -1,5 +1,5 @@
-<div class="gist_embed">
-  <div class="gist_content">
+<div id="gist_embed_<%= gist.id %>"> 
+  <div id="gist_content_<%= gist.id %>">
     <pre>
       <code>
         <%= gist.content %>
@@ -7,7 +7,7 @@
     </pre>
   </div>
   
-  <div class="canvas_img">
+  <div id="canvas_img_<%= gist.visual.gist_id %>">
     <%= image_tag(gist.visual.url) %>
   </div>
 </div>
