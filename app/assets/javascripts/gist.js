@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).on('page:change', function(){
   $('.panel-body').on('click', '#switch_gist_canvas', function(e){
     e.preventDefault();
 
@@ -18,7 +18,7 @@ $(document).ready(function(){
 
   var editor = ace.edit("editor");
 
-  editor.setTheme("ace/theme/monokai");
+  editor.setTheme("ace/theme/eclipse");
   editor.getSession().setMode("ace/mode/javascript");
 
   editor.getSession().on('change', function() {

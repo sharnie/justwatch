@@ -4,6 +4,9 @@
 body {
   font-family: 'Open Sans', sans-serif;
 }
+.container{
+  max-width: 800px;
+}
 // helper
 .bold {
   font-weight: bold;
@@ -17,6 +20,12 @@ body {
 .col-3-gutter {
   padding-left: 3px;
   padding-right: 3px;
+}
+
+// code
+pre[class*="language-"] {
+  background-color: #FAFAFA !important;
+  border-radius: 2px;
 }
 
 // navbar
@@ -124,8 +133,4 @@ a.navbar-brand   {
 #new_gist .panel-body {
   padding: 0px;
   margin-bottom: -15px;
-}
-
-.container{
-  max-width: 800px;
 }

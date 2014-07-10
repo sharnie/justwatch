@@ -15,10 +15,10 @@ class GistsController < ApplicationController
   end
 
   def create
-    
+    @gist.content = params[:gist][:content].strip
+
     @gist.user_id = current_user.id
     if @gist.save
-      logger.info current_user
       redirect_to gist_path(@gist)
     else
       flash[:notice] = "Ouuups something went wrong, try again..."
@@ -35,7 +35,6 @@ class GistsController < ApplicationController
     @user = User.find(params[:user_id])
     @gist = @user.gists.find(params[:gist_id])
     respond_to {|format| format.js}
-    #render file: "gists/embed.js.erb"
   end
 
   def embed_stylesheet
