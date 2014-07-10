@@ -6,4 +6,5 @@ class GistController < ApplicationController
     @data = params
     render :new
   end
+    
 end

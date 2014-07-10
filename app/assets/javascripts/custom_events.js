@@ -1,5 +1,7 @@
 $( document ).on('page:change', function() {
 
+
+  // drag event
   $( '*' ).on('mousedown mouseup mousemove', function( e ){
     var 
       $this = $( this ),
@@ -14,7 +16,7 @@ $( document ).on('page:change', function() {
       $this.trigger( eventData );
 
       return;
-    }else if( e.type === 'mouseup'){
+    }else if( e.type === 'mouseup' ){
       _.extend( eventData, { type: 'drag:end' } );
       
       $this.trigger( eventData );
@@ -25,7 +27,7 @@ $( document ).on('page:change', function() {
 
     if( e.type === 'mousemove' && $this.data('mousedown') ){
 
-      _.extend( eventData, { type: 'drag' } );
+      _.extend( eventData, { type: 'drag:move' } );
       
       $this.trigger( eventData );
     }
