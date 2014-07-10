@@ -1,0 +1,23 @@
+.front {
+  z-index: 9999;
+}
+.back {
+  z-index: 0;
+}
+#gist_content_<%= @gist.id %> #gist_content{
+  display: none;
+}
+
+#gist_content_<%= @gist.id %>{
+  position: relative;
+}
+
+#editor_<%= @gist.id %>{
+  height: 300px;
+}
+
+#gist_image_<%= @gist.id %>{
+  position: absolute;
+  top: 0;
+}
+

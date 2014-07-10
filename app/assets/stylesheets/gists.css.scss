@@ -1,0 +1,36 @@
+// Place all the styles related to the gists controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.front {
+  z-index: 9999;
+}
+.back {
+  z-index: 0;
+}
+
+#gist_canvas {
+  position: relative;
+}
+#gist_content {
+  position: relative;
+}
+#show-canvas {
+  position: absolute;
+  top: 0px;
+}
+
+#main-canvas {
+  position: absolute;
+  top: 0px;
+  border: 1px solid red;
+  background: transparent;
+}
+
+// gist form 
+#editor {
+  height: 300px;
+}
+#new_gist .panel-body {
+  padding: 0px;
+  margin-bottom: -15px;
+}

@@ -1,0 +1,12 @@
+(function(){
+
+  document.write('<%= stylesheet_link_tag embed_stylesheet_url(@user,@gist)%>');
+  document.write('<%= j(render @gist) %>');
+
+  var editor = ace.edit("editor_<%= @gist.id %>");
+       
+      editor.setValue( '<%= j(@gist.content) %>', 1 );
+      editor.setReadOnly( true );
+      editor.setTheme( "ace/theme/eclipse" );
+      editor.getSession().setMode("ace/mode/javascript");
+}());
