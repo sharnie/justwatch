@@ -1,0 +1,8 @@
+<h1>My Projects</h1>
+<ul> 
+<% current_user.gists.each do |gist| %>
+  <li>
+    <%= javascript_include_tag "/embed/#{gist.user_id}/#{gist.id}.js" %>
+  </li>  
+<% end %>
+</ul>

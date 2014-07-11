@@ -1,0 +1,8 @@
+
+<%= content_tag :div, id: "gist_content_#{gist.id}" do %>
+  <%= form_for(gist) do |f| %>
+    <div id="editor_<%= @gist.id %>" class="back"></div>
+    <%= f.text_area :content %>
+    <%= image_tag(gist.visual.url, id: "gist_image_#{gist.id}", class: 'front') %>
+  <% end %>
+<% end %>
