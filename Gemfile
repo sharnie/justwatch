@@ -47,4 +47,4 @@ gem 'spring',        group: :development
 
 gem 'underscore-rails'
 gem 'rails_12factor', group: :production
-
+gem 'unicorn', '~> 4.8.3'
