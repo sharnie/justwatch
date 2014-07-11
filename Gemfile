@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.1.1'
 
 #authentication gems
 gem 'figaro'
@@ -45,3 +46,5 @@ gem 'spring',        group: :development
 
 
 gem 'underscore-rails'
+gem 'rails_12factor', group: :production
+
