@@ -7,6 +7,6 @@ Rails.application.routes.draw do
   get 'embed/:user_id/:gist_id/stylesheet.css' => 'gists#embed_stylesheet', as: 'embed_stylesheet'
 
   resources :visuals
-  resources :gists
+  resources :gists, except: [:new]
   
 end
