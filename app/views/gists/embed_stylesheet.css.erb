@@ -8,8 +8,17 @@
   display: none;
 }
 
+
 #gist_content_<%= @gist.id %>{
   position: relative;
+}
+
+#gist_content_<%= @gist.id %> .ace_hidden-cursors{
+  opacity: 0;
+}
+
+#gist_content_<%= @gist.id %> .ace-cursors{
+  opacity: 0;
 }
 
 #editor_<%= @gist.id %>{
@@ -19,5 +28,6 @@
 #gist_image_<%= @gist.id %>{
   position: absolute;
   top: 0;
+  /*display: none;*/
 }
 

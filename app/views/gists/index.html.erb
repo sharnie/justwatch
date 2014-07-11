@@ -1,9 +1,8 @@
 <h1>My Projects</h1>
 <ul> 
 <% current_user.gists.each do |gist| %>
-<li>
-  <img src="<%= gist.visual.url %>"/>
-  <a href=<%= url_for gist %> ><%= gist.name %></a>
-</li>  
+  <li>
+    <%= javascript_include_tag "/embed/#{gist.user_id}/#{gist.id}.js" %>
+  </li>  
 <% end %>
 </ul>

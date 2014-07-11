@@ -91,6 +91,38 @@ $( document ).on( 'page:change', function(){
     }
   });
 
+  // FILLED BOX DEFINITION
+  window.mainCanvas.registerTool( 'filledBox', {
+    begin: function( e ){
+      var 
+        x = e.canvas.x,
+        y = e.canvas.y;
+
+      e.canvas.toolStateData.beginCoordinates = e.canvas.toolStateData.beginCoordinates || [];
+      e.canvas.toolStateData.beginCoordinates.unshift( { x: x , y: y } );
+    },
+    move: function( e ){
+      var
+        canvas    = e.canvas.mainObject,
+        origin    = e.canvas.toolStateData.beginCoordinates[ 0 ],
+        originX   = origin.x,
+        originY   = origin.y,
+        currentX  = e.canvas.x,
+        currentY  = e.canvas.y,
+        brushSize = e.canvas.brushSize,
+        color     = e.canvas.color,
+        opacity   = e.canvas.opacity;
+
+      canvas.render();
+      // canvas.assign( 'lineWidth', brushSize );
+      canvas.assign( 'fillStyle', Canvas.helpers.hexToRGB( color, opacity ) );
+      canvas.exec( 'fillRect', [ originX, originY, currentX - originX, currentY - originY ]  );
+    },
+    end: function( e ){
+      e.canvas.defaultBehavior();
+    }
+  });
+
   // LINE tool
   window.mainCanvas.registerTool( 'line', {
     begin: function( e ){

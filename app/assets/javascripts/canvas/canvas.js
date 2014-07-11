@@ -133,6 +133,10 @@ function Canvas( selector ) {
 }
 
 
+Canvas.prototype.drawImage = function(){
+  this.context.drawImage( arguments );
+};
+
 Canvas.prototype.registerTool = function( name, map ){
   var 
     type, 
@@ -151,8 +155,16 @@ Canvas.prototype.use = function( toolName ){
   this.currentTool = toolName;
 };
 
-Canvas.prototype.color = function( color ){
+Canvas.prototype.changeColor = function( color ){
   this.currentColor = color;
+};
+
+Canvas.prototype.changeSize = function( size ){
+  this.brushSize = size;
+};
+
+Canvas.prototype.changeOpacity = function( opacity ){
+  this.opacity = opacity;
 };
 
 Canvas.prototype.height = function(){

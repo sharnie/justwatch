@@ -18,7 +18,9 @@ class GistsController < ApplicationController
     @gist.content = params[:gist][:content]
 
     if user_signed_in?
+
       @gist.user = current_user
+
       if @gist.save
         redirect_to gist_path(@gist)
       else
@@ -26,7 +28,7 @@ class GistsController < ApplicationController
         redirect_to new_gist_path
       end
     else
-
+      
       redirect_to new_user_session_path
     end
 
@@ -48,9 +50,6 @@ class GistsController < ApplicationController
     render file: "gists/embed_stylesheet.css"
   end
 
-  def encrypt_url
-
-  end
 
 private
 
