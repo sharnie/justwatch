@@ -45,3 +45,4 @@ gem 'spring',        group: :development
 
 gem 'ace-rails-ap'
 gem 'underscore-rails'
+gem 'gravatar_image_tag'

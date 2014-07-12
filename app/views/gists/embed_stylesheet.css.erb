@@ -1,33 +1,75 @@
-.front {
-  z-index: 9999;
+.clearf:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
 }
-.back {
-  z-index: 0;
-}
-#gist_content_<%= @gist.id %> #gist_content{
-  display: none;
+ 
+.clearf {
+    display: inline-block;
 }
 
+#jw_<%= @gist.id %> {
+  margin: 1%;
+  border: 1px #ccc solid;
+}
 
-#gist_content_<%= @gist.id %>{
+#jw_<%= @gist.id %> .jw_container{
+  font: 100%;
+  overflow-y: hidden;
   position: relative;
 }
 
-#gist_content_<%= @gist.id %> .ace_hidden-cursors{
-  opacity: 0;
+
+#jw_<%= @gist.id %> .jw_line_numbers{
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+  font-size: 11px;
+  float: left;
+  width: 43px;
+  border-right: 2px #999 solid;
+  padding: 2.2px 10px;
+  text-align: right;
+  background-color: #eee;
+  color: #777;
 }
 
-#gist_content_<%= @gist.id %> .ace-cursors{
-  opacity: 0;
+#jw_<%= @gist.id %> .jw_line_numbers .jw_number {
+  display: block;
 }
 
-#editor_<%= @gist.id %>{
-  height: 300px;
+
+#jw_<%= @gist.id %> .jw_content {
+  white-space: pre;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+  font-size: 11px;
+  width: 200px;
 }
 
-#gist_image_<%= @gist.id %>{
+#jw_<%= @gist.id %> .jw_image {
+  /*width: 100%;*/
+  /*height: 100%;*/
+  z-index: -2;
   position: absolute;
   top: 0;
-  /*display: none;*/
+  left: 0;
+  /*border: red 1px solid;*/
+  overflow: hidden;
 }
 
+#jw_<%= @gist.id %> .jw_footer{
+  clear: both;
+  padding: 10px;
+  background: #ccc;
+  width: 100%;
+}
+
+
+#jw_<%= @gist.id %> .jw_footer .jw_pull_right {
+  float: right;
+}
+
+#jw_<%= @gist.id %> .jw_footer .jw_pull_left {
+  float: left;
+}

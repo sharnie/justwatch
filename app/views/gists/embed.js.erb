@@ -3,13 +3,4 @@
   document.write( '<%= stylesheet_link_tag embed_stylesheet_url(@user,@gist) %>' );
   document.write( '<%= j(render @gist).html_safe %>' );
 
-  var editor = this.ace.edit("editor_<%= @gist.id %>");
-       
-      editor.setValue( '<%= j(@gist.content).html_safe %>', 1 );
-      editor.setReadOnly( true );
-      editor.session.setUseWorker( false ) 
-      editor.setTheme( "ace/theme/eclipse" );
-      editor.getSession().setMode( "ace/mode/javascript" );
-
-  
 }).call( this );
