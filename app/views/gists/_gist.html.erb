@@ -1,13 +1,27 @@
-<div id="gist_embed_<%= gist.id %>"> 
-  <div id="gist_content_<%= gist.id %>">
-    <pre>
-      <code>
-        <%= gist.content %>
-      </code>
-    </pre>
-  </div>
-  
-  <div id="canvas_img_<%= gist.visual.gist_id %>">
-    <%= image_tag(gist.visual.url) %>
-  </div>
-</div>
+<%= content_tag :div, id: "jw_#{gist.id}" do %>
+    
+  <%= content_tag :div, class: 'jw_line_numbers' do %>
+    <% gist.content.each_line.count.times do |line_num| %>
+      <%= content_tag :span, line_num+1, class: 'jw_number' %>
+    <% end %>
+  <% end %>
+  <%= content_tag :div, class: "jw_container" do %>
+
+      <%= content_tag :div, class: "jw_content" do %>
+        <%- gist.content %>
+      <% end %>
+
+      <%= image_tag(gist.visual.url, class: 'jw_image') %>
+  <% end %>
+
+  <%= content_tag :div, class: "jw_footer clearf" do %>
+    <%= content_tag :span, class: 'jw_pull_left' do %>
+      
+      <%= link_to gist.name, gist_url(gist) %>
+    <% end %>
+    <%= content_tag :span, class: 'jw_pull_right' do %>
+      <%= link_to "Hosted by JW", root_url %>
+    <% end %>
+  <% end %>
+      
+<% end %>

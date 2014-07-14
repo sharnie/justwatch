@@ -12,9 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap/dropdown
-//= require bootstrap/scrollspy
 //= require turbolinks
 //= require underscore
+//= require bootstrap
+//= require ace/ace
 //= require_tree .
-

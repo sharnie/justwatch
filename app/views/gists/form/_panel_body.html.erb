@@ -1,0 +1,22 @@
+<div class="panel-body">
+
+  <div id="gist_canvas">
+
+    <div id="editor" class='front'></div>
+    
+    <%= builder.text_area :content, class: "front" %>
+
+
+    <%= content_tag(:div, class: "form-group") do %>
+      <%= builder.fields_for :visual_attributes do |visual_f| %>
+
+        <canvas id='main-canvas' class='back' width="766px" height='298px' >
+        </canvas>
+
+        <%= visual_f.hidden_field :url %>
+      <% end %>
+    <% end %>
+    
+  </div>
+
+</div>

@@ -1,26 +1,3 @@
-<div class="panel panel-default panel-embed">
-  <div class="panel-heading">
-    <div class="panel-title">
-        <div class="row row-10-gutter">
-          <div class="col-xs-3 col-3-gutter">
-              <!-- Language: JavaScript -->
-          </div>
-        </div>
-    </div>
-  </div>
 
-  <div class="panel-body">
-    <div id="gist_canvas">
+<%= javascript_include_tag "/embed/#{@gist.user_id}/#{@gist.id}.js" %>
 
-      <div id='gist_content'>
-        <pre class="line-numbers"><code class="language-javascript"><%= @gist.content%></code></pre>
-        <div id="show-canvas"><%= image_tag @gist.visual.url %></div>
-      </div>
-
-    </div>
-  </div><!-- .panel-body -->
-
-  <div class="panel-footer">
-
-  </div>
-</div><!-- .panel -->
