@@ -43,10 +43,6 @@ class GistsController < ApplicationController
     render file: "gists/embed_stylesheet.css"
   end
 
-  def encrypt_url
-
-  end
-
 private
 
   def set_gist_and_visual
