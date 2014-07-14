@@ -25,7 +25,7 @@ class GistsController < ApplicationController
         redirect_to gist_path(@gist)
       else
         flash[:notice] = "Ouuups something went wrong, try again..."
-        redirect_to new_gist_path
+        redirect_to root_path
       end
     else
       
