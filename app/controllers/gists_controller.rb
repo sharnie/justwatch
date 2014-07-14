@@ -50,7 +50,6 @@ class GistsController < ApplicationController
     render file: "gists/embed_stylesheet.css"
   end
 
-
 private
 
   def set_gist_and_visual
