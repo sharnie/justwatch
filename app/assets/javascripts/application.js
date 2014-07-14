@@ -15,4 +15,5 @@
 //= require turbolinks
 //= require underscore
 //= require bootstrap
+//= require ace/ace
 //= require_tree .

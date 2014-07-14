@@ -1,8 +1,27 @@
-
-<%= content_tag :div, id: "gist_content_#{gist.id}" do %>
-  <%= form_for(gist) do |f| %>
-    <div id="editor_<%= @gist.id %>" class="back"></div>
-    <%= f.text_area :content %>
-    <%= image_tag(gist.visual.url, id: "gist_image_#{gist.id}", class: 'front') %>
+<%= content_tag :div, id: "jw_#{gist.id}" do %>
+    
+  <%= content_tag :div, class: 'jw_line_numbers' do %>
+    <% gist.content.each_line.count.times do |line_num| %>
+      <%= content_tag :span, line_num+1, class: 'jw_number' %>
+    <% end %>
   <% end %>
+  <%= content_tag :div, class: "jw_container" do %>
+
+      <%= content_tag :div, class: "jw_content" do %>
+        <%- gist.content %>
+      <% end %>
+
+      <%= image_tag(gist.visual.url, class: 'jw_image') %>
+  <% end %>
+
+  <%= content_tag :div, class: "jw_footer clearf" do %>
+    <%= content_tag :span, class: 'jw_pull_left' do %>
+      
+      <%= link_to gist.name, gist_url(gist) %>
+    <% end %>
+    <%= content_tag :span, class: 'jw_pull_right' do %>
+      <%= link_to "Hosted by JW", root_url %>
+    <% end %>
+  <% end %>
+      
 <% end %>

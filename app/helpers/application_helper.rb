@@ -14,4 +14,14 @@ module ApplicationHelper
     end.join.html_safe
   end
 
+  def javascript(*files)
+    content_for(:head){ javascript_include_tag(*files) }
+  end
+
+  def canvas_scripts
+    content_for(:head) do 
+      render('shared/script_tags/canvas')
+    end
+  end
+
 end
