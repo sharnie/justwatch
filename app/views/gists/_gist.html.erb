@@ -1,13 +1,8 @@
-<div id="gist_embed_<%= gist.id %>"> 
-  <div id="gist_content_<%= gist.id %>">
-    <pre>
-      <code>
-        <%= gist.content %>
-      </code>
-    </pre>
-  </div>
-  
-  <div id="canvas_img_<%= gist.visual.gist_id %>">
-    <%= image_tag(gist.visual.url) %>
-  </div>
-</div>
+
+<%= content_tag :div, id: "gist_content_#{gist.id}" do %>
+  <%= form_for(gist) do |f| %>
+    <div id="editor_<%= @gist.id %>" class="back"></div>
+    <%= f.text_area :content %>
+    <%= image_tag(gist.visual.url, id: "gist_image_#{gist.id}", class: 'front') %>
+  <% end %>
+<% end %>

@@ -1,28 +1,46 @@
 $(document).on('page:change', function(){
-  $('.panel-body').on('click', '#switch_gist_canvas', function(e){
+  // Here lives the code that allows the switching of context
+  // between editor and canvas
+
+  var
+    $mainEditor   = $( '#editor' ), // subject to change
+    $switchButton = $( '#switch_gist_canvas' ),
+    $textarea     = $( 'textarea#gist_content' ),
+    $mainCanvas    = window.mainCanvas.$canvas;
+
+
+  $switchButton.on('click', function(e){
+    e.stopPropagation();
     e.preventDefault();
 
-    var canvas = $('#main-canvas');
 
-    if(canvas.hasClass('front')){
-      canvas.removeClass('front');
-      $('#switch_gist_canvas').html('<span class="glyphicon glyphicon-plus"></span> HIDE');
+    if($mainCanvas.hasClass('front')){
+
+      $mainEditor.removeClass( 'back' );
+      $mainEditor.addClass('front');
+
+      $mainCanvas.removeClass('front');
+      $mainCanvas.addClass('back');
+
+      $switchButton.html('<span class="glyphicon glyphicon-plus"></span> HIDE');
     } else {
-      canvas.addClass('front');
-      $('#switch_gist_canvas').html('<span class="glyphicon glyphicon-plus"></span> SHOW');
+
+      $mainEditor.addClass( 'back' );
+      $mainEditor.removeClass( 'front' );
+
+      $mainCanvas.addClass( 'front' );
+      $mainCanvas.removeClass( 'back' );
+
+      $switchButton.html('<span class="glyphicon glyphicon-plus"></span> SHOW');
     }
   });
 
-  var textarea = $('textarea#gist_content');
-  textarea.hide();
 
-  var editor = ace.edit("editor");
+  $textarea.hide();
+  $mainCanvas.on( 'drag:end', function(){
+    var url = window.mainCanvas.stateStack().url;
 
-  editor.setTheme("ace/theme/eclipse");
-  editor.getSession().setMode("ace/mode/javascript");
-
-  editor.getSession().on('change', function() {
-    textarea.val(editor.getSession().getValue());
+    $( '#gist_visual_attributes_url' ).val( url );
   });
 
 });

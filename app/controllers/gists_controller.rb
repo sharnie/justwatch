@@ -15,14 +15,21 @@ class GistsController < ApplicationController
   end
 
   def create
-    @gist.content = params[:gist][:content].strip
+    @gist.content = params[:gist][:content]
 
-    @gist.user_id = current_user.id
-    if @gist.save
-      redirect_to gist_path(@gist)
+    if user_signed_in?
+
+      @gist.user = current_user
+
+      if @gist.save
+        redirect_to gist_path(@gist)
+      else
+        flash[:notice] = "Ouuups something went wrong, try again..."
+        redirect_to new_gist_path
+      end
     else
-      flash[:notice] = "Ouuups something went wrong, try again..."
-      redirect_to new_gist_path
+      
+      redirect_to new_user_session_path
     end
 
   end
@@ -43,9 +50,6 @@ class GistsController < ApplicationController
     render file: "gists/embed_stylesheet.css"
   end
 
-  def encrypt_url
-
-  end
 
 private
 
