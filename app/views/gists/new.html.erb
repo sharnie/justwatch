@@ -1,2 +1,35 @@
+<div class="row">
+  <div class="col-xs-12 col-sm-10">
+    <%= render 'gists/form/form', gist: @gist %>
+  </div>
 
-<%= render 'gists/form/form', gist: @gist %>
+  <div class="col-xs-12 col-sm-2" id="canvas-tools">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title text-center">TOOLS</div>
+        </div>
+        <div class="panel-body">
+          <button class="btn btn-default btn-canvas-tool" data-tool="pencil">
+            Pencil
+          </button>
+
+          <button href="#" class="btn btn-default btn-canvas-tool" data-tool="filledBox">
+            Filled
+          </a>
+
+          <button href="#" class="btn btn-default btn-canvas-tool" data-tool="emptyBox">
+            Empty
+          </a>
+
+          <button href="#" class="btn btn-default btn-canvas-tool" data-tool="eraser">
+            <span class="glyphicon glyphicon-eraser">Eraser</span>
+          </a>
+
+          <button href="#" class="btn btn-default btn-canvas-tool" data-tool="line">
+            <span class="glyphicon glyphicon-eraser">Line</span>
+          </a>
+        </div>
+     </div> 
+  </div>
+</div>
+
