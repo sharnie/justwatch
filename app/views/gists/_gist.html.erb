@@ -23,5 +23,6 @@
       <%= link_to "Hosted by JustWatch", root_url %>
     <% end %>
   <% end %>
+  <br>Embed your project in your site: <%= text_field_tag 'Embed URL', embed_link_url(gist.user, gist), disabled: true, size:25 %>
       
 <% end %>
