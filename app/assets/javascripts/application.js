@@ -16,4 +16,5 @@
 //= require underscore
 //= require bootstrap
 //= require ace/ace
+//= require zeroclipboard
 //= require_tree .

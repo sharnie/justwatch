@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
-
+#copy to clipboard gem
+gem 'zeroclipboard-rails'
 #authentication gems
 gem 'figaro'
 gem 'devise'
