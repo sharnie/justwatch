@@ -46,4 +46,17 @@ $(document).on('page:change', function(){
     $( '#gist_visual_attributes_url' ).val( url );
   });
 
+
+  var canvas_tools = $('#canvas-tools'),
+      tool;
+
+  $('.btn-canvas-tool').click(function(e){
+    e.preventDefault();
+    e.stopPropagation();
+
+    tool = $(this).data('tool');
+    window.mainCanvas.use(tool);
+
+  });
+
 });
