@@ -3,3 +3,4 @@ $(document).on('page:change', function(){
   moviePath: "ZeroClipboard.swf"
 } );
 });
+

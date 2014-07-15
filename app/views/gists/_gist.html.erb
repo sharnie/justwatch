@@ -24,7 +24,7 @@
     <% end %>
   <% end %>
   Embed your project in your site: <%= text_field_tag 'Embed URL', embed_link_url(gist.user, gist), disabled: true, size:25 %> 
-   <button id="copytoclipboard-button" data-clipboard-text="<%=embed_link_url(gist.user, gist)%>">
+   <button id="copytoclipboard-button" data-clipboard-text="<script src='<%=embed_link_url(gist.user, gist)%>.js'</script>">
       <%= image_tag"icons_png/icon_17413.png", :size => "25x25", :class => "clipboard_icon" %> 
    </button>
       
