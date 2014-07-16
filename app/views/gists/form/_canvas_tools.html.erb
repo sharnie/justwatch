@@ -50,8 +50,9 @@
       
       <br>
       <br>
+  
 
-      <%= content_tag :span, class: 'jw-slider' do %>        
+      <%= content_tag :span, class: 'jw-slider', data: { toggle: "tooltip", placement: "left" }, title: "Tooltip on left" do %>        
         <%= content_tag :div, nil, id: 'opacity-slider' %>
       <% end %>
 

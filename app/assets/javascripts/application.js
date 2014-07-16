@@ -16,6 +16,7 @@
 //= require turbolinks
 //= require underscore
 //= require bootstrap
+//= require bootstrap/tooltip
 //= require ace/ace
 //= require zeroclipboard
 //= require jquery-ui/slider

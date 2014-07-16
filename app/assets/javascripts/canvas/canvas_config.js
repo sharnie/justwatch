@@ -192,42 +192,42 @@ Canvas.registerTool('arrow', {
   },
 
   move: function(e){
-    var canvas = e.canvas.mainObject;
-    var origin = e.canvas.toolStateData.beginCoordinates[ 0 ];
-    var originX = origin.x;
-    var originY = origin.y;
-    var currentX = e.canvas.x;
-    var currentY = e.canvas.y;
-    var brushSize = e.canvas.brushSize;
-    var color = e.canvas.color;
-    var opacity = e.canvas.opacity;
+    var 
+      canvas    = e.canvas.mainObject,
+      origin    = e.canvas.toolStateData.beginCoordinates[ 0 ],
+      originX   = origin.x,
+      originY   = origin.y,
+      currentX  = e.canvas.x,
+      currentY  = e.canvas.y,
+      brushSize = e.canvas.brushSize,
+      color     = e.canvas.color,
+      opacity   = e.canvas.opacity;
 
     canvas.render();
     canvas.exec('beginPath');
 
-    canvas.exec('moveTo', [originX, originY]);
-    canvas.exec('lineTo', [currentX, currentY]);
-    canvas.assign('lineWidth', brushSize);
-    canvas.assign('strokeStyle', Canvas.helpers.hexToRGB(color, opacity));
-    canvas.exec('stroke');
+    canvas.exec( 'moveTo', [ originX, originY ] );
+    canvas.exec( 'lineTo', [ currentX, currentY ] );
+    canvas.assign( 'lineWidth', brushSize );
+    canvas.assign( 'strokeStyle', Canvas.helpers.hexToRGB(color, opacity) );
+    canvas.exec( 'stroke' );
 
-    var angle = Math.atan2(currentX-originX, currentY-originY);
-    canvas.exec('save');
-    canvas.exec('translate', [currentX, currentY]);
-    canvas.exec('rotate', [-angle]);
-    canvas.exec('moveTo', [0, 0]);
-    canvas.exec('lineTo', [-10, -10]);
-    canvas.exec('stroke');
-    canvas.exec('moveTo', [0, 0]);
-    canvas.exec('lineTo', [10, -10]);
-    canvas.exec('stroke');
-    canvas.exec('restore');
-    // canvas.exec('save');
-
+    var angle = Math.atan2( currentX - originX, currentY - originY );
+    canvas.exec( 'save' );
+    canvas.exec( 'translate', [ currentX, currentY ] );
+    canvas.exec( 'rotate', [ -angle] );
+    canvas.exec( 'moveTo', [ 0, 0 ] );
+    canvas.exec( 'lineTo', [ -10, -10 ] );
+    canvas.exec( 'stroke');
+    canvas.exec( 'moveTo', [ 0, 0 ] );
+    canvas.exec( 'lineTo', [ 10, -10 ] );
+    canvas.exec( 'stroke' );
+    canvas.exec( 'restore' );
   },
 
   end: function(e){
     var canvas = e.canvas.mainObject;
+    
     e.canvas.defaultBehavior();
   }
 
