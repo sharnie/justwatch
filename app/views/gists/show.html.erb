@@ -7,6 +7,6 @@
   <%= image_tag"icons_png/icon_17413.png", :size => "25x25", :class => "clipboard_icon" %> 
 </button>
 
-<%= text_field_tag 'Embed URL', nil, value: javascript_include_tag(embed_link_url(@gist.user, @gist)), disabled: true, size:50 %> 
+<%= text_field_tag 'Embed URL', nil, value: (embed_link_url(@gist.user, @gist)), disabled: true, size:50 %> 
 
 
