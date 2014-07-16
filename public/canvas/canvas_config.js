@@ -177,7 +177,6 @@ Canvas.registerTool('arrow', {
   },
 
   move: function(e){
-    console.log(e);
     var canvas = e.canvas.mainObject;
     var origin = e.canvas.toolStateData.beginCoordinates[ 0 ];
     var originX = origin.x;
@@ -198,7 +197,6 @@ Canvas.registerTool('arrow', {
     canvas.exec('stroke');
 
     var angle = Math.atan2(currentX-originX, currentY-originY);
-    console.log(angle);
     canvas.exec('save');
     canvas.exec('translate', [currentX, currentY]);
     canvas.exec('rotate', [-angle]);
