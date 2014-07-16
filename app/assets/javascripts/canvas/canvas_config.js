@@ -69,7 +69,7 @@ Canvas.registerTool( 'eraser', {
 
 
 // EMPTY BOX DEFINITION
-Canvas.registerTool( 'emptyBox', {
+Canvas.registerTool( 'empty_box', {
   begin: function( e ){
     var 
       x = e.canvas.x,
@@ -102,7 +102,7 @@ Canvas.registerTool( 'emptyBox', {
 });
 
 // FILLED BOX DEFINITION
-Canvas.registerTool( 'filledBox', {
+Canvas.registerTool( 'filled_box', {
   begin: function( e ){
     var 
       x = e.canvas.x,

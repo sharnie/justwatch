@@ -184,7 +184,7 @@ Canvas.prototype.changeSize = function( size ){
 };
 
 Canvas.prototype.changeOpacity = function( opacity ){
-  this.opacity = opacity;
+  this.currentOpacity = opacity;
 };
 
 Canvas.prototype.height = function(){

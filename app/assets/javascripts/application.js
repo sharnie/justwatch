@@ -12,9 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui/core
 //= require turbolinks
 //= require underscore
 //= require bootstrap
 //= require ace/ace
 //= require zeroclipboard
+//= require jquery-ui/slider
 //= require_tree .
