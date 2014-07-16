@@ -1,8 +1,14 @@
+<div class= "index_container">
+<div class= "index_title">
 <h1>My Projects</h1>
+</div>
 <ul> 
 <% current_user.gists.each do |gist| %>
   <li>
-    <%= javascript_include_tag "/embed/#{gist.user_id}/#{gist.id}.js" %>
-  </li>  
+    <%= render 'gists/gist_display', gist: gist %>
+  </li>
+  <br>
+  <br>  
 <% end %>
 </ul>
+</div>
