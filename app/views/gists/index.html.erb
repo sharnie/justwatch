@@ -2,7 +2,7 @@
 <ul> 
 <% current_user.gists.each do |gist| %>
   <li>
-    <%= render 'gists/gist_display.html.erb' %>
+    <%= render 'gists/gist_display', gist: gist %>
   </li>
   <br>
   <br>  
