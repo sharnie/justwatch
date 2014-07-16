@@ -1,5 +1,5 @@
 
-<%= javascript_include_tag "/embed/#{@gist.user_id}/#{@gist.id}.js" %>
+<%= render 'gists/gist_display.html.erb', gist: @gist %>
 
 <p>Embed your project in your site:</p>
 

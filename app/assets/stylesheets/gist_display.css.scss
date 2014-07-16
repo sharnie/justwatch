@@ -1,0 +1,103 @@
+.clearf:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+ 
+.clearf {
+    display: inline-block;
+}
+
+#jw_gist {
+  margin: 1%;
+  
+}
+
+#jw_gist .jw_container{
+  font: 100%;
+  overflow-y: hidden;
+  position: relative;
+  border: 1px #ccc solid;
+  border-bottom: none;
+  border-left: none;
+}
+
+
+#jw_gist .jw_line_numbers{
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+  font-size: 11px;
+  float: left;
+  width: 43px;
+  border-right: 2px #999 solid;
+  text-align: right;
+  background-color: #eee;
+  color: #777;
+  border-top: #000 solid 1px;
+  line-height: 15.9999999px;
+}
+
+#jw_gist .jw_line_numbers .jw_number {
+  display: block;
+  padding: 0 10px;
+  width: 100%;
+}
+
+#jw_gist .jw_line_numbers .jw_number:first-child {
+  padding: 2.2px 10px 0;
+  /*width: 100%;/*/
+}
+
+#jw_gist .jw_line_numbers .jw_number:last-child {
+  padding: 0 10px 2.2px;
+  /*width: 100%;/*/
+}
+
+#jw_gist .jw_line_numbers .jw_number:nth-child(2n) {
+  background: #323232;
+}
+#jw_gist .jw_line_numbers .jw_number:nth-child(2n+1) {
+  background: #2e2e2e;
+}
+
+#jw_gist .jw_content {
+  white-space: pre;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+  font-size: 11px;
+  width: 200px;
+}
+
+#jw_gist .jw_image {
+  z-index: -2;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+#jw_gist .jw_footer{
+  clear: both;
+  padding: 7px 40px;
+  background: rgba(0,0,0,0.7);
+  border-radius: 0 0 25px 25px;
+  width: 100%;
+}
+
+#jw_gist .jw_footer a {
+  color: white;
+}
+
+#jw_gist .jw_footer .jw_pull_left .jw_gravatar{
+  border-radius:50%;
+}
+
+#jw_gist .jw_footer .jw_pull_right {
+  float: right;
+
+}
+
+#jw_gist .jw_footer .jw_pull_left {
+  float: left;
+}
