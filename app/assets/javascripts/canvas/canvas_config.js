@@ -217,17 +217,17 @@ Canvas.registerTool('arrow', {
     canvas.exec( 'translate', [ currentX, currentY ] );
     canvas.exec( 'rotate', [ -angle] );
     canvas.exec( 'moveTo', [ 0, 0 ] );
-    canvas.exec( 'lineTo', [ -10, -10 ] );
+    canvas.exec( 'lineTo', [ -10 + brushSize, -10 + brushSize ] );
     canvas.exec( 'stroke');
     canvas.exec( 'moveTo', [ 0, 0 ] );
-    canvas.exec( 'lineTo', [ 10, -10 ] );
+    canvas.exec( 'lineTo', [ 10 + brushSize, -10 + brushSize ] );
     canvas.exec( 'stroke' );
     canvas.exec( 'restore' );
   },
 
   end: function(e){
     var canvas = e.canvas.mainObject;
-    
+
     e.canvas.defaultBehavior();
   }
 

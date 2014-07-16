@@ -8,6 +8,7 @@ $(document).on('page:change', function(){
     $mainEditor   = $( '#editor' ),
     $switchButton = $( '#switch_gist_canvas' ),
     $textarea     = $( 'textarea#gist_content' ),
+    $toolBar      = $( '#canvas-tools' ),
     $mainCanvas   = window.mainCanvas.$canvas;
 
 
@@ -24,6 +25,8 @@ $(document).on('page:change', function(){
       $mainCanvas.removeClass('front');
       $mainCanvas.addClass('back');
 
+      $toolBar.hide();
+
       $switchButton.html('<span class="glyphicon glyphicon-plus"></span> HIDE');
     } else {
 
@@ -32,6 +35,8 @@ $(document).on('page:change', function(){
 
       $mainCanvas.addClass( 'front' );
       $mainCanvas.removeClass( 'back' );
+
+      $toolBar.show();
 
       $switchButton.html('<span class="glyphicon glyphicon-plus"></span> SHOW');
     }
