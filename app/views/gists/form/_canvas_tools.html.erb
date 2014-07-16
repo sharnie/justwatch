@@ -42,6 +42,15 @@
       <br>
 
       <%= content_tag :span, class: 'radio-button' do %>
+        <%= label_tag 'tool_arrow' do %>
+          <%= content_tag :i, '', class: 'fa fa-long-arrow-left' %>
+        <% end %>
+        <%= radio_button_tag :tool, :arrow %>
+      <% end %>
+
+      <br>
+
+      <%= content_tag :span, class: 'radio-button' do %>
         <%= label_tag 'tool_eraser' do %>
           <%= content_tag :i, '', class: 'fa fa-eraser' %>
         <% end %>
