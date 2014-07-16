@@ -1,3 +1,12 @@
 
 <%= javascript_include_tag "/embed/#{@gist.user_id}/#{@gist.id}.js" %>
 
+<p>Embed your project in your site:</p>
+
+<button id="copytoclipboard-button" data-clipboard-text="<script src='<%=embed_link_url(@gist.user, @gist)%>.js'</script>">
+  <%= image_tag"icons_png/icon_17413.png", :size => "25x25", :class => "clipboard_icon" %> 
+</button>
+
+<%= text_field_tag 'Embed URL', nil, value: javascript_include_tag(embed_link_url(@gist.user, @gist)), disabled: true, size:50 %> 
+
+
