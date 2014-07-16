@@ -39,6 +39,7 @@ body {
   margin: 0 !important;
   border: none;
 }
+
 .line-numbers .line-numbers-rows {
   background-color: #EBEBEB !important;
   color: #888888 !important;
@@ -84,7 +85,11 @@ a.navbar-brand   {
   border-radius: 2px;
 }
 .panel-default > .panel-heading {
-  background-color: #FAFAFA;
+  background-color: #FAFAFA
+}
+
+.gist-new{
+  margin-top: 75px; 
 }
 
 // button
@@ -120,4 +125,5 @@ a.navbar-brand   {
   -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
 }
+
 

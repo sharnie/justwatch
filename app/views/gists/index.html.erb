@@ -3,6 +3,8 @@
 <% current_user.gists.each do |gist| %>
   <li>
     <%= javascript_include_tag "/embed/#{gist.user_id}/#{gist.id}.js" %>
-  </li>  
+  </li>
+  <br>
+  <br>  
 <% end %>
 </ul>
