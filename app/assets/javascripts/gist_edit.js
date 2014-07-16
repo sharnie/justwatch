@@ -5,7 +5,7 @@ $(document).on('page:change', function(){
   window.mainCanvas = new Canvas( '#main-canvas' );
 
   var
-    $mainEditor   = $( '#editor' ), // subject to change
+    $mainEditor   = $( '#editor' ),
     $switchButton = $( '#switch_gist_canvas' ),
     $textarea     = $( 'textarea#gist_content' ),
     $mainCanvas   = window.mainCanvas.$canvas;
@@ -41,7 +41,7 @@ $(document).on('page:change', function(){
   $textarea.hide();
   
   $mainCanvas.on( 'drag:end', function(){
-    var url = window.mainCanvas.stateStack().url;
+    var url = window.mainCanvas.stateStack[ 0 ].url;
 
     $( '#gist_visual_attributes_url' ).val( url );
   });
@@ -55,7 +55,7 @@ $(document).on('page:change', function(){
     e.stopPropagation();
 
     tool = $(this).data('tool');
-    window.mainCanvas.use(tool);
+    window.mainCanvas.use( tool );
 
   });
 

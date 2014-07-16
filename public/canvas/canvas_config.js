@@ -15,6 +15,8 @@ Canvas.registerTool( 'pencil', {
       brushSize = e.canvas.brushSize,
       opacity   = e.canvas.opacity;
 
+
+      canvas.cursor( 'url("icons_png/icon_347.png")' );
       canvas.render();
       canvas.exec( 'arc', [ x, y, 0, 0, 0, false ] );
       canvas.assign( 'lineWidth', brushSize );
@@ -34,7 +36,11 @@ Canvas.registerTool( 'pencil', {
 // ERASER DEFINITION
 Canvas.registerTool( 'eraser', {
   begin: function( e ){
+    var
+      canvas = e.canvas.mainObject;
 
+    e.canvas.toolStateData.prevComp = e.canvas.context.globalCompositeOperation;
+    canvas.exec( 'beginPath' );
   },
   move: function( e ){
     var
@@ -43,12 +49,19 @@ Canvas.registerTool( 'eraser', {
       y         = e.canvas.y,
       brushSize = e.canvas.brushSize;
 
-      
-      canvas.exec( 'clearRect', [ x - 5, y - 5, 10, 10 ] );
+
+      canvas.assign( 'globalCompositeOperation', 'destination-out' );
+      canvas.assign( 'strokeStyle', '#fff' );
+      canvas.assign( 'lineWidth', brushSize );
+      canvas.exec( 'arc', [ x, y, 0, 0, 0, false ] );
+      canvas.exec( 'stroke' );
   },
   end: function( e ){
     var 
       canvas = e.canvas.mainObject;
+
+    canvas.assign( 'globalCompositeOperation', e.canvas.toolStateData.prevComp );
+    canvas.exec( 'closePath' );
 
     canvas.cacheCanvas();
   }
@@ -77,6 +90,7 @@ Canvas.registerTool( 'emptyBox', {
       color     = e.canvas.color,
       opacity   = e.canvas.opacity;
 
+    canvas.cursor( 'crosshair' );
     canvas.render();
     canvas.assign( 'lineWidth', brushSize );
     canvas.assign( 'strokeStyle', Canvas.helpers.hexToRGB( color, opacity ) );
@@ -109,8 +123,8 @@ Canvas.registerTool( 'filledBox', {
       color     = e.canvas.color,
       opacity   = e.canvas.opacity;
 
+    canvas.cursor( 'crosshair' );
     canvas.render();
-    // canvas.assign( 'lineWidth', brushSize );
     canvas.assign( 'fillStyle', Canvas.helpers.hexToRGB( color, opacity ) );
     canvas.exec( 'fillRect', [ originX, originY, currentX - originX, currentY - originY ]  );
   },
@@ -144,6 +158,7 @@ Canvas.registerTool( 'line', {
       color     = e.canvas.color,
       opacity   = e.canvas.opacity;
 
+    canvas.cursor( 'crosshair' );
     canvas.render();
     canvas.exec( 'beginPath' );
 
@@ -166,7 +181,46 @@ Canvas.registerTool( 'line', {
 });
 
 
+// // move
+// Canvas.registerTool( 'move', {
+//   begin: function( e ){
+//     var
+//       canvas = e.canvas.mainObject,
+//       x      = e.canvas.x,
+//       y      = e.canvas.y;
 
+//     e.canvas.toolStateData.beginCoordinates = e.canvas.toolStateData.beginCoordinates || [];
+//     e.canvas.toolStateData.beginCoordinates.unshift( { x: x, y: y } );
+    
+
+//   },
+//   move: function( e ){
+//     var
+//       canvas         = e.canvas.mainObject,
+//       context        = e.canvas.context,
+//       origin         = e.canvas.toolStateData.beginCoordinates[ 0 ],
+//       originX        = origin.x,
+//       originY        = origin.y,
+//       currentX       = e.canvas.x,
+//       currentY       = e.canvas.y,
+//       layers         = canvas.layerStack,
+//       currentLayer   = canvas.currentLayer;
+
+//       currentLayer.changePosition({ x: currentX - originX, y: currentY - originY });
+//       canvas.clear();
+//       layers.forEach(function( layer ){
+//         layer.draw( context );
+//       });
+
+//   },
+//   end: function( e ){    
+//     var 
+//       canvas = e.canvas.mainObject;
+
+//     canvas.cacheCanvas();
+
+//   }
+// });
 
 
 
