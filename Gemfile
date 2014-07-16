@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
-
+#copy to clipboard gem
+gem 'zeroclipboard-rails'
 #authentication gems
 gem 'figaro'
 gem 'devise'
@@ -17,7 +18,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
-
+gem "font-awesome-rails"
 # Use jquery as the JavaScript library
 gem 'pry'
 gem 'jquery-rails'
