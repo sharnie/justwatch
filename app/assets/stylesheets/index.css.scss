@@ -1,3 +1,33 @@
 .index_container {
- 
+ background-color: #f3f3f3;
 }
+
+.index_title {
+  font-family: 'Helvetica';
+  font-weight: 400;
+  margin-left: 10%;
+}
+
+.headline {
+  font-family: 'Helvetica';
+  font-weight: 400;
+  margin: 10%
+}
+
+.index_gist {
+ padding: 0;
+ margin: 5%
+}
+
+.line {
+  padding: 0;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 0;
+  border-top: 1px solid #000;
+}
+
+.index_list ul {
+  padding: 0px 10%;
+}
+

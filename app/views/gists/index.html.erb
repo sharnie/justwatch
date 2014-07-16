@@ -1,14 +1,18 @@
 <div class= "index_container">
 <div class= "index_title">
-<h1>My Projects</h1>
+<span class="headline"><h1>My Projects</h1></span>
 </div>
+<div class= "index_list">
 <ul> 
 <% current_user.gists.each do |gist| %>
+<div class= "index_gist">
   <li>
     <%= render 'gists/gist_display', gist: gist %>
   </li>
-  <br>
-  <br>  
+</div>
+  <div class= "line"><hr /></div>
+  <br />  
 <% end %>
 </ul>
+</div>
 </div>
