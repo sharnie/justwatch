@@ -1,45 +1,9 @@
 <div class="row">
-  <div class="col-xs-12 col-sm-10 git-new">
+  <div class="col-xs-12 col-sm-11">
     <%= render 'gists/form/form', gist: @gist %>
   </div>
 
-  <div class="col-xs-12 col-sm-2" id="canvas-tools">
-    <div class="panel panel-default gist-new">
-        <div class="panel-heading">
-          <div class="panel-title text-center">TOOLS</div>
-        </div>  
-        <div class="panel-body">
-          <input id="background-color" type="color" value="#ff00ff" />
-          <button class="btn btn-default btn-canvas-tool" data-tool="pencil">
-            <i class="fa fa-dashboard"></i>
-          </button>
+  <%= render 'gists/form/canvas_tools' %>
 
-          <button class="btn btn-default btn-canvas-tool" data-tool="pencil">
-            <i class="fa fa-pencil"></i>
-          </button>
-
-          <button href="#" class="btn btn-default btn-canvas-tool" data-tool="filledBox">
-            Filled
-          </button>
-
-          <button href="#" class="btn btn-default btn-canvas-tool" data-tool="emptyBox">
-            Empty
-          </button>
-
-          <button href="#" class="btn btn-default btn-canvas-tool" data-tool="eraser">
-            <span class="glyphicon glyphicon-eraser">Eraser</span>
-          </button>
-
-          <button href="#" class="btn btn-default btn-canvas-tool" data-tool="line">
-            <span class="glyphicon glyphicon-eraser">Line</span>
-          </button>
-
-          <button href="#" class="btn btn-default btn-canvas-tool" data-tool="arrow">
-            <span class="glyphicon glyphicon-eraser">Arrow</span>
-          </button>
-
-        </div>
-     </div> 
-  </div>
 </div>
 

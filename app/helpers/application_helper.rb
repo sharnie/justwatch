@@ -25,4 +25,8 @@ module ApplicationHelper
     end
   end
 
+  def coderay(text, lang = :javascript)  
+    CodeRay.scan(text, lang).span
+  end
+
 end

@@ -18,7 +18,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
-gem "font-awesome-rails"
+gem 'font-awesome-rails'
+gem 'coderay'
 # Use jquery as the JavaScript library
 gem 'pry'
 gem 'jquery-rails'
@@ -43,6 +44,6 @@ gem 'spring',        group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-
+gem 'jquery-ui-rails'
 gem 'ace-rails-ap'
 gem 'underscore-rails'

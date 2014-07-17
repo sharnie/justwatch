@@ -11,6 +11,10 @@
  * file per style scope.
  *
  *= require_tree .
+ *= require bootstrap
  *= require font-awesome
+ *= require jquery-ui/core
+ *= require jquery-ui/theme
+ *= require jquery-ui/slider
  *= require_self
  */

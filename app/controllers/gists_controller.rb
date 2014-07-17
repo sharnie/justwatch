@@ -11,31 +11,30 @@ class GistsController < ApplicationController
 
   def index
     @gists = Gist.all
-    @visuals = Visual.all
+    @visuals = Visual.all      
   end
 
   def create
     @gist.content = params[:gist][:content]
 
-    if user_signed_in?
+      if user_signed_in?
 
-      @gist.user = current_user
+        @gist.user = current_user
 
-      if @gist.save
-        redirect_to gist_path(@gist)
+        if @gist.save
+          redirect_to gist_path(@gist)
+        else
+          flash[:notice] = "Ouuups something went wrong, try again..."
+          redirect_to root_path
+        end
       else
-        flash[:notice] = "Ouuups something went wrong, try again..."
-        redirect_to root_path
+        
+        redirect_to new_user_session_path
       end
-    else
-      
-      redirect_to new_user_session_path
-    end
 
   end
 
   def show
-    
   end
 
   def embed
