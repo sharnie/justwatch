@@ -23,6 +23,7 @@
   border: 1px #ccc solid;
   border-bottom: none;
   border-left: none;
+  background-color: white;
   padding-bottom: 32px;
 }
 
@@ -35,7 +36,7 @@
   border-right: 2px #999 solid;
   text-align: right;
   background-color: #eee;
-  color: #777;
+  color: rgba(237, 240, 242, 0.7);
   border-top: #000 solid 1px;
   line-height: 15.9999999px;
 }
@@ -56,10 +57,10 @@
 }
 
 #jw_<%= @gist.id %> .jw_line_numbers .jw_number:nth-child(2n) {
-  background: #323232;
+  background: rgba(158, 167, 173, 0.6);
 }
 #jw_<%= @gist.id %> .jw_line_numbers .jw_number:nth-child(2n+1) {
-  background: #2e2e2e;
+  background: rgba(105, 118, 128, 1);
 }
 
 #jw_<%= @gist.id %> .jw_content {
@@ -80,7 +81,7 @@
 #jw_<%= @gist.id %> .jw_footer{
   clear: both;
   padding: 7px 40px;
-  background: rgba(0,0,0,0.7);
+  background: rgba(66, 109, 140, 0.7);
   border-radius: 0 0 25px 25px;
   width: 100%;
 }
