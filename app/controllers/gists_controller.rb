@@ -56,6 +56,11 @@ class GistsController < ApplicationController
     end
   end
 
+  def destroy
+    @gist.destroy 
+    redirect_to gists_path
+  end
+
 private
 
   def set_gist_and_visual
