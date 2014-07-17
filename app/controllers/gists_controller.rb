@@ -4,7 +4,7 @@ class GistsController < ApplicationController
   # to the @gist object
   protect_from_forgery with: :exception, except: [:embed]
   before_action :set_gist_and_visual, except: [:embed]
-  before_action :authenticate_user!, except: [:new, :create]
+  before_action :authenticate_user!, except: [:new, :create, :show]
 
   def new
   end
@@ -15,39 +15,40 @@ class GistsController < ApplicationController
   end
 
   def create
-    @gist.content = params[:gist][:content]
+    @gist.user = current_or_guest_user
 
-      if user_signed_in?
-
-        @gist.user = current_user
-
-        if @gist.save
-          redirect_to gist_path(@gist)
-        else
-          flash[:notice] = "Ouuups something went wrong, try again..."
-          redirect_to root_path
-        end
-      else
-        
-        redirect_to new_user_session_path
-      end
+    if @gist.save
+      redirect_to gist_path(@gist)
+    else
+      flash[:notice] = "Ouuups something went wrong, try again..."
+      redirect_to root_path
+    end
 
   end
 
   def show
-  #   @gist.update(user_id: current_user) 
-  #   @gist.save!
+    unless @gist.user == current_or_guest_user
+      authenticate!
+    end
   end
 
   def embed
     @user = User.find(params[:user_id])
     @gist = @user.gists.find(params[:gist_id])
-    respond_to {|format| format.js}
+
+    respond_to do |format| 
+      format.js do
+        unless @user.is_authorized_user?
+          format.js{ render 401 }
+        end
+      end
+    end
   end
 
   def embed_stylesheet
     @user = User.find(params[:user_id])
     @gist = @user.gists.find(params[:gist_id])
+
     render file: "gists/embed_stylesheet.css"
   end
 
