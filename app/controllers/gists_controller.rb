@@ -16,7 +16,7 @@ class GistsController < ApplicationController
 
   def create
     @gist.user = current_or_guest_user
-
+    @gist.language = "text" if @gist.language.blank?
     if @gist.save
       redirect_to gist_path(@gist)
     else
