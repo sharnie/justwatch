@@ -66,7 +66,7 @@ private
   end
 
   def gist_params
-    params.require(:gist).permit(:name, :content, :visual_attributes => [:url])
+    params.require(:gist).permit(:name, :language, :content, :visual_attributes => [:url])
   end
 
 end
