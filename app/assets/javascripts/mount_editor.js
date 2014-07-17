@@ -13,4 +13,11 @@ $( document ).on( 'page:change', function(){
   editor.getSession().on('change', function() {
     $textarea.val(editor.getSession().getValue());
   });
+
+  var gist_language = $('#gist_language');
+  gist_language.on('change', function(){
+    editor.session.getUndoManager().markClean();
+    editor.getSession().setMode('ace/mode/' + $(this).val().toLowerCase());
+  });
+
 });
