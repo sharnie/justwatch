@@ -9,7 +9,7 @@ $( document ).on( 'page:change', function(){
   editor.setValue( $textarea.val(), 1 );
 
   editor.setTheme("ace/theme/eclipse");
-  editor.getSession().setMode("ace/mode/javascript");
+  editor.getSession().setMode("ace/mode/text");
 
   editor.getSession().on('change', function() {
     $textarea.val(editor.getSession().getValue());
@@ -29,8 +29,6 @@ $( document ).on( 'page:change', function(){
     }
   };
 
-
-  console.log( supportedLanguages );
   gistLanguage.on('change', function(){
     var 
       $this    = $(this),

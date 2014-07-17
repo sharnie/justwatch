@@ -14,7 +14,12 @@ module GuestHelper
 
   def loggin_in
     guest_user.gists.each do |gist|
-      current_user.gists.create(name: gist.name, content: gist.content, visual_attributes: { :url => gist.visual.url } )
+      current_user.gists.create(
+        name: gist.name, 
+        content: gist.content, 
+        language: gist.language,
+        visual_attributes: { :url => gist.visual.url } 
+        )
     end
   end
 
