@@ -13,7 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20140717192201) do
 
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -44,7 +43,6 @@ ActiveRecord::Schema.define(version: 20140717192201) do
     t.string   "provider"
     t.string   "uid"
     t.string   "type",                   default: "AuthorizedUser"
-
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
