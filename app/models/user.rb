@@ -37,4 +37,11 @@ class User < ActiveRecord::Base
     end
   end
 
+  def method_missing meth, *args, &block
+    if /is_(?<type_underscore>.+)\?+/ =~ meth
+      type == type_underscore.camelize
+    else
+      super
+    end
+  end
 end

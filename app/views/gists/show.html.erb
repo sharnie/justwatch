@@ -1,17 +1,26 @@
 
 <%= render 'gists/gist_display', gist: @gist %>
 
-<p>Embed your project into your site:</p>
+<% if current_or_guest_user.is_authorized_user? %>
 
-<div class="row">
-  <div class="col-xs-12">
-    <div class="input-group">
-      <%= text_field_tag 'Embed URL', "<script src='#{embed_link_url(@gist.user, @gist)}'></script>", disabled: true, size:50, class: "form-control" %> 
-      <span class="input-group-btn">
-        <button id="copytoclipboard-button" data-clipboard-text="<script src='<%=embed_link_url(@gist.user, @gist)%>.js'></script>" class="btn btn-default" type="button">
-          <span class="fa fa-clipboard"></span>
-        </button>
-      </span>
-    </div><!-- /input-group -->
-  </div><!-- /.col-lg-6 -->
-</div><!-- /.row -->
+  <p>Embed your project into your site:</p>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="input-group">
+        <%= text_field_tag 'Embed URL', "<script src='#{embed_link_url(@gist.user, @gist)}'></script>", disabled: true, size:50, class: "form-control" %> 
+        <span class="input-group-btn">
+          <button id="copytoclipboard-button" data-clipboard-text="<script src='<%=embed_link_url(@gist.user, @gist)%>.js'></script>" class="btn btn-default" type="button">
+            <span class="fa fa-clipboard"></span>
+          </button>
+        </span>
+      </div><!-- /input-group -->
+    </div><!-- /.col-lg-6 -->
+  </div><!-- /.row -->
+
+<% else %>
+
+  <p><%= link_to 'log in', new_user_session_path %> to embed content</p>
+
+<% end %>
+

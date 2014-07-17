@@ -19,6 +19,11 @@ function Canvas( selector ) {
   this.stateStack         = [];
   this.layerStack         = [];
 
+  //wrap in a div to allow resizing
+  var canvasWrapper = $( '<div>', { id: 'canvas-wrapper' });
+  this.$canvas.wrap(  );
+
+
   // default event behaviors
   var
     DEFAULT_BEHAVIORS;

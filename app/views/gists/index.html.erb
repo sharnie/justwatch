@@ -1,12 +1,12 @@
 <div class="index_container">
   <div class="index_title">
     <span class="headline">
-      <h1>My Projects</h1>
+      <h1>MY PROJECTS</h1>
     </span>
   </div>
   <div class= "index_list">
     <ul> 
-      <% current_user.gists.each do |gist| %>
+      <% current_or_guest_user.gists.each do |gist| %>
         <li>
           <%= render 'gists/gist_display', gist: gist %>
           <div class="btn-group" role= "toolbar">
@@ -16,7 +16,6 @@
             <%= link_to gist_path(gist), method: :delete, class: "btn btn-default" do %>
               <span class="fa fa-trash-o"></span>
             <% end %>
-        
           </div><!-- .btn-group -->
         </li>
         <!-- <div class="line"><hr /></div><br>   -->
@@ -24,3 +23,4 @@
     </ul>
   </div><!-- .index_list -->
 </div>
+
