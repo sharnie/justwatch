@@ -5,4 +5,12 @@ module GistsHelper
     digest = Digest::MD5.hexdigest( user.email )
     image_tag("http://www.gravatar.com/avatar.php?gravatar_id=#{digest}?size=#{size}", opts)
   end
+
+  def coderay(text, lang = :javascript)  
+    CodeRay.scan(text, lang).span
+  end
+
+  def supported_languages
+    ["C", "C++", "Clojure", "CSS", "Delphi", "diff", "ERB", "Go", "Groovy", "HAML", "HTML", "Java", "JavaScript", "JSON", "Lua", "PHP", "Python", "Ruby", "Sass", "SQL", "Taskpaper", "XML", "YAML"]
+  end
 end

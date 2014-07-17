@@ -32,5 +32,4 @@ module ApplicationHelper
   def supported_languages
     ["C/C++", "Clojure", "CSS", "ERB", "Go", "Groovy", "HAML", "HTML", "Java", "JavaScript", "JSON", "Lua", "PHP", "Python", "Ruby", "Sass", "SQL", "Taskpaper", "XML", "YAML"]
   end
-
 end
