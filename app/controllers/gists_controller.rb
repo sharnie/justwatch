@@ -35,7 +35,6 @@ class GistsController < ApplicationController
   end
 
   def show
-    
   end
 
   def embed
