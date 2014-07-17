@@ -35,8 +35,6 @@ class GistsController < ApplicationController
   end
 
   def show
-  #   @gist.update(user_id: current_user) 
-  #   @gist.save!
   end
 
   def embed
