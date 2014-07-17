@@ -8,7 +8,7 @@
   <%= content_tag :div, class: "jw_container" do %>
 
       <%= content_tag :div, class: "jw_content" do %>
-        <%- gist.content %>
+        <%- coderay(gist.content, gist.language).html_safe %>
       <% end %>
 
       <%= image_tag(gist.visual.url, class: 'jw_image') %>

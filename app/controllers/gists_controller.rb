@@ -49,6 +49,11 @@ class GistsController < ApplicationController
     render file: "gists/embed_stylesheet.css"
   end
 
+  def destroy
+    @gist.destroy 
+    redirect_to gists_path
+  end
+
 private
 
   def set_gist_and_visual
