@@ -28,7 +28,7 @@ class GistsController < ApplicationController
 
   def show
     unless @gist.user == current_or_guest_user
-      authenticate!
+      redirect_to root_path
     end
   end
 
@@ -73,7 +73,7 @@ private
   end
 
   def gist_params
-    params.require(:gist).permit(:name, :content, :visual_attributes => [:url])
+    params.require(:gist).permit(:name, :language, :content, :visual_attributes => [:url])
   end
 
 end

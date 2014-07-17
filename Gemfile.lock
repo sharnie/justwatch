@@ -173,6 +173,7 @@ PLATFORMS
 DEPENDENCIES
   ace-rails-ap
   bootstrap-sass (~> 3.2.0)
+  coderay
   coffee-rails (~> 4.0.0)
   devise
   figaro
