@@ -39,7 +39,7 @@ class GistsController < ApplicationController
     respond_to do |format| 
       format.js do
         unless @user.is_authorized_user?
-          format.js{ render 401 }
+          render 401
         end
       end
     end
@@ -49,7 +49,11 @@ class GistsController < ApplicationController
     @user = User.find(params[:user_id])
     @gist = @user.gists.find(params[:gist_id])
 
-    render file: "gists/embed_stylesheet.css"
+    if @user.is_authorized_user?
+      render file: "gists/embed_stylesheet.css"
+    else 
+      render 401
+    end
   end
 
 private
