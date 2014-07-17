@@ -210,17 +210,15 @@ Canvas.registerTool('arrow', {
     canvas.exec( 'lineTo', [ currentX, currentY ] );
     canvas.assign( 'lineWidth', brushSize );
     canvas.assign( 'strokeStyle', Canvas.helpers.hexToRGB(color, opacity) );
-    canvas.exec( 'stroke' );
 
     var angle = Math.atan2( currentX - originX, currentY - originY );
     canvas.exec( 'save' );
     canvas.exec( 'translate', [ currentX, currentY ] );
-    canvas.exec( 'rotate', [ -angle] );
+    canvas.exec( 'rotate', [ -angle ] );
     canvas.exec( 'moveTo', [ 0, 0 ] );
-    canvas.exec( 'lineTo', [ -10 + brushSize, -10 + brushSize ] );
-    canvas.exec( 'stroke');
+    canvas.exec( 'lineTo', [ -(brushSize + 10), -(brushSize + 10) ] );
     canvas.exec( 'moveTo', [ 0, 0 ] );
-    canvas.exec( 'lineTo', [ 10 + brushSize, -10 + brushSize ] );
+    canvas.exec( 'lineTo', [ brushSize + 10,  -(brushSize + 10) ] );
     canvas.exec( 'stroke' );
     canvas.exec( 'restore' );
   },
