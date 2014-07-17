@@ -13,7 +13,6 @@
 
       <%= image_tag(gist.visual.url, class: 'jw_image') %>
   <% end %>
-
   <%= content_tag :div, class: "jw_footer clearf" do %>
     <%= content_tag :span, class: 'jw_pull_left' do %>
       <%= gravatar_image_tag_for(gist.user, 25, class: 'jw_gravatar') %>
