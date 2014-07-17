@@ -13,6 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20140717192201) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -49,7 +50,11 @@ ActiveRecord::Schema.define(version: 20140717192201) do
     t.datetime "updated_at"
     t.string   "provider"
     t.string   "uid"
+<<<<<<< HEAD
     t.string   "type",                   default: "AuthorizedUser"
+=======
+    t.boolean  "guest"
+>>>>>>> destroy_button
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
