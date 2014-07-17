@@ -43,11 +43,8 @@ ActiveRecord::Schema.define(version: 20140717192201) do
     t.datetime "updated_at"
     t.string   "provider"
     t.string   "uid"
-<<<<<<< HEAD
     t.string   "type",                   default: "AuthorizedUser"
-=======
-    t.boolean  "guest"
->>>>>>> destroy_button
+
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
