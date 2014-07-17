@@ -9,6 +9,7 @@
       <% current_user.gists.each do |gist| %>
         <li>
           <%= render 'gists/gist_display', gist: gist %>
+          <%= button_to "Delete", gist, method: :delete %>
         </li>
         <div class= "line"><hr /></div>
         <br />  
