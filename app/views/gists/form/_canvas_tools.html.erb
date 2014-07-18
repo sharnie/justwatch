@@ -1,11 +1,11 @@
 <div class="col-xs-12 col-sm-1 gist-new" id="canvas-tools">
   <div class="panel panel-default"> 
 
-      <%= color_field_tag 'brush-color', '#000000' %>
+      <%= color_field_tag 'brush-color', '#000000', class: 'canvas-tool-tip', data: {toggle: 'tooltip', placement: 'top'}, title: 'Color' %>
 
       <br>
 
-      <%= content_tag :span, class: 'radio-button selected' do %>
+      <%= content_tag :span, class: 'radio-button selected canvas-tool-tip', data: {toggle: 'tooltip', placement: 'top'}, title: 'Pencil' do %>
         <%= label_tag 'tool_pencil' do %>
           <%= content_tag :i, '', class: 'fa fa-pencil' %>
         <% end %>
@@ -14,7 +14,7 @@
       
       <br>
 
-      <%= content_tag :span, class: 'radio-button' do %>
+      <%= content_tag :span, class: 'radio-button canvas-tool-tip', data: {toggle: 'tooltip', placement: 'top'}, title: 'Filled Sqaure' do %>
         <%= label_tag 'tool_filled_box' do %>
           <%= content_tag :i, '', class: 'fa fa-square' %>
         <% end %>
@@ -23,7 +23,7 @@
 
       <br>
 
-      <%= content_tag :span, class: 'radio-button' do %>
+      <%= content_tag :span, class: 'radio-button canvas-tool-tip', data: {toggle: 'tooltip', placement: 'top'}, title: 'Outlined Sqaure' do %>
         <%= label_tag 'tool_empty_box' do %>
           <%= content_tag :i, '', class: 'fa fa-square-o' %>
         <% end %>
@@ -32,7 +32,7 @@
 
       <br>
 
-      <%= content_tag :span, class: 'radio-button' do %>
+      <%= content_tag :span, class: 'radio-button canvas-tool-tip', data: {toggle: 'tooltip', placement: 'top'}, title: 'Line' do %>
         <%= label_tag 'tool_line' do %>
           <%= content_tag :i, '', class: 'fa fa-minus' %>
         <% end %>
@@ -41,7 +41,7 @@
 
       <br>
 
-      <%= content_tag :span, class: 'radio-button' do %>
+      <%= content_tag :span, class: 'radio-button canvas-tool-tip', data: {toggle: 'tooltip', placement: 'top'}, title: 'Arrow' do %>
         <%= label_tag 'tool_arrow' do %>
           <%= content_tag :i, '', class: 'fa fa-long-arrow-left' %>
         <% end %>
@@ -50,7 +50,7 @@
 
       <br>
 
-      <%= content_tag :span, class: 'radio-button' do %>
+      <%= content_tag :span, class: 'radio-button canvas-tool-tip', data: {toggle: 'tooltip', placement: 'top'}, title: 'Eraser' do %>
         <%= label_tag 'tool_eraser' do %>
           <%= content_tag :i, '', class: 'fa fa-eraser' %>
         <% end %>
@@ -61,13 +61,15 @@
       <br>
   
 
-      <%= content_tag :span, class: 'jw-slider', data: { toggle: "tooltip", placement: "left" }, title: "Tooltip on left" do %>        
+      <%= content_tag :span, class: 'jw-slider', data: { toggle: "tooltip", placement: "left" }, title: 'Opacity' do %>        
         <%= content_tag :div, nil, id: 'opacity-slider' %>
       <% end %>
 
       <%= content_tag :span, class: 'jw-slider' do %>        
         <%= content_tag :div, nil, id: 'brush-slider' %>
       <% end %>
+
+      <!-- <button class="canvas-tool-tip" type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Tooltip on left">Tooltip on left</button> -->
 
    </div> 
 </div>
