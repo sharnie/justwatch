@@ -61,11 +61,11 @@
       <br>
   
 
-      <%= content_tag :span, class: 'jw-slider', data: { toggle: "tooltip", placement: "left" }, title: 'Opacity' do %>        
+      <%= content_tag :span, class: 'jw-slider canvas-tool-tip', data: { toggle: "tooltip", placement: "top" }, title: 'Opacity' do %>        
         <%= content_tag :div, nil, id: 'opacity-slider' %>
       <% end %>
 
-      <%= content_tag :span, class: 'jw-slider' do %>        
+      <%= content_tag :span, class: 'jw-slider canvas-tool-tip', data: { toggle: "tooltip", placement: "right" }, title: 'Brush size' do %>        
         <%= content_tag :div, nil, id: 'brush-slider' %>
       <% end %>
 
