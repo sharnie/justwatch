@@ -4,6 +4,39 @@ $(document).on('page:change', function(){
 
   window.mainCanvas = new Canvas( '#main-canvas' );
 
+  window.mainCanvas.registerTool('crop', {
+    begin: function( e ){},
+    move: function( e ){
+      var
+        canvas    = e.canvas.mainObject,
+        context   = e.canvas.context,
+        currentX  = e.canvas.x,
+        currentY  = e.canvas.y;
+
+      canvas.cursor( 'crosshair' );
+      canvas.render();
+      context.lineWidth = 1 ;
+      context.strokeStyle = Canvas.helpers.hexToRGB( '#666' , 1 );
+      context.strokeRect( 0, 0, currentX, currentY );
+    },
+    end: function( e ){
+      var
+        canvas    = e.canvas.mainObject,
+        currentX  = e.canvas.x,
+        currentY  = e.canvas.y;
+
+      var url = canvas.toDataURLcrop({
+        width: currentX,
+        height: currentY
+      });
+    
+      $( '#gist_visual_attributes_url' ).val( url );
+    }
+
+  });
+
+
+
   var
     $mainEditor   = $( '#editor' ),
     $switchButton = $( '#switch_gist_canvas' ),
@@ -45,12 +78,14 @@ $(document).on('page:change', function(){
 
   $textarea.hide();
   
-  $mainCanvas.on( 'drag:end', function(){
-    var url = window.mainCanvas.stateStack[ 0 ].url;
+  $( '#new_gist').on('submit', function( e ){
 
-    $( '#gist_visual_attributes_url' ).val( url );
+    if( !$( '#gist_visual_attributes_url' ).val() ){
+      alert( 'CROP YO CANVAS' );
+      e.preventDefault();
+      return;
+    }
   });
-
 
   $( '#canvas-tools input:radio[name="tool"]' ).on( 'change', function( e ){
     $( '#canvas-tools span.radio-button.selected' ).removeClass( 'selected' );

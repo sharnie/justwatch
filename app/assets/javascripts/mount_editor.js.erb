@@ -1,10 +1,11 @@
 <% environment.context_class.instance_eval { include ApplicationHelper } %>
-
-// this code instantiates the ace editor
+// this code instantiates the ace window.mainEditor
 $( document ).on( 'page:change', function(){
+
   var 
-    editor    = ace.edit("editor"),
-    $textarea = $( 'textarea#gist_content' );
+    $textarea          = $( 'textarea#gist_content' ),
+    $editorContentArea = $('.ace_content');
+    editor             = ace.edit("editor");
 
   editor.setValue( $textarea.val(), 1 );
 
@@ -12,7 +13,18 @@ $( document ).on( 'page:change', function(){
   editor.getSession().setMode("ace/mode/text");
 
   editor.getSession().on('change', function() {
-    $textarea.val(editor.getSession().getValue());
+    $textarea.val( editor.getSession().getValue() );
+
+    window.mainCanvas.changeCanvasSize( { width: $editorContentArea.width() });
+  });
+
+
+  editor.getSession().on('changeScrollTop', function( scroll ){
+    window.mainCanvas.scrollCanvasY( scroll );
+  });
+
+  $('div.ace_scrollbar.ace_scrollbar-h').on('scroll', function(){
+    window.mainCanvas.scrollCanvasX( $(this).scrollLeft() );
   });
 
 
