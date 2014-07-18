@@ -37,3 +37,10 @@
   padding: 0px 10%;
 }
 
+.bold {
+font-weight: bold;
+}
+
+input#embed_url.form-control[disabled]{
+  cursor: default;
+}

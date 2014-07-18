@@ -26,7 +26,16 @@ module ApplicationHelper
   end
 
   def coderay(text, lang = :javascript)  
-    CodeRay.scan(text, lang).span
+    sanitized = Hash.new do |hash, key|
+      case key
+      when /C\/C++/i
+        :c
+      else
+        key.to_s.underscore.to_sym
+      end
+    end
+
+    CodeRay.scan(text, sanitized[lang]).span
   end
 
   def supported_languages

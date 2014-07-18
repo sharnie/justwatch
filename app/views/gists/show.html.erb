@@ -8,9 +8,9 @@
   <div class="row">
     <div class="col-xs-12">
       <div class="input-group">
-        <%= text_field_tag 'Embed URL', "<script src='#{embed_link_url(@gist.user, @gist)}'></script>", disabled: true, size:50, class: "form-control" %> 
+        <%= text_field_tag :embed_url, "<script src='#{embed_link_url(@gist.user, @gist)}'></script>", disabled: true, size:50, class: "form-control" %> 
         <span class="input-group-btn">
-          <button id="copytoclipboard-button" data-clipboard-text="<script src='<%=embed_link_url(@gist.user, @gist)%>.js'></script>" class="btn btn-default" type="button">
+          <button id="copytoclipboard-button-<%= @gist.id %>" data-clipboard-text="<script src='<%=embed_link_url(@gist.user, @gist)%>.js'></script>" class="btn btn-default" type="button">
             <span class="fa fa-clipboard"></span>
           </button>
         </span>
