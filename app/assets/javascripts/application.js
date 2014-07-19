@@ -21,4 +21,16 @@
 //= require zeroclipboard
 //= require jquery-ui/slider
 //= require canvas
+//= require jw
+
+// |- mount canvas/editor must execute before tree -|
+// |- since all other files depend on it           -|
+// |---------------------|
+//= require mount_canvas
+//= require mount_editor
+//-----------------------|
 //= require_tree .
+
+
+
+

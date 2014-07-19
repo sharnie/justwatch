@@ -62,8 +62,16 @@
       background-color: #E8F2FE;
     }
 
+    &.jw-button {
+      padding: 18%;
+      button {
+        border: none;
+        background: none;
+
+      }
+    }
+
     &.jw-slider {
-      background: red;
       height: 100px;
       width: 100px;
 

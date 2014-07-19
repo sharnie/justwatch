@@ -32,8 +32,8 @@ function Canvas( selector ) {
       height: this.$canvas[ 0 ].height + 2,
       width: this.$canvas[ 0 ].width,
       maxWidth: this.$canvas[ 0 ].width,
-      overflow: 'hidden',
-      border: '1px solid rgba(80, 149, 199, 1)',
+      overflow: 'hidden'
+      // border: '1px solid rgba(80, 149, 199, 1)',
     }
   });
 
@@ -41,20 +41,6 @@ function Canvas( selector ) {
 
   this.$canvas[ 0 ].width = 2000;
   this.$canvas[ 0 ].height = 2000;
-
-
-
-  // avoid blurry canvas
-  $( document ).on('click', 'body, ' + this.selector, function( e ){
-    var 
-      $this = $( this );
-
-    e.stopPropagation();
-
-    if( !$this.is( this.selector ) ){
-      _this.render();
-    }
-  });
 
 
   this.changeCanvasSize = function( sizes ){
