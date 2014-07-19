@@ -22,6 +22,9 @@ JW.$document.on( 'page:change', function(){
       canvas.cursor( 'crosshair' );
       canvas.render();
       context.lineWidth = 1 ;
+      context.font = "12px courier";
+      context.fillStyle = Canvas.helpers.hexToRGB( '#666' , 1 );;
+      context.fillText("(" + currentX +', ' + currentY + ")", currentX, currentY);
       context.strokeStyle = Canvas.helpers.hexToRGB( '#666' , 1 );
       context.strokeRect( 0, 0, currentX, currentY );
     },
