@@ -3,6 +3,13 @@
 
       <%= color_field_tag 'brush-color', '#000000', class: 'canvas-tool-tip', data: {toggle: 'tooltip', placement: 'right'}, title: 'Color' %>
 
+      <%= content_tag :span, class: 'radio-button canvas-tool-tip', data: {toggle: 'tooltip', placement: 'right'}, title: 'Text' do %>
+        <%= label_tag 'tool_text' do %>
+          <%= content_tag :i, '', class: 'fa fa-keyboard-o' %>
+        <% end %>
+        <%= radio_button_tag :tool, :text %>
+      <% end %>
+
       <br>
 
       <%= content_tag :span, class: 'radio-button selected canvas-tool-tip', data: {toggle: 'tooltip', placement: 'right'}, title: 'Pencil' do %>

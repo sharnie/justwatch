@@ -5,20 +5,41 @@ JW.$document.on( 'page:change', function(){
     $colorInput    = $( '#canvas-tools input[type="color"][name="brush-color"]' ),
     $opacitySlider = $( '#canvas-tools #opacity-slider' ),
     $brushSlider   = $( '#canvas-tools #brush-slider' ),
-    $undoButton    = $( '.jw-button' );
+    $undoButton    = $( '.jw-button' ),
+    $editor        = $( '#editor' );
 
   $toolButtons.on( 'change', function( e ){
     var
-      $this = $( this );
+      $this = $( this ),
+      tool  = $this.val();
       
     // show that tools are selected by adding '.selected' css class ----------|
     $( '#canvas-tools span.radio-button.selected' ).removeClass( 'selected' );
     $this.parent( 'span.radio-button' ).addClass( 'selected' );
     //------------------------------------------------------------------------|
 
-    // use tool --------------------------|
-    JW.canvas.use( $this.val() );
-    //------------------------------------|
+    // allow switching of context between writing and drawing
+    //-----------------------------|
+    if( tool === 'text'){
+      $editor
+        .css({ opacity: 0.9 })
+        .removeClass( 'back' )
+        .addClass( 'front' );
+      JW.canvas.$canvas
+        .removeClass( 'front' )
+        .addClass( 'back' );
+    } else {
+      $editor
+        .css({ opacity: 1 })
+        .removeClass( 'front' )
+        .addClass( 'back' );
+      JW.canvas.$canvas
+        .removeClass( 'back' )
+        .addClass( 'front' );
+
+      JW.canvas.use( $this.val() );
+    }
+    //-----------------------------|
   });
 
   $colorInput.on( 'change', function( e ){

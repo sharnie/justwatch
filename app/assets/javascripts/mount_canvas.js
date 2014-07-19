@@ -31,6 +31,7 @@ JW.$document.on( 'page:change', function(){
         currentX  = e.canvas.x,
         currentY  = e.canvas.y;
 
+      canvas.render();
       var url = canvas.toDataURLcrop({
         width: currentX,
         height: currentY
