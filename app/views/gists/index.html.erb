@@ -13,14 +13,14 @@
           <%= render 'gists/gist_display', gist: gist %>
           <div class="btn-group" role= "toolbar">
 
-            <%= clipboard_tag_for( gist ) %>
+            <%= clipboard_tag_for(gist) %>
 
-            <%= link_to gist_path(gist), method: :delete, class: "btn btn-default" do %>
+            <%= link_to gist_path(gist), method: :delete, class: "btn btn-default", data: { toggle: 'tooltip', placement: 'top' }, title: 'Delete' do %>
               <%= tag(:span, class: 'fa fa-trash-o') %>
             <% end %>
           </div><!-- .btn-group -->
         </li>
-       <div class="line"><hr /></div><br>
+       <div class="line"><hr/></div><br>
       <% end %>
     </ul>
   </div><!-- .index_list -->
