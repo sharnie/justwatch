@@ -2,7 +2,7 @@ module ApplicationHelper
 
   def has_page_specific_js!
     content_for(:head) do
-      javascript_include_tag( File.join( params[:controller], params[:action], 'index' ) )
+      javascript_include_tag( File.join( params[:controller], params[:action], 'index' ), 'data-turbolinks-track' => true )
     end
   end
 
