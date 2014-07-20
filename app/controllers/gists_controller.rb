@@ -41,7 +41,7 @@ class GistsController < ApplicationController
 
   def embed
     @user = User.find(params[:user_id])
-    @gist = @user.gists.find(params[:gist_id])
+    @gist = @user.gists.find(params[:gist_url])
 
     respond_to do |format| 
       format.js do
@@ -54,7 +54,7 @@ class GistsController < ApplicationController
 
   def embed_stylesheet
     @user = User.find(params[:user_id])
-    @gist = @user.gists.find(params[:gist_id])
+    @gist = @user.gists.find(params[:gist_url])
 
     if @user.is_authorized_user?
       render file: "gists/embed_stylesheet.css"
@@ -71,8 +71,8 @@ class GistsController < ApplicationController
 private
 
   def set_gist_and_visual
-    if params[:id]
-      @gist = Gist.find( params[:id] )
+    if params[:url]
+      @gist = Gist.find_by_url( params[:url] )
       @visual = @gist.visual
     else
       @gist = Gist.new

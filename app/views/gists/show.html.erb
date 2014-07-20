@@ -9,7 +9,7 @@
   <div class="row">
     <div class="col-xs-12">
       <div class="input-group">
-        <%= text_field_tag :embed_url, "<script src='#{embed_link_url(@gist.user, @gist)}'></script>", disabled: true, size:50, class: "form-control" %> 
+        <%= text_field_tag :embed_url, "<script src='#{embed_link_url(@gist.user, @gist)}.js'></script>", disabled: true, size:50, class: "form-control" %> 
         <span class="input-group-btn">
 
           <%= clipboard_tag_for(@gist) %>
