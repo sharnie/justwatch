@@ -1,5 +1,11 @@
 module ApplicationHelper
 
+  def has_page_specific_js!
+    content_for(:head) do
+      javascript_include_tag( File.join( params[:controller], params[:action], 'index' ) )
+    end
+  end
+
   def flash_class(level)
     case level
       when 'notice' then "alert alert-info"

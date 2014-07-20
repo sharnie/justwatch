@@ -1,4 +1,4 @@
-$(document).on('page:change', function(){;
+JW.$document.on('page:change', function(){;
   var $clipboards = $( 'button[id^="copytoclipboard-button-"]' );
 
 
