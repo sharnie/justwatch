@@ -11,9 +11,11 @@
       <div class="input-group">
         <%= text_field_tag :embed_url, "<script src='#{embed_link_url(@gist.user, @gist)}'></script>", disabled: true, size:50, class: "form-control" %> 
         <span class="input-group-btn">
+
           <button id="copytoclipboard-button-<%= @gist.id %>" data-clipboard-text="<script src='<%=embed_link_url(@gist.user, @gist)%>.js'></script>" class="btn btn-default" type="button">
             <span class="fa fa-clipboard"></span>
           </button>
+          
         </span>
       </div><!-- /input-group -->
     </div><!-- /.col-lg-6 -->
