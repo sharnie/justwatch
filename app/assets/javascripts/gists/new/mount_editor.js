@@ -11,7 +11,7 @@ JW.$document.on( 'page:change', function(){
     $editorContentArea = $('.ace_content'),
     $editorScrollBar   = $('div.ace_scrollbar.ace_scrollbar-h');
 
-  // set the value of text editor to content of current just
+  // set the value of text editor to content of current gist
   // useful for edit page ---------------|
   editor.setValue( $textarea.val(), 1 ); 
   //-------------------------------------|
@@ -46,5 +46,9 @@ JW.$document.on( 'page:change', function(){
   //--------------------------------------------------------------------
 
 
+  $('#canvas-wrapper').on( 'scroll', function( e ){
+    console.log( e );
+    e.returnValue = false;
+  });
   
 });

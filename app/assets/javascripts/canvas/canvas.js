@@ -29,7 +29,7 @@ function Canvas( selector ) {
       position: 'absolute',
       top: 0,
       right: 0,
-      height: this.$canvas[ 0 ].height + 2,
+      height: this.$canvas[ 0 ].height,
       width: this.$canvas[ 0 ].width,
       maxWidth: this.$canvas[ 0 ].width,
       overflow: 'hidden'

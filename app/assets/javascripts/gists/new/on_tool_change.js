@@ -22,7 +22,7 @@ JW.$document.on( 'page:change', function(){
     //-----------------------------|
     if( tool === 'text'){
       $editor
-        .css({ opacity: 0.9 })
+        .css({ opacity: 0.8 })
         .removeClass( 'back' )
         .addClass( 'front' );
       JW.canvas.$canvas
