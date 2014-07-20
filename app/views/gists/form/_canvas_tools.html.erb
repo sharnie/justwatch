@@ -21,7 +21,7 @@
       <br>
 
       <%= content_tag :span, class: 'jw-button canvas-tool-tip', data: {toggle: 'tooltip', placement: 'right'}, title: 'Undo' do %>
-        <% button_tag id: 'undo-button' do %>
+        <% button_tag id: 'undo-button', role:'undo' do %>
           <%= content_tag :i, '', class: 'fa fa-undo' %>
         <% end %>
       <% end %>

@@ -30,7 +30,12 @@
   height: 300px;
 }
 
-#new_gist .panel-body {
+.new_gist .panel-body {
+  padding: 0px;
+  margin-bottom: -15px;
+}
+
+.edit_gist .panel-body {
   padding: 0px;
   margin-bottom: -15px;
 }

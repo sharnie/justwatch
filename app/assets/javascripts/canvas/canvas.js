@@ -237,7 +237,7 @@ Canvas.prototype.registerTool = function( name, map ){
 };
 
 Canvas.prototype.drawImage = function(){
-  this.context.drawImage( arguments );
+  this.context.drawImage.apply( this.context, arguments );
 };
 
 

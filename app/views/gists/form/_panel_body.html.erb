@@ -8,7 +8,7 @@
 
 
     <%= content_tag(:div, class: "form-group") do %>
-      <%= builder.fields_for :visual_attributes do |visual_f| %>
+      <%= builder.fields_for(:visual_attributes, @gist.visual) do |visual_f| %>
 
         <canvas id='main-canvas' class='front' width="660px" height='298px' >
         </canvas>

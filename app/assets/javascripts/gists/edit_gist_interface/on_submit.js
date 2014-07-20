@@ -2,8 +2,8 @@ JW.$document.on('page:change', function(){
   // Here lives the code that allows the switching of context
   // between editor and canvas
   var
-    $gistForm     = $( '#new_gist' ),
-    $textarea     = $gistForm.find( '#gist_content' );
+    $gistForm     = $( 'form[id*="_gist"][method="post"][action*="/gists"]' ),
+    $textarea     = $( '#gist_content' );
 
   $textarea.hide();
   // user must choose canvas size before submitting

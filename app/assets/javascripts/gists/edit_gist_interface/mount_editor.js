@@ -8,16 +8,15 @@ JW.$document.on( 'page:change', function(){
     editor             = JW.editor,
     canvas             = JW.canvas,
     $textarea          = $( 'textarea#gist_content' ),
-    $editorContentArea = $('.ace_content'),
-    $editorScrollBar   = $('div.ace_scrollbar.ace_scrollbar-h');
-
+    $editorContentArea = $( '.ace_content' ),
+    $editorScrollBar   = $( 'div.ace_scrollbar.ace_scrollbar-h' );
+    
   // set the value of text editor to content of current gist
   // useful for edit page ---------------|
   editor.setValue( $textarea.val(), 1 ); 
   //-------------------------------------|
 
   editor.setTheme("ace/theme/eclipse");
-  editor.getSession().setMode("ace/mode/text");
 
   editor.getSession().on('change', function() {
 
@@ -46,9 +45,4 @@ JW.$document.on( 'page:change', function(){
   //--------------------------------------------------------------------
 
 
-  $('#canvas-wrapper').on( 'scroll', function( e ){
-    console.log( e );
-    e.returnValue = false;
-  });
-  
 });
