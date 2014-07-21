@@ -14,7 +14,11 @@
 
           <div class="btn-group" role= "toolbar">
 
+            <%= link_to gist_path(gist), class: "btn btn-default", data:{ toggle: 'tooltip', placement: 'top' }, title: 'View' do %>
+              <%= tag(:span, class: "fa fa-eye") %>
+            <% end %>
             <%= clipboard_tag_for(gist) %>
+
             <%= link_to edit_gist_path(gist), class: "btn btn-default", data:{ toggle: 'tooltip', placement: 'top' }, title: 'Edit' do %>
               <%= tag(:span, class: "fa fa-edit") %>
             <% end %>

@@ -1,6 +1,6 @@
 (function(){
   
-  document.write( '<%= stylesheet_link_tag embed_stylesheet_url(@user,@gist) %>' );
+  document.write( '<%= stylesheet_link_tag embed_link_url(@user, @gist, "css") %>' );
   document.write( '<%= j(render @gist).html_safe %>' );
 
 }).call( this );

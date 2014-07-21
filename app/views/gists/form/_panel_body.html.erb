@@ -2,15 +2,15 @@
 
   <div id="gist_canvas">
 
-    <div id="editor" class='back'></div>
+    <div id="editor" class='front'></div>
     
-    <%= builder.text_area :content, class: "back" %>
+    <%= builder.text_area :content, class: "front" %>
 
 
     <%= content_tag(:div, class: "form-group") do %>
       <%= builder.fields_for(:visual_attributes, @gist.visual) do |visual_f| %>
 
-        <canvas id='main-canvas' class='front' width="660px" height='298px' >
+        <canvas id='main-canvas' class='back' width="660px" height='298px' >
         </canvas>
 
         <%= visual_f.hidden_field :url %>

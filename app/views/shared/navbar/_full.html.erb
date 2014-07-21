@@ -1,18 +1,50 @@
-<nav class="navbar navbar-default" role="navigation">
-    <div class="container">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <%= render 'shared/navbar/logo' %>
+<!--header start-->
+<header class="header fixed-top clearfix">
+  
+  <%= render 'shared/navbar/logo' %>
 
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-        <ul class="nav navbar-nav navbar-right">
-          <% if user_signed_in? %>
-            <%= render 'shared/navbar/authorized_content' %>
-          <% else %>
-            <%= render 'shared/navbar/un_authorized_content' %>
-          <% end %>
-        </ul>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-  </nav>
+  <div class="nav notify-row" id="top_menu">
+      <!--  notification start -->
+      <ul class="nav top-menu">
+          <!-- settings start -->
+          <li class="dropdown">
+              <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                  <i class="fa fa-plus"></i>
+              </a>
+          </li>
+          <!-- settings end -->
+          <!-- inbox dropdown start-->
+          <li id="header_inbox_bar" class="dropdown">
+              <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                  <i class="fa fa-folder-open"></i>
+              </a>
+          </li>
+          <!-- inbox dropdown end -->
+      </ul>
+      <!--  notification end -->
+  </div>
+  <div class="top-nav clearfix">
+      <!--search & user info start-->
+      <ul class="nav pull-right top-menu">
+          <!-- user login dropdown start-->
+          <li class="dropdown">
+              <div href="#" class="btn btn-info" id="sign-in-button" data-toggle="dropdown" class="dropdown-toggle">
+                  <div class="fa fa-sign-out"></div> Sign In
+                  <b class="caret"></b>
+              </div>
+              <ul class="dropdown-menu extended logout">
+                  <li><a href="#"><i class=" fa fa-key"></i>Log In</a></li>
+                  <li><a href="#"><i class="fa fa-user"></i> Sign Up</a></li>
+              </ul>
+          </li>
+          <!-- user login dropdown end -->
+          <li>
+              <div class="toggle-right-box">
+                  <div class="fa fa-bars"></div>
+              </div>
+          </li>
+      </ul>
+      <!--search & user info end-->
+  </div>
+</header>
+<!--header end-->

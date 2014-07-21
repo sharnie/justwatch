@@ -40,6 +40,15 @@ JW.$document.on( 'page:change', function(){
         height: currentY
       });
       
+      var img = new Image();
+
+      img.src = url;
+
+      $('.gist-preview .prev-content').fadeOut(function(){
+        $( this )
+          .html( $( img ) )
+          .fadeIn();
+      });
       // set the image url of hidden field
       // this is important for form submission -----|
       $( '#gist_visual_attributes_url' ).val( url );

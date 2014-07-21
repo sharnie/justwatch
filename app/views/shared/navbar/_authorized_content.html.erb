@@ -1,6 +1,11 @@
-<li><%= link_to(tag(:span, class: 'fa fa-folder-open'), gists_path, data: { toggle: 'tooltip', placement: 'bottom' }, title: "Projects") %></li>
+<li>
+  <%= link_to(tag(:span, class: 'fa fa-folder-open'), gists_path, data: { toggle: 'tooltip', placement: 'bottom' }, title: "Projects") %>
+</li>
+<li>
+  <%= link_to(tag(:span, class: 'fa fa-plus'), root_path, data: { toggle: 'tooltip', placement: 'bottom' }, title: 'New' ) %>
+</li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= gravatar_image_tag_for(current_user, 25, class: 'jw_gravatar img-circle') %> <%= current_user.email %> <span class="caret"></span></a>
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= gravatar_image_tag_for(current_user, 25, class: 'img-circle') %></a>
   <ul class="dropdown-menu" role="menu">
     <li><%= link_to 'Edit profile', edit_user_registration_path %></li>
     <li class="divider"></li>

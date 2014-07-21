@@ -3,9 +3,9 @@
 
       <%= color_field_tag 'brush-color', '#000000', class: 'canvas-tool-tip', data: {toggle: 'tooltip', placement: 'right'}, title: 'Color' %>
 
-      <%= tool_radio_tag(:text, title: 'Text', icon: 'keyboard-o') %>
+      <%= tool_radio_tag(:text, title: 'Text', icon: 'keyboard-o', checked: true) %>
       <br>
-      <%= tool_radio_tag(:pencil, title: 'Pencil', icon: 'pencil', checked: true ) %>
+      <%= tool_radio_tag(:pencil, title: 'Pencil', icon: 'pencil' ) %>
       <br>
       <%= tool_radio_tag(:filled_box, title: 'Filled Box', icon: 'square') %>
       <br>

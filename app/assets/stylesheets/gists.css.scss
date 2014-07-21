@@ -21,23 +21,40 @@
   top: 0px;
 }
 
-#main-canvas {
-  // border: 1px solid rgba(80, 149, 199, 1);
-}
+
 
 // gist form 
 #editor {
   height: 300px;
 }
 
-.new_gist .panel-body {
-  padding: 0px;
-  margin-bottom: -15px;
-}
+.new_gist,.edit_gist{
 
-.edit_gist .panel-body {
-  padding: 0px;
-  margin-bottom: -15px;
+  .panel-body {
+    padding: 0px;
+    margin-bottom: -15px;
+  }
+
+  .gist-preview {
+    border: 1px dashed #ccc;
+    text-align: center;
+    font-size: 11px;
+    color: #ccc;
+    // height: 100%;
+    .prev-content {
+      // margin: 3%;
+      max-height:145px;
+      // max-width: 
+      img{
+        background: white;
+        width: 100%;
+        height: 100%;
+      }
+      // height: 
+    }
+
+  }
+
 }
 
 #canvas-tools {
