@@ -41,25 +41,16 @@ class GistsController < ApplicationController
 
   def embed
     @user = User.find(params[:user_id])
-    @gist = @user.gists.find(params[:gist_url])
+    @gist = @user.gists.find_by_url(params[:gist_url])
 
     respond_to do |format| 
-      format.js do
-        unless @user.is_authorized_user?
-          render 401
-        end
+      if @user.is_authorized_user?
+        format.js
+        format.css
+      else
+        format.js{ render 401 }
+        format.css{ render 401 }
       end
-    end
-  end
-
-  def embed_stylesheet
-    @user = User.find(params[:user_id])
-    @gist = @user.gists.find(params[:gist_url])
-
-    if @user.is_authorized_user?
-      render file: "gists/embed_stylesheet.css"
-    else 
-      render 401
     end
   end
 

@@ -1,7 +1,7 @@
 
 $(document).on('page:change', function(){
 
-  var $clipboards = $( 'button[id^="copytoclipboard-button-"]' );
+  var $clipboards = $( 'a[id^="copytoclipboard-button-"]' );
 
   $clipboards.click(function( e ){
     e.preventDefault();

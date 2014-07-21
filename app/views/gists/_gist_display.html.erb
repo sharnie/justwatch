@@ -1,4 +1,4 @@
-<div class="gist">
+<div class="gist gist-default">
   <div class="gist-body">
     <div class="gist-canvas">
       <%= image_tag(gist.visual.url, class: 'jw_image') %>
@@ -6,13 +6,4 @@
     <%= coderay(gist.content, gist.language).html_safe %>
   </div>
 
-  <div class="gist-footer">
-    <span class="meta">
-      <a href="#">
-        <%= gravatar_image_tag_for( gist.user, 25, class: 'pull-left' ) %>
-        <span class="gist-title"><%= gist.name %></span>
-      </a>
-    </span>
-    <a href="#" class="hosted pull-right">hosted with <span class="fa fa-heart"></span> by jw</a>
-  </div>
 </div>
