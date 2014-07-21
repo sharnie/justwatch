@@ -1,5 +1,4 @@
-<%= content_tag :div, id: "jw_#{gist.id}" do %>
-    
+<%= content_tag :div, id: "jw_#{gist.id}" do %>  
   <%= content_tag :div, class: 'jw_line_numbers' do %>
     <% gist.content.each_line.count.times do |line_num| %>
       <%= content_tag :span, line_num+1, class: 'jw_number' %>

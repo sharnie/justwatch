@@ -1,3 +1,4 @@
+
 .clearf:after {
     content: ".";
     display: block;
@@ -25,6 +26,7 @@
   border-left: none;
   background-color: white;
   padding-bottom: 32px;
+  max-width: 800px;
 }
 
 
@@ -102,4 +104,29 @@
 
 #jw_<%= @gist.id %> .jw_footer .jw_pull_left {
   float: left;
+}
+
+// code
+.panel-embed {
+  max-height: 404px !important;
+  overflow-y: scroll;
+}
+.panel-embed .panel-body {
+  padding: 0;
+  margin: 0;
+}
+.panel-embed .panel-body pre[class*="language-"] {
+  background-color: #FAFAFA !important;
+  border-radius: 0px;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  margin: 0 !important;
+  border: none;
+}
+
+.line-numbers .line-numbers-rows {
+  background-color: #EBEBEB !important;
+  color: #888888 !important;
+  text-shadow: none;
+  margin-top: -2px;
 }
