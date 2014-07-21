@@ -1,7 +1,5 @@
 class GistsController < ApplicationController
-  # sets instance variables @gist & @visual
-  # also assigns attributes passed through params
-  # to the @gist object
+
   protect_from_forgery with: :exception, except: [:embed]
   before_action :set_gist_and_visual, except: [:embed]
   before_action :authenticate_user!, except: [:new, :create, :show]
@@ -9,9 +7,11 @@ class GistsController < ApplicationController
   def new
   end
 
+  def edit
+  end
+
   def index
-    @gists = Gist.all
-    @visuals = Visual.all      
+    @gists = Gist.all   
   end
 
   def create
@@ -20,10 +20,17 @@ class GistsController < ApplicationController
     if @gist.save
       redirect_to gist_path(@gist)
     else
-      flash[:notice] = "Ouuups something went wrong, try again..."
-      redirect_to root_path
+      redirect_to root_path, notice: "Ouuups something went wrong, try again..."
     end
+  end
 
+  def update
+    @gist.language = "text" if @gist.language.blank?
+    if @gist.save
+      redirect_to gist_path(@gist)
+    else
+      redirect_to root_path, notice: "Ouuups something went wrong, try again..."
+    end
   end
 
   def show
@@ -34,7 +41,7 @@ class GistsController < ApplicationController
 
   def embed
     @user = User.find(params[:user_id])
-    @gist = @user.gists.find(params[:gist_id])
+    @gist = @user.gists.find(params[:gist_url])
 
     respond_to do |format| 
       format.js do
@@ -47,7 +54,7 @@ class GistsController < ApplicationController
 
   def embed_stylesheet
     @user = User.find(params[:user_id])
-    @gist = @user.gists.find(params[:gist_id])
+    @gist = @user.gists.find(params[:gist_url])
 
     if @user.is_authorized_user?
       render file: "gists/embed_stylesheet.css"
@@ -64,8 +71,8 @@ class GistsController < ApplicationController
 private
 
   def set_gist_and_visual
-    if params[:id]
-      @gist = Gist.find( params[:id] )
+    if params[:url]
+      @gist = Gist.find_by_url( params[:url] )
       @visual = @gist.visual
     else
       @gist = Gist.new

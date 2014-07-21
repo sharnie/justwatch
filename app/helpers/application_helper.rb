@@ -1,5 +1,11 @@
 module ApplicationHelper
 
+  def has_page_specific_js!
+    content_for(:head) do
+      javascript_include_tag( File.join( params[:controller], params[:action], 'index' ), 'data-turbolinks-track' => true )
+    end
+  end
+
   def flash_class(level)
     case level
       when 'notice' then "alert alert-info"
@@ -15,15 +21,6 @@ module ApplicationHelper
     end.join.html_safe
   end
 
-  def javascript(*files)
-    content_for(:head){ javascript_include_tag(*files) }
-  end
-
-  def canvas_scripts
-    content_for(:head) do 
-      render('shared/script_tags/canvas')
-    end
-  end
 
   def coderay(text, lang = :javascript)  
     sanitized = Hash.new do |hash, key|
@@ -35,10 +32,7 @@ module ApplicationHelper
       end
     end
 
-    CodeRay.scan(text, sanitized[lang]).span
+    CodeRay.scan(text, sanitized[ lang ]).span
   end
 
-  def supported_languages
-    ["C/C++", "Clojure", "CSS", "ERB", "Go", "Groovy", "HAML", "HTML", "Java", "JavaScript", "JSON", "Lua", "PHP", "Python", "Ruby", "Sass", "SQL", "Taskpaper", "XML", "YAML"]
-  end
 end

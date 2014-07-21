@@ -21,4 +21,5 @@
 //= require zeroclipboard
 //= require jquery-ui/slider
 //= require canvas
-//= require_tree .
+//= require jw
+//= require tooltips

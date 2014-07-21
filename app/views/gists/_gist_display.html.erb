@@ -1,25 +1,18 @@
-<%= content_tag :div, class: "jw_gist" do %>
-    
-  <%= content_tag :div, class: 'jw_line_numbers' do %>
-    <% gist.content.each_line.count.times do |line_num| %>
-      <%= content_tag :span, line_num+1, class: 'jw_number' %>
-    <% end %>
-  <% end %>
-  <%= content_tag :div, class: "jw_container" do %>
-
-      <%= content_tag :div, class: "jw_content", lang: "javascript" do %>
-          <%- coderay(gist.content, gist.language).html_safe %>
-      <% end %>
-
+<div class="gist gist-default">
+  <div class="gist-body">
+    <div class="gist-canvas">
       <%= image_tag(gist.visual.url, class: 'jw_image') %>
-  <% end %>
-  <%= content_tag :div, class: "jw_footer clearf" do %>
-    <%= content_tag :span, class: 'jw_pull_left' do %>
-      <%= gravatar_image_tag_for(gist.user, 25, class: 'jw_gravatar') %>
-      <%= link_to gist.name, gist_url(gist) %>
-    <% end %>
-    <%= content_tag :span, class: 'jw_pull_right' do %>
-      <%= link_to "Hosted by JustWatch", root_url %>
-    <% end %>
-  <% end %>
-<% end %>
+    </div>
+    <%= coderay(gist.content, gist.language).html_safe %>
+  </div>
+
+  <div class="gist-footer">
+    <span class="meta">
+      <a href="#">
+        <img src="http://www.gravatar.com/avatar.php?gravatar_id=9ef9c75cce358fd9fcf6d3623c959373?size=25" alt="" class="pull-left" />
+        <span class="gist-title"><%= gist.name %></span>
+      </a>
+    </span>
+    <a href="#" class="hosted pull-right">hosted with <span class="fa fa-heart"></span> by jw</a>
+  </div>
+</div>

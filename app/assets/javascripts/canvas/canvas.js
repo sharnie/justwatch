@@ -19,9 +19,74 @@ function Canvas( selector ) {
   this.stateStack         = [];
   this.layerStack         = [];
 
+
+  // THE FOLLOWING CODE SHOULD BE RE-WRITTEN
+
   //wrap in a div to allow resizing
-  var canvasWrapper = $( '<div>', { id: 'canvas-wrapper' });
-  this.$canvas.wrap(  );
+  var canvasOutterWrapper = $( '<div>', { 
+    id: 'canvas-wrapper',
+    css: {
+      position: 'absolute',
+      top: 0,
+      right: 0,
+      height: this.$canvas[ 0 ].height,
+      width: this.$canvas[ 0 ].width,
+      maxWidth: this.$canvas[ 0 ].width,
+      overflow: 'hidden'
+      // border: '1px solid rgba(80, 149, 199, 1)',
+    }
+  });
+
+  this.$canvas.wrap( canvasOutterWrapper );
+
+  this.$canvas[ 0 ].width = 2000;
+  this.$canvas[ 0 ].height = 2000;
+
+
+  this.changeCanvasSize = function( sizes ){
+    var
+      height = sizes.height || canvasOutterWrapper.height(),
+      width  = sizes.width || canvasOutterWrapper.width();
+
+
+    $('#canvas-wrapper').css({ height: height, width: width });
+  };
+
+  this.scrollCanvasY = function( pos ){
+    this.$canvas.trigger({
+      type: 'scrollY'
+    }, pos );
+
+    $( '#canvas-wrapper' ).scrollTop( pos );
+  };
+
+  this.scrollCanvasX = function( pos ){
+    this.$canvas.trigger({
+      type: 'scrollX'
+    }, pos );
+    $( '#canvas-wrapper' ).scrollLeft( pos );
+  };
+
+
+  /////////////////////////////////////////////
+
+
+  this.toDataURLcrop = function( obj ){
+    var $tempCanvas = $('<canvas></canvas>'),
+        tempContext = $tempCanvas[ 0 ].getContext( '2d' ),
+        tempImage   = new Image(),
+        x           = obj.x || 0;
+        y           = obj.y || 0;
+
+      if( this.stateStack[ 0 ] ){
+        tempImage.src = this.stateStack[ 0 ].url;  
+        $tempCanvas[ 0 ].width = Math.abs( obj.width );
+        $tempCanvas[ 0 ].height = Math.abs( obj.height );
+        tempContext.drawImage( tempImage, x, y );
+      }
+      
+      return $tempCanvas[ 0 ].toDataURL();
+  };
 
 
   // default event behaviors
@@ -48,7 +113,7 @@ function Canvas( selector ) {
     canvasStateData = {},
     toolStateData   = {};
 
-  $( this.selector ).on( 'drag:begin drag:move drag:end', function( e ){
+  this.$canvas.on( 'drag:begin drag:move drag:end', function( e ){
     var
       x,
       y,
@@ -102,11 +167,11 @@ function Canvas( selector ) {
     this.registerTool( tool, map );
   }
 
+
 }
 
 Canvas.registerTool = function( name, map ){
   Canvas.initialTools = Canvas.initialTools || {};
-
 
   Canvas.initialTools[ name ] = map;
 };
@@ -172,7 +237,7 @@ Canvas.prototype.registerTool = function( name, map ){
 };
 
 Canvas.prototype.drawImage = function(){
-  this.context.drawImage( arguments );
+  this.context.drawImage.apply( this.context, arguments );
 };
 
 

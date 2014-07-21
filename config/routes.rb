@@ -6,10 +6,11 @@ Rails.application.routes.draw do
   root "gists#new"
 
  
-  get 'embed/:user_id/:gist_id' => 'gists#embed', as: 'embed_link'
-  get 'embed/:user_id/:gist_id/stylesheet.css' => 'gists#embed_stylesheet', as: 'embed_stylesheet'
+  get 'embed/js/:user_id/:gist_url' => 'gists#embed', as: 'embed_link'
+  get 'embed/css/:user_id/:gist_url' => 'gists#embed_stylesheet', as: 'embed_stylesheet'
 
-  resources :visuals
-  resources :gists, except: [:new]
+
+  resources :gists, except: [:new], param: :url 
+
   
 end
