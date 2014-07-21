@@ -22,11 +22,7 @@
 }
 
 #main-canvas {
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  border: 1px solid rgba(80, 149, 199, 1);
-  background: transparent;
+  // border: 1px solid rgba(80, 149, 199, 1);
 }
 
 // gist form 
@@ -34,14 +30,24 @@
   height: 300px;
 }
 
-#new_gist .panel-body {
+.new_gist .panel-body {
+  padding: 0px;
+  margin-bottom: -15px;
+}
+
+.edit_gist .panel-body {
   padding: 0px;
   margin-bottom: -15px;
 }
 
 #canvas-tools {
+<<<<<<< HEAD
   display: none;
   padding-top: 55px;
+=======
+  // display: none;
+  // padding-top: 55px;
+>>>>>>> 9d5930d19ebe346f31878a888ee1d8941d3b2651
 
   input {
     &[type="color"] {
@@ -66,8 +72,16 @@
       background-color: #E8F2FE;
     }
 
+    &.jw-button {
+      padding: 18%;
+      button {
+        border: none;
+        background: none;
+
+      }
+    }
+
     &.jw-slider {
-      background: red;
       height: 100px;
       width: 100px;
 
