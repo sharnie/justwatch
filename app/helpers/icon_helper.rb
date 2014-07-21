@@ -26,7 +26,6 @@ module IconHelper
       locals[:selected_class] = 'selected'
     end
 
-    # binding.pry
     render('gists/form/tool_radio_tag', locals)
   end
 
