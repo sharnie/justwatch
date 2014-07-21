@@ -1,5 +1,4 @@
-
-<div class="gist gist-default">
+<div class="gist gist-default" id="jw-<%= @gist.url %>">
   <div class="gist-body">
     <div class="gist-canvas">
       <%= image_tag(@gist.visual.url, class: 'jw_image') %>
@@ -10,7 +9,7 @@
   <div class="gist-footer">
     <span class="meta">
       <a href="#">
-        <img src="http://www.gravatar.com/avatar.php?gravatar_id=9ef9c75cce358fd9fcf6d3623c959373?size=25" alt="" class="pull-left" />
+        <%= gravatar_image_tag_for( gist.user, 25, class: 'pull-left' ) %>
         <span class="gist-title"><%= @gist.name %></span>
       </a>
     </span>
