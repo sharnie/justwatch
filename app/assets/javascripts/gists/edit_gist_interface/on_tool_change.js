@@ -5,7 +5,7 @@ JW.$document.on( 'page:change', function(){
     $colorInput    = $( '#canvas-tools input[type="color"][name="brush-color"]' ),
     $opacitySlider = $( '#canvas-tools #opacity-slider' ),
     $brushSlider   = $( '#canvas-tools #brush-slider' ),
-    $undoButton    = $( '.jw-button' ),
+    $undoButton    = $( '#undo-button[role="undo"]' ),
     $editor        = $( '#editor' );
 
   $toolButtons.on( 'change', function( e ){
@@ -81,7 +81,7 @@ JW.$document.on( 'page:change', function(){
 
 
   // undo button -------------------
-  $( '#undo-button' ).on( 'click', function(){
+  $undoButton.on( 'click', function(){
     JW.canvas.undo();
   });
 });

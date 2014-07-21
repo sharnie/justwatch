@@ -13,15 +13,16 @@
           <%= render 'gists/gist_display', gist: gist %>
           <div class="btn-group" role= "toolbar">
 
-            <button type="button" class="btn btn-group btn-default" id="copytoclipboard-button-<%= gist.id %>" data-clipboard-text="<script src='<%=embed_link_url(gist.user, gist)%>.js'></script>">
-             <span class="fa fa-clipboard"></span>
-            </button>
-            <%= link_to gist_path(gist), method: :delete, class: "btn btn-default" do %>
-              <span class="fa fa-trash-o"></span>
+            <%= clipboard_tag_for(gist) %>
+            <%= link_to edit_gist_path(gist), class: "btn btn-default", data:{ toggle: 'tooltip', placement: 'top' }, title: 'Edit' do %>
+              <%= tag(:span, class: "fa fa-edit") %>
+            <% end %>
+            <%= link_to gist_path(gist), method: :delete, class: "btn btn-default", data: { toggle: 'tooltip', placement: 'top' }, title: 'Delete' do %>
+              <%= tag(:span, class: 'fa fa-trash-o') %>
             <% end %>
           </div><!-- .btn-group -->
         </li>
-       <div class="line"><hr /></div><br>
+       <div class="line"><hr/></div><br>
       <% end %>
     </ul>
   </div><!-- .index_list -->

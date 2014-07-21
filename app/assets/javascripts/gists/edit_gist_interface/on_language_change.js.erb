@@ -7,10 +7,12 @@ JW.$document.on( 'page:change', function(){
     gistLanguage,
     supportedLanguages,
     toAceLang,
-    editor;
+    editor,
+    language;
 
+  language           = $( '#gist_language' ).val();
   editor             = JW.editor,
-  $gistLanguage       = $('#gist_language'),
+  $gistLanguage      = $('#gist_language'),
   supportedLanguages = JSON.parse('<%= supported_languages.to_json %>');
 
   // handle odd language cases from
@@ -28,7 +30,9 @@ JW.$document.on( 'page:change', function(){
   //---------------------------------|
 
 
-  $gistLanguage.on('change', function(){
+  editor.getSession().setMode( "ace/mode/" + (toAceLang( language ) || 'text') );
+
+  $gistLanguage.on( 'change', function() {
     // change ace syntax highlighting accordingly to selected
     // language --------------------------------------------------------|
     var 

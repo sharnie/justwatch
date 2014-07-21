@@ -3,86 +3,30 @@
 
       <%= color_field_tag 'brush-color', '#000000', class: 'canvas-tool-tip', data: {toggle: 'tooltip', placement: 'right'}, title: 'Color' %>
 
-      <%= content_tag :span, class: 'radio-button canvas-tool-tip', data: {toggle: 'tooltip', placement: 'right'}, title: 'Text' do %>
-        <%= label_tag 'tool_text' do %>
-          <%= content_tag :i, '', class: 'fa fa-keyboard-o' %>
-        <% end %>
-        <%= radio_button_tag :tool, :text %>
-      <% end %>
-
+      <%= tool_radio_tag(:text, title: 'Text', icon: 'keyboard-o') %>
       <br>
-
-      <%= content_tag :span, class: 'radio-button selected canvas-tool-tip', data: {toggle: 'tooltip', placement: 'right'}, title: 'Pencil' do %>
-        <%= label_tag 'tool_pencil' do %>
-          <%= content_tag :i, '', class: 'fa fa-pencil' %>
-        <% end %>
-        <%= radio_button_tag :tool, :pencil, selected: true %>
-      <% end %>
-      
+      <%= tool_radio_tag(:pencil, title: 'Pencil', icon: 'pencil', checked: true ) %>
       <br>
-
-      <%= content_tag :span, class: 'radio-button canvas-tool-tip', data: {toggle: 'tooltip', placement: 'right'}, title: 'Filled Square' do %>
-        <%= label_tag 'tool_filled_box' do %>
-          <%= content_tag :i, '', class: 'fa fa-square' %>
-        <% end %>
-        <%= radio_button_tag :tool, :filled_box %>
-      <% end %>
-
+      <%= tool_radio_tag(:filled_box, title: 'Filled Box', icon: 'square') %>
       <br>
-
-      <%= content_tag :span, class: 'radio-button canvas-tool-tip', data: {toggle: 'tooltip', placement: 'right'}, title: 'Outlined Square' do %>
-        <%= label_tag 'tool_empty_box' do %>
-          <%= content_tag :i, '', class: 'fa fa-square-o' %>
-        <% end %>
-        <%= radio_button_tag :tool, :empty_box %>
-      <% end %>
-
+      <%= tool_radio_tag(:empty_box, title: 'Outlined Box', icon: 'square-o') %> 
       <br>
-
-      <%= content_tag :span, class: 'radio-button canvas-tool-tip', data: {toggle: 'tooltip', placement: 'right'}, title: 'Line' do %>
-        <%= label_tag 'tool_line' do %>
-          <%= content_tag :i, '', class: 'fa fa-minus' %>
-        <% end %>
-        <%= radio_button_tag :tool, :line %>
-      <% end %>
-
+      <%= tool_radio_tag(:line, title: 'Line', icon: 'minus') %> 
       <br>
-
-      <%= content_tag :span, class: 'radio-button canvas-tool-tip', data: {toggle: 'tooltip', placement: 'right'}, title: 'Arrow' do %>
-        <%= label_tag 'tool_arrow' do %>
-          <%= content_tag :i, '', class: 'fa fa-long-arrow-left' %>
-        <% end %>
-        <%= radio_button_tag :tool, :arrow %>
-      <% end %>
-
+      <%= tool_radio_tag(:arrow, title: 'Arrow', icon: 'long-arrow-left') %> 
       <br>
-
-      <%= content_tag :span, class: 'radio-button canvas-tool-tip', data: {toggle: 'tooltip', placement: 'right'}, title: 'Eraser' do %>
-        <%= label_tag 'tool_eraser' do %>
-          <%= content_tag :i, '', class: 'fa fa-eraser' %>
-        <% end %>
-        <%= radio_button_tag :tool, :eraser %>
-      <% end %>
-
+      <%= tool_radio_tag(:eraser, title: "Eraser", icon: 'eraser') %>
       <br>
-
-      <%= content_tag :span, class: 'radio-button canvas-tool-tip', data: {toggle: 'tooltip', placement: 'right'}, title: 'Crop' do %>
-        <%= label_tag 'tool_crop' do %>
-          <%= content_tag :i, '', class: 'fa fa-crop' %>
-        <% end %>
-        <%= radio_button_tag :tool, :crop %>
-      <% end %>
-
+      <%= tool_radio_tag(:crop, title: 'Crop', icon: 'crop') %> 
       <br>
 
       <%= content_tag :span, class: 'jw-button canvas-tool-tip', data: {toggle: 'tooltip', placement: 'right'}, title: 'Undo' do %>
-        <% button_tag id: 'undo-button' do %>
+        <% button_tag id: 'undo-button', role:'undo' do %>
           <%= content_tag :i, '', class: 'fa fa-undo' %>
         <% end %>
       <% end %>
       <br>
       <br>
-  
 
       <%= content_tag :span, class: 'jw-slider' do %>        
         <%= content_tag :div, nil, id: 'opacity-slider' %>
