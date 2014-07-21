@@ -22,3 +22,4 @@
 //= require jquery-ui/slider
 //= require canvas
 //= require jw
+//= require tooltips
