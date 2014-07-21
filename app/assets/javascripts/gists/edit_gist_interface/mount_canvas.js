@@ -1,4 +1,27 @@
 JW.$document.on( 'page:change', function(){
+
+  JW.toggleEditMode = function( mode ){
+    var $editor = $( '#editor' );
+
+    if( mode === 'canvas' ){
+      $editor
+        .css({ opacity: 1 })
+        .removeClass( 'front' )
+        .addClass( 'back' );
+      JW.canvas.$canvas
+        .removeClass( 'back' )
+        .addClass( 'front' );
+    }else if( mode === 'editor'){
+      $editor
+        .css({ opacity: 0.8 })
+        .removeClass( 'back' )
+        .addClass( 'front' );
+      JW.canvas.$canvas
+        .removeClass( 'front' )
+        .addClass( 'back' );
+    }
+    
+  };
   
   // declare canvas 
   // must execute first -----------------------|
@@ -44,11 +67,14 @@ JW.$document.on( 'page:change', function(){
 
       img.src = url;
 
-      $('.gist-preview .prev-content').fadeOut(function(){
-        $( this )
-          .html( $( img ) )
-          .fadeIn();
-      });
+      $('<div>')
+        .css({ background: 'white', width: '500px', height: '500px' })
+        .append( img )
+        .modal({
+          keyboard: false,
+          show: true
+        });
+
       // set the image url of hidden field
       // this is important for form submission -----|
       $( '#gist_visual_attributes_url' ).val( url );

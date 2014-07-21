@@ -40,8 +40,8 @@ class GistsController < ApplicationController
   end
 
   def embed
-    @user = User.find(params[:user_id])
-    @gist = @user.gists.find_by_url(params[:gist_url])
+    @user = User.find( params[:user_id] )
+    @gist = @user.gists.find_by_url( params[:gist_url] )
 
     respond_to do |format| 
       if @user.is_authorized_user?

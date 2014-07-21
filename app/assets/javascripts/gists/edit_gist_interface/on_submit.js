@@ -13,7 +13,8 @@ JW.$document.on('page:change', function(){
     
     if( !$( '#gist_visual_attributes_url' ).val() ){
       // subject to change -------|
-      alert( 'CROP YO CANVAS' );
+      JW.toggleEditMode( 'canvas' );
+      JW.canvas.use( 'crop' );
       //--------------------------|
       e.preventDefault();
       return;
