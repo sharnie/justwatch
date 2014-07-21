@@ -7,7 +7,7 @@ module GistsHelper
   end
 
   def coderay(text, lang = :javascript)  
-    CodeRay.scan(text, lang).span
+    CodeRay.scan(text, lang).div(:line_numbers => :table, :code => :pre)
   end
 
   def supported_languages

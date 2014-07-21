@@ -9,8 +9,8 @@
       <% current_or_guest_user.gists.each do |gist| %>
         <li>
           <%= render 'gists/gist_display', gist: gist %>
-          <div class="btn-group" role= "toolbar">
 
+          <div class="btn-group" role= "toolbar">
             <button type="button" class="btn btn-group btn-default" id="copytoclipboard-button-<%= gist.id %>" data-clipboard-text="<script src='<%=embed_link_url(gist.user, gist)%>.js'></script>">
              <span class="fa fa-clipboard"></span>
             </button>
