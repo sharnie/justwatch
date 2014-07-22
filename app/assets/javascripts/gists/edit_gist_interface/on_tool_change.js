@@ -21,21 +21,9 @@ JW.$document.on( 'page:change', function(){
     // allow switching of context between writing and drawing
     //-----------------------------|
     if( tool === 'text'){
-      $editor
-        .css({ opacity: 0.8 })
-        .removeClass( 'back' )
-        .addClass( 'front' );
-      JW.canvas.$canvas
-        .removeClass( 'front' )
-        .addClass( 'back' );
+      JW.toggleEditMode( 'editor' );
     } else {
-      $editor
-        .css({ opacity: 1 })
-        .removeClass( 'front' )
-        .addClass( 'back' );
-      JW.canvas.$canvas
-        .removeClass( 'back' )
-        .addClass( 'front' );
+      JW.toggleEditMode( 'canvas' );
 
       JW.canvas.use( $this.val() );
     }
@@ -80,8 +68,9 @@ JW.$document.on( 'page:change', function(){
   //-------------------------------------------------------|
 
 
-  // undo button -------------------
+  // undo button ---------------------|
   $undoButton.on( 'click', function(){
     JW.canvas.undo();
   });
+  //----------------------------------|
 });
