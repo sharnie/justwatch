@@ -135,6 +135,10 @@ a,a:hover,a:focus {
     padding:20px;
     position:relative;
 }
+.login-wrap h3 {
+    text-align: center;
+}
+
 .user-login-info {
     background:#eaeaec;
     margin:-20px -20px 20px -20px;
