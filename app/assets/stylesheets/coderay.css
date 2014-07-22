@@ -17,7 +17,7 @@
 .CodeRay .cl { color:#FFF }                         /* class */  
 .CodeRay .co { color:#FFF }                         /* constant */  
 .CodeRay .fl { color:#A4C260 }                      /* float */  
-.CodeRay .fu { color:#FFC56D }                       function   
+.CodeRay .fu { color:#FFC56D }                      /* function   */
 .CodeRay .gv { color:#D0CFFE }                      /* global variable */  
 .CodeRay .i  { color:#A4C260 }                      /* integer */  
 .CodeRay .il { background:#151515 }                 /* inline code */  
