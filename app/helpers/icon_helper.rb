@@ -1,7 +1,7 @@
 module IconHelper
 
   def clipboard_tag_for( gist )
-    link_to "#", class: "btn btn-default", 
+    link_to "#", class: "btn btn-primary", 
       data: { 
         clipboard: true,
         toggle: 'tooltip', 
