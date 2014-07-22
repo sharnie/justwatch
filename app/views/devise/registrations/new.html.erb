@@ -1,30 +1,31 @@
-<form class= "form-signin">
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), :class =>"form-signin") do |f| %>
-  <h2 class = "form-signin-heading">Register Now</h2>
-    <%= devise_error_messages! %>
-    <div class = "login-wrap">
-      <p> Enter your account details below</p>
-    <br>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { :class => "form-signin" }) do |f| %>
+  <%= content_tag :h2, "Register Now", class: 'form-signin-heading' %>
+  
+  <%= devise_error_messages! %>
+  
+  <%= content_tag :div, class: 'login-wrap' do %>
+    <%= content_tag :p, "Enter your account details below" %>
+    
     <%= f.text_field :email, autofocus: true, :placeholder => "Your Email", :class => "form-control" %>
 
     <% if f.object.password_required? %>
+      <%= f.password_field :password, autocomplete: "off",:placeholder => "Your Password",:class => "form-control" %>
 
-      <br>
-      <%= f.password_field :password, autocomplete: "off",:placeholder => "Your Password",:class => "form-control" %><br>
-
-    
-      <%= f.password_field :password_confirmation, :placeholder => "Re-type your Password", autocomplete: "off", :class => "form-control" %><br>
+      <%= f.password_field :password_confirmation, :placeholder => "Re-type your Password", autocomplete: "off", :class => "form-control" %>
     <% end %>
-
-    <div><%= f.submit "Sign up", :class => "btn btn-lg btn-login btn-block" %></div>
-  <% end %>
-  <div class = "registration"> Already registered ? <%= link_to "Sign in", new_session_path(resource_name)%> 
-    <%- if devise_mapping.omniauthable? %> <br>
-      <%- resource_class.omniauth_providers.each do |provider| %>
-          <%= link_to "Sign in with #{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider) %><br />
+    
+    <%= f.submit "Sign up", :class => "btn btn-lg btn-login btn-block" %>
+  
+    <div class = "registration"> 
+      Already registered ? 
+      <%= link_to "Sign in", new_session_path(resource_name)%> 
+      <%- if devise_mapping.omniauthable? %> <br>
+        <%- resource_class.omniauth_providers.each do |provider| %>
+            <%= link_to "Sign in with #{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider) %><br />
+        <% end -%>
       <% end -%>
-    <% end -%>
 
-  </div> <!-- registration -->
-  </div><!--  close login-wrap -->
-</form>
+    </div>
+
+  <% end %>
+<% end %> 
