@@ -18,8 +18,10 @@
 //= require bootstrap
 //= require bootstrap/tooltip
 //= require ace/ace
-//= require zeroclipboard
 //= require jquery-ui/slider
+//= require zeroclipboard
 //= require canvas
 //= require jw
+
+//= require add_to_clipboard
 //= require tooltips

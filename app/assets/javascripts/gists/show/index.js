@@ -1,1 +1,0 @@
-//= require ../shared/add_to_clipboard

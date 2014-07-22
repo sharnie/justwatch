@@ -1,9 +1,9 @@
 module IconHelper
 
   def clipboard_tag_for( gist )
-    button_tag class: "btn btn-default", 
-      id: "copytoclipboard-button-#{ gist.id }", 
+    link_to "#", class: "btn btn-default", 
       data: { 
+        clipboard: true,
         toggle: 'tooltip', 
         placement: 'top',
         "clipboard-text" => "<script src='#{ embed_link_url(gist.user, gist) }.js'></script>" 
