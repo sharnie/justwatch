@@ -12,17 +12,17 @@
         <li>
           <%= render 'gists/gist_display', gist: gist %>
 
-          <div class="btn-group" role= "toolbar">
+          <div class="compose-btn pull-right" role= "toolbar">
 
-            <%= link_to gist_path(gist), class: "btn btn-default", data:{ toggle: 'tooltip', placement: 'top' }, title: 'View' do %>
+            <%= link_to gist_path(gist), class: "btn btn-primary", data:{ toggle: 'tooltip', placement: 'top' }, title: 'View' do %>
               <%= tag(:span, class: "fa fa-eye") %>
             <% end %>
             <%= clipboard_tag_for(gist) %>
 
-            <%= link_to edit_gist_path(gist), class: "btn btn-default", data:{ toggle: 'tooltip', placement: 'top' }, title: 'Edit' do %>
+            <%= link_to edit_gist_path(gist), class: "btn btn-primary", data:{ toggle: 'tooltip', placement: 'top' }, title: 'Edit' do %>
               <%= tag(:span, class: "fa fa-edit") %>
             <% end %>
-            <%= link_to gist_path(gist), method: :delete, class: "btn btn-default", data: { toggle: 'tooltip', placement: 'top' }, title: 'Delete' do %>
+            <%= link_to gist_path(gist), method: :delete, class: "btn btn-primary", data: { toggle: 'tooltip', placement: 'top' }, title: 'Delete' do %>
               <%= tag(:span, class: 'fa fa-trash-o') %>
 
             <% end %>
