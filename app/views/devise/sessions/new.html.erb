@@ -1,17 +1,28 @@
-<h2>Log in</h2>
+<body class="login-body">
+<div class="container">
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true %></div>
 
-  <div><%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %></div>
+<%= form_for(resource, :html => {:class => "form-signin"}, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-  <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-  <% end -%>
+  <h2 class="form-signin-heading">Sign In Now</h2>
+  <div class = "login-wrap">
+    <div class="user-login-info">
+      <%= f.email_field :email, autofocus: true, placeholder: "Email", :class => "form-control"  %><br>
+      <%= f.password_field :password, autocomplete: "off", placeholder: "Password", :class => "form-control" %>
+    </div>
+  <label class="checkbox">
+    <% if devise_mapping.rememberable? %>
+      <%= f.check_box :remember_me, :class => "checkbox box" %>
+      <%= f.label :remember_me, :class => "checkbox"%>  
+    <% end %>
 
-  <div><%= f.submit "Log in" %></div>
+  </label>
+
+    <%= f.submit "Sign in", :class => "btn btn-lg btn-login btn-block" %>
 <% end %>
-
+</div>
+</div> 
 <%= render "devise/shared/links" %>
+</body>
+
+
