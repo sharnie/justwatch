@@ -1,14 +1,22 @@
 <% has_page_specific_js! %>
+<section class="panel">
+  <header class="panel-heading">
+    <%= @gist.name %>
+  </header>
 
-<%= render 'gists/gist_display', gist: @gist %>
+    <%= render 'gists/gist_display', gist: @gist %>
 
+
+</section>
 
 <% if current_or_guest_user.is_authorized_user? %>
-<div class = "gist_show_container" >
-  <p>Embed your project into your site:</p>
+  <div class = "gist_show_container" >
 
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-xs-4">
+      <h5>Embed your project into your site:</h5>
+    </div>
+    <div class="col-xs-8">
       <div class="input-group">
         <%= text_field_tag :embed_url, "<script src='#{embed_link_url(@gist.user, @gist)}.js'></script>", disabled: true, size:50, class: "form-control" %> 
         <span class="input-group-btn">
