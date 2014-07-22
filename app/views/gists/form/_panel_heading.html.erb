@@ -1,5 +1,4 @@
-
-  <div class="panel-title">
+<div class="panel-heading">
   <div class="panel-title">
       <div class="row row-10-gutter ">
         <div class="col-xs-3 col-3-gutter">
@@ -7,7 +6,7 @@
         </div>
 
         <div class="col-xs-3 col-3-gutter">
-          <%= builder.collection_select :language, supported_languages, :to_s, :to_s, {include_blank: false, prompt: "Language"}, {class: "form-control"} %>
+          <%= builder.collection_select :language, supported_languages, :to_s, :to_s, {include_blank: false, prompt: "Language"}, { class: "form-control" } %>
         </div>
       </div>
   </div>
