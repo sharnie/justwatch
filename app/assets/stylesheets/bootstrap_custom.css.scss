@@ -9,3 +9,10 @@
   padding-top: 100px;
   max-width: 800px;
 }
+
+.checkbox.custom-checkbox {
+  input[type=checkbox]{
+    position: initial;
+    margin-left: 0;
+  }
+}
