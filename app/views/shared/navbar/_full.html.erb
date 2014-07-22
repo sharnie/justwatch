@@ -1,34 +1,5 @@
-<!--header start-->
-<header class="header fixed-top clearfix">
-  
-  <%= render 'shared/navbar/logo' %>
-
-  <div class="nav notify-row" id="top_menu">
-      <!--  notification start -->
-      <ul class="nav top-menu">
-          <!-- settings start -->
-          <li class="dropdown">
-              <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                  <i class="fa fa-plus"></i>
-              </a>
-          </li>
-          <!-- settings end -->
-          <!-- inbox dropdown start-->
-          <li id="header_inbox_bar" class="dropdown">
-              <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                  <i class="fa fa-folder-open"></i>
-              </a>
-          </li>
-          <!-- inbox dropdown end -->
-      </ul>
-      <!--  notification end -->
-  </div>
-  <div class="top-nav clearfix">
-      <!--search & user info start-->
-      <ul class="nav pull-right top-menu">
-        <%= render 'shared/navbar/un_authorized_content' %>
-      </ul>
-      <!--search & user info end-->
-  </div>
-</header>
-<!--header end-->
+<% if user_signed_in? %>
+  <%= render 'shared/navbar/authorized_content' %>
+<% else %>
+  <%= render 'shared/navbar/un_authorized_content' %>
+<% end %>

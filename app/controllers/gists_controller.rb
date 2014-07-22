@@ -15,12 +15,22 @@ class GistsController < ApplicationController
   end
 
   def create
-    @gist.user = current_or_guest_user
     @gist.language = "text" if @gist.language.blank?
-    if @gist.save
-      redirect_to gist_path(@gist)
-    else
-      redirect_to root_path, notice: "Ouuups something went wrong, try again..."
+    @gist.user = current_or_guest_user
+
+    respond_to do |format|
+
+      format.html do
+        if params[:preview]
+          render(partial: 'gists/preview', locals: { gist: @gist } ) and return
+        else
+          if @gist.save
+            redirect_to gist_path(@gist)
+          else
+            redirect_to root_path, notice: "Ouuups something went wrong, try again..."
+          end
+        end
+      end
     end
   end
 
@@ -40,8 +50,8 @@ class GistsController < ApplicationController
   end
 
   def embed
-    @user = User.find(params[:user_id])
-    @gist = @user.gists.find_by_url(params[:gist_url])
+    @user = User.find( params[:user_id] )
+    @gist = @user.gists.find_by_url( params[:gist_url] )
 
     respond_to do |format| 
       if @user.is_authorized_user?
@@ -64,10 +74,8 @@ private
   def set_gist_and_visual
     if params[:url]
       @gist = Gist.find_by_url( params[:url] )
-      @visual = @gist.visual
     else
       @gist = Gist.new
-      @visual = Visual.new
     end
 
     if params[:gist]

@@ -1,22 +1,51 @@
-<!-- <li><%= link_to "Sign in with GitHub", user_omniauth_authorize_path(:github) %></li> -->
+<header class="header fixed-top clearfix">
 
-<!-- user login dropdown start-->
-<li class="dropdown">
-    <div href="#" class="btn btn-info" id="sign-in-button" data-toggle="dropdown" class="dropdown-toggle">
-        <div class="fa fa-sign-out"></div> Sign In
-        <b class="caret"></b>
-    </div>
-    <ul class="dropdown-menu extended logout">
-        <li>
-          <%= link_to new_user_session_path do %>
-            <i class=" fa fa-key"></i> Login
-          <% end %>
-        </li>
-        <li>
-          <%= link_to new_user_registration_path do %>
-            <i class="fa fa-user"></i> Sign up
-          <% end %>
-        </li>
+  <%= render 'shared/navbar/logo' %>
+
+  <div class="nav notify-row" id="top_menu">
+    <ul class="nav top-menu">
+
+      <li class="dropdown">
+        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+            <i class="fa fa-plus"></i>
+        </a>
+      </li>
+
+      <li id="header_inbox_bar" class="dropdown">
+          <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+              <i class="fa fa-folder-open"></i>
+          </a>
+      </li>
+
     </ul>
-</li>
-<!-- user login dropdown end -->
+  </div>
+
+  <!-- right begins here -->
+  <div class="top-nav clearfix">
+    <ul class="nav pull-right top-menu">
+
+      <li class="dropdown">
+        <div href="#" class="btn btn-info" id="sign-in-button" data-toggle="dropdown" class="dropdown-toggle">
+            <div class="fa fa-sign-out"></div> Sign In
+            <b class="caret"></b>
+        </div>
+        <ul class="dropdown-menu extended logout">
+          
+          <li>
+            <%= link_to new_user_session_path do %>
+              <%= content_tag(:i, nil, class: 'fa fa-key' ) %>Login
+            <% end %>
+          </li>
+
+          <li>
+            <%= link_to new_user_registration_path do %>
+              <%= content_tag(:i, nil, class: 'fa fa-user') %>Sign up
+            <% end %> 
+          </li>
+
+        </ul>
+      </li>
+
+    </ul>
+  </div>
+</header>
