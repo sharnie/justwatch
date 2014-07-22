@@ -22,11 +22,12 @@
 <span class="pull-right"><%= link_to "Forgot your password?", new_password_path(resource_name) %></a></span>
     <br>
 
-<div class= "registration">
-Don't have an account yet? <%= link_to "Create an account", new_registration_path(resource_name) %> <br>
+  <div class= "registration">
+Don't have an account yet?  <%= link_to "Create an account", new_registration_path(resource_name) %> <br>
 <%- if devise_mapping.omniauthable? %>
   <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= link_to "Sign in with #{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider) %><br />
+  <br><br>
+  <div class= "registration"><%= link_to "Sign in with #{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider)%></div>
   <% end -%>
 <% end -%>
 </div> <!-- closes login-wrap -->

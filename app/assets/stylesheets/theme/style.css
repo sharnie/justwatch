@@ -134,6 +134,7 @@ a,a:hover,a:focus {
 .login-wrap {
     padding:20px;
     position:relative;
+    padding-bottom: 40px;
 }
 .user-login-info {
     background:#eaeaec;
@@ -145,7 +146,7 @@ a,a:hover,a:focus {
 }
 .registration {
     position:absolute;
-    right:0;
+    left:0;
     bottom:-45px;
     color: #b8bab9;
 }
