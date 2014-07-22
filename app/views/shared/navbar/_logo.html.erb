@@ -1,7 +1,7 @@
 <!--logo start-->
 <div class="brand">
-  <a href="index.html" class="logo">
-    <%= image_tag "theme/logo.png" %>
-  </a>
+  <%= link_to root_path, class: 'logo' do %>
+    <%= image_tag "theme/logo.png" %>    
+  <% end %>
 </div>
 <!--logo end-->

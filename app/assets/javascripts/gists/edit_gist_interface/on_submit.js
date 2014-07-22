@@ -10,15 +10,12 @@ JW.$document.on('page:change', function(){
   // --------------------------------------------------|  
   $gistForm.on('submit', function( e ){
 
-    
-    if( !$( '#gist_visual_attributes_url' ).val() ){
-      // subject to change -------|
-      JW.toggleEditMode( 'canvas' );
-      JW.canvas.use( 'crop' );
-      //--------------------------|
-      e.preventDefault();
-      return;
-    }
+    // subject to change -------|
+    JW.toggleEditMode( 'canvas' );
+    JW.canvas.use( 'crop' );
+    //--------------------------|
+    e.preventDefault();
+    return;
   });
   //---------------------------------------------------|
 

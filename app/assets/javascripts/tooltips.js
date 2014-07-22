@@ -2,7 +2,6 @@ JW.$document.on( 'page:change', function(){
   // enable tooltip for tools and sliders ---------|
   $("*[data-toggle='tooltip']").tooltip();
 
-  console.log($("#opacity-slider .ui-slider-handle"));
 
   $("#opacity-slider .ui-slider-handle").tooltip({
     placement: 'right',
