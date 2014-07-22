@@ -134,7 +134,10 @@ a,a:hover,a:focus {
 .login-wrap {
     padding:20px;
     position:relative;
-    padding-bottom: 40px;
+    padding-bottom: 30px;
+}
+.login-wrap h3 {
+    text-align: center;
 }
 .user-login-info {
     background:#eaeaec;
