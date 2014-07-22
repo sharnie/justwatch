@@ -85,7 +85,12 @@ a,a:hover,a:focus {
     color:#b6b6b6;
     font-weight:300;
     font-family:'Open Sans',sans-serif;
+    
 }
+.form-signin .checkbox .box{
+    margin-left: 7px;
+}
+
 .form-signin .form-control {
     position:relative;
     font-size:16px;
@@ -129,6 +134,7 @@ a,a:hover,a:focus {
 .login-wrap {
     padding:20px;
     position:relative;
+    padding-bottom: 40px;
 }
 .user-login-info {
     background:#eaeaec;
@@ -140,8 +146,8 @@ a,a:hover,a:focus {
 }
 .registration {
     position:absolute;
-    right:0;
-    bottom:-35px;
+    left:0;
+    bottom:-45px;
     color: #b8bab9;
 }
 /*sidebar navigation*/
