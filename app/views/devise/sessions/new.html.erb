@@ -1,13 +1,11 @@
 <body class="login-body">
 
-
-
 <%= form_for(resource, :html => {:class => "form-signin"}, as: resource_name, url: session_path(resource_name)) do |f| %>
 
   <h2 class="form-signin-heading">Sign In Now</h2>
   <div class = "login-wrap">
     <div class="user-login-info">
-      <%= f.email_field :email, autofocus: true, placeholder: "Email", :class => "form-control"  %><br>
+      <%= f.text_field :email, autofocus: true, placeholder: "Email", :class => "form-control"  %>
       <%= f.password_field :password, autocomplete: "off", placeholder: "Password", :class => "form-control" %>
     </div> <!-- closes user-login-info -->
   <label class="checkbox">
@@ -16,7 +14,7 @@
       <%= f.check_box :remember_me, :class => "checkbox box" %>
       <%= f.label :remember_me, :class => "checkbox"%>  
     <% end %>
-    <span class="pull-right"><a data-toggle="modal" href="#myModal"> Forgot Password?</a></span>
+    <span class="pull-right"><%= link_to "Forgot your password?", new_password_path(resource_name) %></a></span>
     <br>
   </label>
 
