@@ -16,11 +16,6 @@
   position: relative;
 }
 
-#show-canvas {
-  position: absolute;
-  top: 0px;
-}
-
 // gist form 
 #editor {
   height: 300px;
@@ -36,8 +31,7 @@
 }
 
 #canvas-tools {
-  // display: none;
-  // padding-top: 55px;
+  
   input {
     &[type="color"] {
       border: none;

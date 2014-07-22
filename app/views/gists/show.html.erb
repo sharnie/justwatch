@@ -4,7 +4,7 @@
 
 
 <% if current_or_guest_user.is_authorized_user? %>
-
+<div class = "gist_show_container"
   <p>Embed your project into your site:</p>
 
   <div class="row">
@@ -31,4 +31,5 @@
   <p><%= link_to 'log in', new_user_session_path %> to embed content</p>
 
 <% end %>
+</div> <!-- gist_show_container -->
 

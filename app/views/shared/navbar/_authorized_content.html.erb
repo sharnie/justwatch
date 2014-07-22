@@ -6,15 +6,15 @@
     <ul class="nav top-menu">
 
       <li class="dropdown">
-        <%= link_to root_path, class: 'dropdown-toggle', data: {toggle: 'dropdown'} do %>
+        <%= link_to root_path, data: { :toggle => :tooltip, :placement => :bottom }, title: "New" do %>
           <i class="fa fa-plus"></i>
         <% end %>
       </li>
 
       <li id="header_inbox_bar" class="dropdown">
-          <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-              <i class="fa fa-folder-open"></i>
-          </a>
+        <%= link_to gists_path, data: { :toggle => :tooltip, :placement => :bottom }, title: "Projects" do %>
+          <i class="fa fa-folder-open"></i>
+        <% end%>
       </li>
 
     </ul>
@@ -39,7 +39,7 @@
           </li>
           <li>
             <%= link_to destroy_user_session_path, method: :delete do %>
-              <i class="fa fa-sign-out"></i> Sign Out <b class="caret"></b>
+              <i class="fa fa-sign-out"></i> Sign Out
             <% end %>
           </li>
         </ul>
