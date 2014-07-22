@@ -1,4 +1,4 @@
-<li>
+<!-- <li>
   <%= link_to(tag(:span, class: 'fa fa-folder-open'), gists_path, data: { toggle: 'tooltip', placement: 'bottom' }, title: "Projects") %>
 </li>
 <li>
@@ -12,3 +12,18 @@
     <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
   </ul>
 </li>
+ -->
+<!-- user login dropdown start-->
+<li class="dropdown">
+    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+        <img alt="" src="images/avatar1_small.jpg">
+        <span class="username">John Doe</span>
+        <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu extended logout">
+        <li><a href="#"><i class=" fa fa-suitcase"></i>Profile</a></li>
+        <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
+        <li><a href="login.html"><i class="fa fa-key"></i> Log Out</a></li>
+    </ul>
+</li>
+<!-- user login dropdown end -->

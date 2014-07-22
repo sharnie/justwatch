@@ -26,23 +26,7 @@
   <div class="top-nav clearfix">
       <!--search & user info start-->
       <ul class="nav pull-right top-menu">
-          <!-- user login dropdown start-->
-          <li class="dropdown">
-              <div href="#" class="btn btn-info" id="sign-in-button" data-toggle="dropdown" class="dropdown-toggle">
-                  <div class="fa fa-sign-out"></div> Sign In
-                  <b class="caret"></b>
-              </div>
-              <ul class="dropdown-menu extended logout">
-                  <li><a href="#"><i class=" fa fa-key"></i>Log In</a></li>
-                  <li><a href="#"><i class="fa fa-user"></i> Sign Up</a></li>
-              </ul>
-          </li>
-          <!-- user login dropdown end -->
-          <li>
-              <div class="toggle-right-box">
-                  <div class="fa fa-bars"></div>
-              </div>
-          </li>
+        <%= render 'shared/navbar/un_authorized_content' %>
       </ul>
       <!--search & user info end-->
   </div>
