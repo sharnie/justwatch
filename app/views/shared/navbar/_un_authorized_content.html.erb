@@ -10,8 +10,7 @@
             <i class="fa fa-plus"></i>
         </a>
       </li>
-      <!-- settings end -->
-      <!-- inbox dropdown start-->
+
       <li id="header_inbox_bar" class="dropdown">
           <a data-toggle="dropdown" class="dropdown-toggle" href="#">
               <i class="fa fa-folder-open"></i>
@@ -22,7 +21,6 @@
   </div>
 
   <!-- right begins here -->
-
   <div class="top-nav clearfix">
     <ul class="nav pull-right top-menu">
 
@@ -32,16 +30,17 @@
             <b class="caret"></b>
         </div>
         <ul class="dropdown-menu extended logout">
-          <li>
-            <%= link_to new_user_registration_path do %>
-              <%= content_tag(:i, nil, class: 'fa fa-user') %>Sign up
-            <% end %> 
-          </li>
-
+          
           <li>
             <%= link_to new_user_session_path do %>
               <%= content_tag(:i, nil, class: 'fa fa-key' ) %>Login
             <% end %>
+          </li>
+
+          <li>
+            <%= link_to new_user_registration_path do %>
+              <%= content_tag(:i, nil, class: 'fa fa-user') %>Sign up
+            <% end %> 
           </li>
 
         </ul>

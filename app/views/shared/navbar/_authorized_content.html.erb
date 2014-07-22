@@ -6,34 +6,42 @@
     <ul class="nav top-menu">
 
       <li class="dropdown">
-      <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+        <%= link_to root_path, class: 'dropdown-toggle', data: {toggle: 'dropdown'} do %>
           <i class="fa fa-plus"></i>
-      </a>
-    </li>
-    <!-- settings end -->
-    <!-- inbox dropdown start-->
-    <li id="header_inbox_bar" class="dropdown">
-        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-            <i class="fa fa-folder-open"></i>
-        </a>
-    </li>
+        <% end %>
+      </li>
+
+      <li id="header_inbox_bar" class="dropdown">
+          <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+              <i class="fa fa-folder-open"></i>
+          </a>
+      </li>
 
     </ul>
   </div>
 
   <!-- right begins here -->
-
   <div class="top-nav clearfix">
     <ul class="nav pull-right top-menu">
 
       <li class="dropdown">
-        <div href="#" class="btn btn-info" id="sign-in-button" data-toggle="dropdown" class="dropdown-toggle">
-            <div class="fa fa-sign-out"></div> Sign Out
-            <b class="caret"></b>
-        </div>
+        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+          <%= gravatar_image_tag_for(current_user, 50) %>
+          <span class="username"><%= current_user.email %></span>
+          <b class="caret"></b>
+        </a>
+        
         <ul class="dropdown-menu extended logout">
-          
-
+          <li>
+            <%= link_to edit_user_registration_path do %>
+              <i class="fa fa-cog"></i> Settings
+            <% end %>
+          </li>
+          <li>
+            <%= link_to destroy_user_session_path, method: :delete do %>
+              <i class="fa fa-sign-out"></i> Sign Out <b class="caret"></b>
+            <% end %>
+          </li>
         </ul>
       </li>
 
