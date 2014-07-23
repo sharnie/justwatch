@@ -5,8 +5,8 @@
   document.write( '<%= j(render @gist).html_safe %>' );
 
   var 
-    base  = document.getElementById('jw-<%= @gist.url %>'),
-    body  = base.getElementsByClassName('gist-body')[0],
+    base  = document.getElementById( 'jw-<%= @gist.url %>' ),
+    body  = base.getElementsByClassName( 'gist-body' )[0],
     image = body.getElementsByClassName( 'jw_image' )[0],
     lineNumbers = body.getElementsByClassName( 'line-numbers' )[0];
   

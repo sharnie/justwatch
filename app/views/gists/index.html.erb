@@ -8,7 +8,7 @@
   </div>
   <div class= "index_list">
     <ul> 
-      <% current_or_guest_user.gists.each do |gist| %>
+      <% current_or_guest_user.gists.recent.each do |gist| %>
         <li>
           <%= render 'gists/gist_display', gist: gist %>
 
