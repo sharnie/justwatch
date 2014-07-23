@@ -357,7 +357,7 @@ ul.sidebar-menu li a.active i {
     height:80px;
     position:relative;
 }
-.brand_name {
+#brand-name-logo {
     color: #FFFFFF;
     font-size: 20px;
     text-transform: uppercase;
