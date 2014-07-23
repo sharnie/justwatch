@@ -52,4 +52,5 @@ gem 'jquery-ui-rails'
 gem 'ace-rails-ap'
 gem 'underscore-rails'
 gem 'rails_12factor', group: :production
+gem 'sprockets_better_errors'
 
