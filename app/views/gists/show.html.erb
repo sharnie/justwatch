@@ -1,1 +1,37 @@
-<%= javascript_include_tag "/embed/#{@gist.user_id}/#{@gist.id}.js" %>
+
+<% has_page_specific_js! %>
+
+<%= render 'gists/gist_display', gist: @gist %>
+
+<% if current_or_guest_user.is_authorized_user? %>
+  <div class = "gist_show_container" >
+
+  <div class="row">
+    <div class="col-xs-4">
+      <h5>Embed your project into your site:</h5>
+    </div>
+    <div class="col-xs-8">
+      <div class="input-group">
+        <%= text_field_tag :embed_url, "<script src='#{embed_link_url(@gist.user, @gist)}.js'></script>", disabled: true, size:50, class: "form-control" %> 
+        <span class="input-group-btn">
+
+          <%= clipboard_tag_for(@gist) %>
+          
+          <%= link_to edit_gist_path(@gist), class: "btn btn-primary", data:{ toggle: 'tooltip', placement: 'top' }, title: 'Edit' do %>
+            <%= tag(:span, class: "fa fa-edit") %>
+          <% end %>
+          <%= link_to gist_path(@gist), method: :delete, class: "btn btn-primary", data: { toggle: 'tooltip', placement: 'top' }, title: 'Delete' do %>
+            <%= tag(:span, class: 'fa fa-trash-o') %>
+          <% end %>
+        </span>
+
+      </div><!-- /input-group -->
+    </div><!-- /.col-lg-6 -->
+  </div><!-- /.row -->
+<% else %>
+
+  <p><%= link_to 'log in', new_user_session_path %> to embed content</p>
+
+<% end %>
+</div> <!-- gist_show_container -->
+

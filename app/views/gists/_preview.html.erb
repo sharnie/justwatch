@@ -1,0 +1,11 @@
+<%= form_for gist, html: { id: "gist-preview" } do |f| %>
+  <%= f.hidden_field :content, id: "preview-content" %>
+  <%= f.hidden_field :language, id: 'preview-language' %>
+  <%= f.text_field :name, id: 'preview-name', class: 'form-control', placeholder: "Name this project" %>
+  <%= f.fields_for(:visual_attributes, gist.visual) do |ff| %>
+    <%= ff.hidden_field :url, id: 'preview-url' %>
+  <% end %>
+  
+<% end %>
+<br>
+<%= render 'gists/gist_display', gist: gist %>

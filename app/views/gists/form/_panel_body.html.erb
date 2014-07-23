@@ -8,9 +8,9 @@
 
 
     <%= content_tag(:div, class: "form-group") do %>
-      <%= builder.fields_for :visual_attributes do |visual_f| %>
+      <%= builder.fields_for(:visual_attributes, @gist.visual) do |visual_f| %>
 
-        <canvas id='main-canvas' class='back' width="766px" height='298px' >
+        <canvas id='main-canvas' class='back' width="660px" height='298px' >
         </canvas>
 
         <%= visual_f.hidden_field :url %>

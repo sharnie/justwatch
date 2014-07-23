@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Justwatch</title>
+  <title>PrettyCode</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-  <script src="/ace/ace.js"></script>
+  
+  <%= yield :head %>
+
+  <%= csrf_meta_tags %>  
+  <%= favicon_link_tag '/assets/brush_icon.ico'%>
 </head>
 <body>
-  <%= render 'shared/navbar/full' %>
 
+  <%= render 'shared/navbar/full' %>
   <div class="container">
-    <%= render 'shared/flash' %>
+    <%= flash_messages %>
     <%= yield %>
+    <%= render 'shared/footer' %>
   </div>
-  
+
 
 </body>
 </html>

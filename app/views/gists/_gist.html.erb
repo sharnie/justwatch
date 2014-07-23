@@ -1,8 +1,18 @@
+<div class="gist gist-default" id="jw-<%= @gist.url %>">
+  <div class="gist-body">
+    <div class="gist-canvas">
+      <%= image_tag(@gist.visual.url, class: 'jw_image' ) %>
+    </div>
+    <%= coderay(@gist.content, @gist.language).html_safe %>
+  </div>
 
-<%= content_tag :div, id: "gist_content_#{gist.id}" do %>
-  <%= form_for(gist) do |f| %>
-    <div id="editor_<%= @gist.id %>" class="back"></div>
-    <%= f.text_area :content %>
-    <%= image_tag(gist.visual.url, id: "gist_image_#{gist.id}", class: 'front') %>
-  <% end %>
-<% end %>
+  <div class="gist-footer">
+    <span class="meta">
+      <a href="#">
+        <%= gravatar_image_tag_for( gist.user, 25, class: 'pull-left' ) %>
+        <span class="gist-title"><%= @gist.name %></span>
+      </a>
+    </span>
+    <a href="http://www.prettycode.us" class="hosted pull-right">Hosted with <span style= "color:red">&#10084;</span> by PrettyCode</a>
+  </div>
+</div>

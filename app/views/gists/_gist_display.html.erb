@@ -1,0 +1,20 @@
+<section class="panel">
+  <header class="panel-heading">
+    <%= gist.name %>
+  </header>
+
+  <div class="gist gist-default">
+
+    <div class="gist-body">
+      <div class="gist-canvas">
+        <%= image_tag(gist.visual.url, class: 'jw_image') %>
+      </div>
+      <%= coderay(gist.content, gist.language).html_safe %>
+    </div>
+
+  </div>
+
+</section>
+
+
+

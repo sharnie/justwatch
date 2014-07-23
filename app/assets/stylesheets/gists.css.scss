@@ -11,26 +11,81 @@
 #gist_canvas {
   position: relative;
 }
+
 #gist_content {
   position: relative;
-}
-#show-canvas {
-  position: absolute;
-  top: 0px;
-}
-
-#main-canvas {
-  position: absolute;
-  top: 0px;
-  border: 1px solid red;
-  background: transparent;
 }
 
 // gist form 
 #editor {
   height: 300px;
 }
-#new_gist .panel-body {
-  padding: 0px;
-  margin-bottom: -15px;
+
+.new_gist,.edit_gist{
+
+  .panel-body {
+    padding: 0px;
+    margin-bottom: -15px;
+  }
+
 }
+
+#canvas-tools {
+  
+  input {
+    &[type="color"] {
+      border: none;
+      width: 100%;
+      background: #ccc;
+    }
+
+    &[type="radio"] {
+      display: none;
+    }
+  }
+
+  span {
+    &.radio-button label {
+      padding: 5%;
+      width: 100%;
+      text-align: center;
+    }
+      
+    &.radio-button.selected label {
+      background-color: #E8F2FE;
+    }
+
+    &.jw-button {
+      padding: 18%;
+      button {
+        border: none;
+        background: none;
+
+      }
+    }
+
+    &.jw-slider {
+      height: 100px;
+      width: 100px;
+
+      #opacity-slider {
+        height: 30px;
+        margin-left: 30%;
+      }
+
+      #brush-slider {
+        height: 30px;
+        margin-top: 10px;
+        margin-bottom: 15px;
+        margin-left: 30%;
+      }
+
+    }
+
+  }
+
+
+}
+
+
+

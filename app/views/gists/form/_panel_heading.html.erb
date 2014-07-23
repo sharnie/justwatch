@@ -1,23 +1,13 @@
 <div class="panel-heading">
   <div class="panel-title">
-      <div class="row row-10-gutter">
+      <div class="row row-10-gutter ">
         <div class="col-xs-3 col-3-gutter">
           <%= builder.text_field :name, class: "form-control", placeholder: "Name this project..." %>
         </div>
-        <!-- <div class="col-xs-2 col-3-gutter">
-          <div class="dropdown">
-            <button href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-              Language: Text <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" role="menu">
-              <li><a href="#">Ruby</a></li>
-              <li><a href="#">Python</a></li>
-              <li><a href="#">JavaScript</a></li>
-              <li><a href="#">Scala</a></li>
-              <li><a href="#">C++</a></li>
-            </ul> 
-          </div>
-        </div> -->
+
+        <div class="col-xs-3 col-3-gutter">
+          <%= builder.collection_select :language, supported_languages, :to_s, :to_s, {include_blank: false, prompt: "Language"}, { class: "form-control" } %>
+        </div>
       </div>
   </div>
 </div>
