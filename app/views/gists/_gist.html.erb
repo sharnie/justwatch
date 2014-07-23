@@ -1,7 +1,7 @@
 <div class="gist gist-default" id="jw-<%= @gist.url %>">
   <div class="gist-body">
     <div class="gist-canvas">
-      <%= image_tag(@gist.visual.url, class: 'jw_image') %>
+      <%= image_tag(@gist.visual.url, class: 'jw_image' ) %>
     </div>
     <%= coderay(@gist.content, @gist.language).html_safe %>
   </div>
