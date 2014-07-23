@@ -1,10 +1,4 @@
-<% if resource.errors.any? %>
-  <div class = "panel-body">
-    <div class = "alert alert-block alert-danger fade in">
-    <%= devise_error_messages! %>
-    </div>
-  </div>
-<% end %>
+<%= render 'devise/errors' %>
 
 <h2>Change your password</h2>
 
