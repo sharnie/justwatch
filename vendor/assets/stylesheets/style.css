@@ -321,7 +321,6 @@ ul.sidebar-menu li a.active i {
     transition:all .3s ease-in-out;
 }
 
-}
 .footer {
     min-height:60px;
     padding:0 15px;
@@ -1658,7 +1657,7 @@ ul.ft-link li a i {
     display:inline-block;
     border-radius:50%;
     -webkit-border-radius:50%;
-    border:10px solid rgba(256,256,256,0.4);
+    border:10px solid rgba(255,255,255,0.4);
 }
 .pro-thumb img {
     text-align:center;
@@ -2062,8 +2061,8 @@ ul.labels-info li a i {
 
 ul.inbox-pagination {
     float:right;
-    li
 }
+
 ul.inbox-pagination li {
     float:left;
 }
@@ -2390,7 +2389,7 @@ ul.inbox-pagination li {
 .profile-nav .user-heading.round a {
     border-radius:50%;
     -webkit-border-radius:50%;
-    border:10px solid rgba(256,256,256,0.3);
+    border:10px solid rgba(255,255,255,0.3);
     display:inline-block;
 }
 .profile-nav .user-heading a img {
