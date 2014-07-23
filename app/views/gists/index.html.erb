@@ -6,9 +6,10 @@
       <h1>MY PROJECTS</h1>
     </span>
   </div>
-  <div class= "index_list">
+  <div class="index_list">
     <ul> 
-      <% current_or_guest_user.gists.recent.each do |gist| %>
+
+      <% current_or_guest_user.gists.recent.page(params[:page]).each do |gist| %>
         <li>
           <%= render 'gists/gist_display', gist: gist %>
 
@@ -30,7 +31,12 @@
         </li>
        <div class="line"><hr/></div><br>
       <% end %>
+      
     </ul>
+    <div class="index_title">
+      <%= paginate(current_or_guest_user.gists.recent.page( params[:page] )) %>
+    </div>
+
   </div><!-- .index_list -->
 </div>
 

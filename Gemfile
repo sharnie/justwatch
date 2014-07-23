@@ -44,6 +44,7 @@ gem 'spring',        group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+gem 'kaminari'
 gem 'jquery-ui-rails'
 gem 'ace-rails-ap'
 gem 'underscore-rails'

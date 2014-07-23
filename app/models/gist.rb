@@ -1,17 +1,16 @@
 class Gist < ActiveRecord::Base
-  before_create :establish_url
-  before_create :establish_name
+  before_save :establish_url
+  before_save :establish_name
 
   belongs_to :user
   has_one :visual, dependent: :destroy
 
-  validates_presence_of :content, :user_id, :url, :name
-  validates_uniqueness_of :url
+  validates_presence_of :content, :user_id
 
   accepts_nested_attributes_for :visual
 
-  scope :recent, lambda{ |limit = 10|
-    order(:created_at => :desc).limit(limit)
+  scope :recent, lambda{
+    order(:created_at => :desc)
   }
 
   def to_param
@@ -20,7 +19,9 @@ class Gist < ActiveRecord::Base
 
   private
     def establish_name
-      self.name ||= "prettyCode-#{self.url}"
+      if self.name.blank?
+        self.name = "prettyCode-#{self.url}"
+      end
     end
 
     def establish_url

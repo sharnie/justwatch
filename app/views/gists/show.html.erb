@@ -1,14 +1,7 @@
 <% has_page_specific_js! %>
 
-<section class="panel">
-  <header class="panel-heading">
-    <%= @gist.name %>
-  </header>
 
-    <%= render 'gists/gist_display', gist: @gist %>
-
-
-</section>
+<%= render 'gists/gist_display', gist: @gist %>
 
 <% if current_or_guest_user.is_authorized_user? %>
   <div class = "gist_show_container" >
