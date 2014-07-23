@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 ruby '2.0.0'
-gem 'sprockets_better_errors'
+
 
 #copy to clipboard gem
 gem 'zeroclipboard-rails', '~> 0.1.0', :git => 'https://github.com/zeroclipboard/zeroclipboard-rails.git'
