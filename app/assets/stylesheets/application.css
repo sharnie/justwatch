@@ -17,3 +17,10 @@
  *= require jquery-ui/slider
  *= require_tree .
  */
+
+.omg-wirk{
+  display: none;
+}
+.omg-wirk:hover{
+  fill: black;
+} 
