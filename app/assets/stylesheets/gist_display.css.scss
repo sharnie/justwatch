@@ -5,16 +5,17 @@
   position: relative;
   overflow-x: hidden;
   background: #232323;
-  border-radius: 4px;
 }
 .gist .gist-body {
-  overflow-x: scroll;
-  overflow-y:auto;
+  // overflow-x: scroll;
+  // overflow-y:auto;
   position: relative;
   z-index: 1;
-  max-height: 300px
+  max-height: 300px;
+  overflow: scroll;
+  // margin-bottom: -10px;
 }
-.gist .gist-canvas {position: absolute;left: 50px;top: 10px;z-index: -1;}
+.gist .gist-canvas {position: absolute;left: 50px;z-index: -1;}
 .gist .gist-footer {
   background-color: #2ecc71;
   padding: 10px;
@@ -56,7 +57,7 @@
 }
 
 /* CodeRay syntax highlighting */
-.CodeRay {margin: 0px;padding: 0px;}
+.CodeRay {margin: 2px;padding: 0px;}
 .CodeRay pre {background: transparent;border: none;}
 .CodeRay .code {
   padding-left: 5px;
