@@ -72,11 +72,12 @@ JW.CACHE.$document.on('page:change', function(){
 
       $( $this.data( 'related' ) )
         .removeClass( 'btn-default' )
-        .addClass( 'btn-primary' );
+        .addClass( 'btn-primary' )
+        .addClass( 'disabled' );
 
     }else if( e.type === 'hide' ){
       $( $this.data( 'related' ) )
-        .removeClass( 'btn-primary' )
+        .removeClass( 'btn-primary disabled' )
         .addClass( 'btn-default' );    
     }
   };
@@ -89,6 +90,8 @@ JW.CACHE.$document.on('page:change', function(){
     $modalSubmit
       .removeClass( 'btn-default disabled custom-disabled' )
       .addClass( 'btn-success' );
+    $( $previewPanel.data( 'related' ) )
+      .removeClass( 'custom-disabled' );
   });
 
   $modalSubmit.on( 'click', function( e ){
