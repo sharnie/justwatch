@@ -8,20 +8,15 @@
   <%= yield :head %>
 
   <%= csrf_meta_tags %>  
-  <%= favicon_link_tag '/assets/favicon.ico'%>
+  <%= favicon_link_tag '/assets/brush_icon.ico'%>
 </head>
 <body>
-  
 
   <%= render 'shared/navbar/full' %>
   <div class="container">
     <%= flash_messages %>
     <%= yield %>
-
-    <footer class="footer text-center">
-      Made with <i class="fa fa-heart" style="color: #c0392b;"></i> at The Flatiron School.</br>
-      By <a href="http://georgielovesoup.tumblr.com/">George Taveras</a>&nbsp;&middot;&nbsp;<a href="http://www.natachaspringer.com/">Natacha Springer</a>  &nbsp;&middot;&nbsp;<a href="http://twitter.com/rebeccapoulson/">Rebecca Poulson</a>&nbsp;&middot;&nbsp;<a href="http://twitter.com/sharnieivery">Sharnie Ivery</a>
-    </footer>
+    <%= render 'shared/footer' %>
   </div>
 
 

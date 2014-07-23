@@ -1,0 +1,43 @@
+<%= content_tag :div, class: 'modal fade', id: 'crop-modal' do %>
+
+  <div class="modal-dialog">
+
+    <div class="modal-content">
+
+      <div class="modal-header">
+
+        <button type="button" class="close" data-dismiss="modal">
+          <span aria-hidden="true">&times;</span>
+          <span class="sr-only">Close</span>
+        </button>
+
+        
+
+        <h4 class="modal-title">Select the image content</h4>
+      </div>
+      <div class="modal-body">
+        <%= content_tag :div, '', id: 'crop-panel', class: 'collase in', data: { related: ".modal-footer a[role='crop']", title: 'Select the image content' } %>
+  
+        <%= content_tag :div, '', id: 'preview-panel', class: 'collase in', data: { related: ".modal-footer a[role='preview']", title: 'Like how this looks?' } %>
+      </div>
+      <div class="modal-footer">
+
+        <div class="btn-group pull-left">
+          <%= link_to '#crop-panel', class: 'btn btn-primary', role: 'crop', data: { toggle: 'collapse', parent: '.modal-body' } do %>
+            <%= content_tag :span, '',class: 'fa fa-crop' %> Crop
+          <% end %>
+          <%= link_to '#preview-panel', class: 'btn btn-default', role: 'preview', data: { toggle: 'collapse', parent: '.modal-body' } do %>
+            <%= content_tag :span, '',class: 'fa fa-eye' %> Preview
+          <% end %>
+          <%= link_to '#', class: 'btn btn-default disabled custom-disabled', role: 'submit' do %>
+            <%= content_tag :span, '',class: 'fa fa-check' %> Submit
+          <% end %>
+        </div>
+
+        <button id='info-pop' type="button" class="close" data-placement="top" data-toggle="popover" title="Why?" data-content="In order to optimize the embedding feature, We try to minimize the size of this image as much as possible.">
+          <span class="fa fa-info-circle"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+<% end %>

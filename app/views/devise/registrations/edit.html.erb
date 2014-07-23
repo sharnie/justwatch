@@ -1,39 +1,41 @@
+<div class = "panel-body">
+<div class = "alert alert-block alert-danger fade in">
+<%= devise_error_messages! %>
+</div>
+</div>
 
-<body class= "login-body">
-  <div class= "container">
-    <form class= "form-signin">
-
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-        <%= devise_error_messages! %>
-        <h2 class = "form-signin-heading">Edit my info</h2>
-        <div class = "login-wrap">
-
-        <%= f.text_field :email, autofocus: true,:class => "form-control" %>
-
-        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-          Currently waiting confirmation for: <%= resource.unconfirmed_email %>
-        <% end %>
-
-        <% if f.object.encrypted_password.present? %>
-          <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-            <%= f.password_field :password, autocomplete: "off",:class => "form-control" %>
-
-          <%= f.label :password_confirmation %><br />
-            <%= f.password_field :password_confirmation, autocomplete: "off", :class => "form-control" %>
-
-          <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-            <%= f.password_field :current_password, autocomplete: "off",:class => "form-control" %>
-        <%end%>
-       <%= f.submit "Update", :class => "btn btn-lg btn-login btn-block" %>
-      <% end %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { :class => 'form-signin', :method => :put }) do |f| %>
   
-      <h3 >Unhappy? </h3> <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, :class => "btn btn-lg btn-login btn-block" %></p>
 
-    </div> <!-- login-wrap -->
+  <%= content_tag :h2, "Edit my info", class: 'form-signin-heading' %>
+
+  <%= content_tag :div, class: 'login-wrap' do %>
+    <%= f.text_field :email, autofocus: true,:class => "form-control" %>
     
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      Currently waiting confirmation for: <%= resource.unconfirmed_email %>
+    <% end %>
 
-      <%#= link_to "Back", :back %>
-    </form>
+    
+    <% if f.object.encrypted_password.present? %>
+      <%= f.label :password %> 
+      <i>(leave blank if you don't want to change it)</i><br />
+      <%= f.password_field :password, autocomplete: "off",:class => "form-control" %>
 
-  </div>
-</body>
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "off", :class => "form-control" %>
+      <%= f.label :current_password %> 
+      <i>(we need your current password to confirm your changes)</i>
+      <br />
+      <%= f.password_field :current_password, autocomplete: "off",:class => "form-control" %>
+    <% end %>
+    
+    <%= f.submit "Update", :class => "btn btn-lg btn-login btn-block" %>
+  
+    <h3>
+      Unhappy?
+    </h3> 
+    <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, :class => "btn btn-lg btn-danger btn-block" %>
+  <% end %>
+
+<% end %>

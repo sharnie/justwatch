@@ -1,5 +1,5 @@
 
-JW.$document.on('page:change', function(){
+JW.CACHE.$document.on('page:change', function(){
 
   var $clipboards = $( 'a[data-clipboard=true]' );
 

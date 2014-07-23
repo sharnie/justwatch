@@ -1,12 +1,12 @@
-JW.$document.on( 'page:change', function(){
+JW.CACHE.$document.on( 'page:change', function(){
 
   var
-    $toolButtons   = $( '#canvas-tools input:radio[name="tool"]' ),
-    $colorInput    = $( '#canvas-tools input[type="color"][name="brush-color"]' ),
-    $opacitySlider = $( '#canvas-tools #opacity-slider' ),
-    $brushSlider   = $( '#canvas-tools #brush-slider' ),
-    $undoButton    = $( '#undo-button[role="undo"]' ),
-    $editor        = $( '#editor' );
+    $tools         = JW.CACHE.$tools,
+    $toolButtons   = $tools.find( 'input:radio[name="tool"]' ),
+    $colorInput    = $tools.find( 'input[type="color"][name="brush-color"]' ),
+    $opacitySlider = $tools.find( '#opacity-slider' ),
+    $brushSlider   = $tools.find( '#brush-slider' ),
+    $undoButton    = $tools.find( '#undo-button[role="undo"]' );
 
   $toolButtons.on( 'change', function( e ){
     var
@@ -66,7 +66,6 @@ JW.$document.on( 'page:change', function(){
     }
   });
   //-------------------------------------------------------|
-
 
   // undo button ---------------------|
   $undoButton.on( 'click', function(){

@@ -320,6 +320,8 @@ ul.sidebar-menu li a.active i {
     -o-transition:all .3s ease-in-out;
     transition:all .3s ease-in-out;
 }
+
+}
 .footer {
     min-height:60px;
     padding:0 15px;
@@ -355,11 +357,19 @@ ul.sidebar-menu li a.active i {
     height:80px;
     position:relative;
 }
+#brand-name-logo {
+    color: #FFFFFF;
+    font-size: 20px;
+    text-transform: uppercase;
+    margin: 0px 0px 10px 0px;
+    padding-top: 40px;
+    text-align: center;
+}
 a.logo {
     font-size:21px;
     color:#2e2e2e;
     float:left;
-    margin:20px 0 0 25px;
+    margin: 5px 0 0 25px;
     text-transform:uppercase;
 }
 a.logo:hover,a.logo:focus {

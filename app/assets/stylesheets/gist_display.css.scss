@@ -5,10 +5,16 @@
   position: relative;
   overflow-x: hidden;
   background: #232323;
-  border-radius: 2px;
+  border-radius: 4px;
 }
-.gist .gist-body {overflow-x: scroll;overflow-y:hidden;position: relative;z-index: 1;}
-.gist .gist-canvas {position: absolute;left: 40px;top: 10px;z-index: -1;}
+.gist .gist-body {
+  overflow-x: scroll;
+  overflow-y:auto;
+  position: relative;
+  z-index: 1;
+  max-height: 300px
+}
+.gist .gist-canvas {position: absolute;left: 50px;top: 10px;z-index: -1;}
 .gist .gist-footer {
   background-color: #2ecc71;
   padding: 10px;
@@ -52,8 +58,17 @@
 /* CodeRay syntax highlighting */
 .CodeRay {margin: 0px;padding: 0px;}
 .CodeRay pre {background: transparent;border: none;}
-.CodeRay .code {padding-left: 5px;}
-.CodeRay .line-numbers {margin: 0px 0px -2px -2px;display: inline-table;}
+.CodeRay .code {
+  padding-left: 5px;
+  position: absolute;
+  top: 0;
+  left: 32px;
+
+}
+.CodeRay .line-numbers {
+  margin: 0px 0px -2px -2px;
+  display: inline-table;
+}
 .CodeRay .line-numbers pre {
   padding: 8px 12px;
   border-right: 1px solid rgba(255, 255, 255, 0.12);
@@ -65,9 +80,9 @@
 /* JustWatch default theme */
 .gist-default {background-color: #F5F5F5;border: none !important;overflow-y: hidden;}
 .gist-default pre {color: #333; padding: 8px;}
-.gist-default .line-numbers {background-color: #EBEBEB;margin: 0px 0px -2px -2px; display: inline-table;}
+.gist-default .line-numbers {background-color: #EBEBEB;margin: -2px 0px -2px -2px; display: inline-table;}
 .gist-default .line-numbers pre a {color: #888888;}
-.gist-default .gist-footer {background-color: #7694AA;position: relative;z-index: 2;}
+.gist-default .gist-footer {background-color: #6CCAC9;position: relative;z-index: 2;}
 
 
 /* CodeRay syntax highlighting predefined */
