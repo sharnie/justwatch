@@ -1,5 +1,5 @@
 // this code instantiates the ace window.mainEditor
-JW.$document.on( 'page:change', function(){
+JW.CACHE.$document.on( 'page:change', function(){
 
   JW.editor = ace.edit("editor");
 

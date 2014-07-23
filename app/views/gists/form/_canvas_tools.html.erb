@@ -16,9 +16,8 @@
       <%= tool_radio_tag(:arrow, title: 'Arrow', icon: 'long-arrow-left') %> 
       <br>
       <%= tool_radio_tag(:eraser, title: "Eraser", icon: 'eraser') %>
-      <br>
-      <%= tool_radio_tag(:crop, title: 'Crop', icon: 'crop') %> 
-      <br>
+      <!-- <%= tool_radio_tag(:crop, title: 'Crop', icon: 'crop') %>  -->
+      <hr>
 
       <%= content_tag :span, class: 'jw-button canvas-tool-tip', data: {toggle: 'tooltip', placement: 'right'}, title: 'Undo' do %>
         <% button_tag id: 'undo-button', role:'undo' do %>

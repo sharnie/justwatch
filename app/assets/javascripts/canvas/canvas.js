@@ -6,7 +6,7 @@ function Canvas( selector ) {
   this.tools              = $.extend( {}, Canvas.initialTools );
   this.currentTool        = 'pencil';
   this.currentColor       = '#000000';
-  this.currentOpacity     = 1
+  this.currentOpacity     = 1;
   this.brushSize          = 1;
   this.canvasCacheEnabled = true;
   this.layerCacheEnabled  = true;
@@ -18,6 +18,7 @@ function Canvas( selector ) {
   this.cachingContext     = this.cachingCanvas[ 0 ].getContext( '2d' );
   this.stateStack         = [];
   this.layerStack         = [];
+  this.toolHistory        = [];
 
 
   // THE FOLLOWING CODE SHOULD BE RE-WRITTEN
@@ -242,6 +243,7 @@ Canvas.prototype.drawImage = function(){
 
 
 Canvas.prototype.use = function( toolName ){
+  this.toolHistory.unshift( toolName );
   this.currentTool = toolName;
 };
 

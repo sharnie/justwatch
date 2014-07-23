@@ -1,4 +1,13 @@
 window.JW = {
   // cache the document object
-  $document: $( document )
+  CACHE: {
+    $document: $( document )
+  }
 };
+
+
+JW.CACHE.$document.on( 'page:change', function(){
+  $.extend( JW.CACHE, {
+    $body  : $( 'body' )
+  });
+});
