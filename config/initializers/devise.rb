@@ -231,7 +231,6 @@ config.secret_key = '88ab51d447e0d6d4e297a7fc30116c3ec85237ec6196dcd87a4f04da11e
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
 
-
 config.omniauth :github, ENV['GITHUB_ID'], ENV['GITHUB_SECRET'], scope: 'user'
 
   # ==> Warden configuration
