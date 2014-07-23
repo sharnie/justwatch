@@ -57,7 +57,14 @@
 }
 
 /* CodeRay syntax highlighting */
-.CodeRay {margin: 2px;padding: 0px;}
+.CodeRay {
+  margin: 2px;
+  padding: 0px;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+  overflow: auto;  
+  font-size: 12px;  
+  line-height: 1.39;
+}
 .CodeRay pre {background: transparent;border: none;}
 .CodeRay .code {
   padding-left: 5px;
