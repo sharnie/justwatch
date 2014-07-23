@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.0.0'
+# ruby '2.0.0'
 
 
 #copy to clipboard gem
@@ -52,5 +52,4 @@ gem 'jquery-ui-rails'
 gem 'ace-rails-ap'
 gem 'underscore-rails'
 gem 'rails_12factor', group: :production
-gem 'sprockets_better_errors'
 

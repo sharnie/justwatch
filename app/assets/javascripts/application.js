@@ -27,5 +27,5 @@
 //= require jw
 
 //= require add_to_clipboard
-//= require gist_helper.js
+//= require gist_helper
 //= require tooltips
