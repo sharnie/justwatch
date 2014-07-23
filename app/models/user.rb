@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  has_many :gists
+  has_many :gists, :dependent => :destroy
   
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
@@ -10,7 +10,6 @@ class User < ActiveRecord::Base
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_create do |user|
       user.provider = auth.provider
-      user.uid = auth.uid
       user.email = auth.info.email
     end
   end
@@ -38,4 +37,11 @@ class User < ActiveRecord::Base
     end
   end
 
+  def method_missing meth, *args, &block
+    if /is_(?<type_underscore>.+)\?+/ =~ meth
+      type == type_underscore.camelize
+    else
+      super
+    end
+  end
 end

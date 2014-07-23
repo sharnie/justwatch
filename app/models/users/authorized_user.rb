@@ -1,0 +1,3 @@
+class AuthorizedUser < User
+
+end

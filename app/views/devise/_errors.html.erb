@@ -1,0 +1,11 @@
+<% if resource.errors.any? %>
+  <% resource.errors.each do |err, msg|%>
+    <% flash.now[:error] = "Something went wrong..." %>
+  <% end %>
+<!--   <div class = "panel-body">
+    <div class = "alert alert-block alert-danger fade in">
+    <%= devise_error_messages! %>
+    </div>
+  </div> -->
+<% end %>
+

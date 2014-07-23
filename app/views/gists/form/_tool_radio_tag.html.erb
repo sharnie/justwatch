@@ -1,0 +1,7 @@
+
+<%= content_tag :span, class: "radio-button #{selected_class}", data: {toggle: 'tooltip', placement: 'right'}, title: title do %>
+  <%= label_tag "tool_#{value}" do %>
+    <%= content_tag :i, '', class: "fa fa-#{icon}" %>
+  <% end %>
+  <%= radio_button_tag :tool, value, html %>
+<% end %>

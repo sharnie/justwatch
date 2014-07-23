@@ -1,15 +1,16 @@
 (function(){
   
-  document.write( '<%= stylesheet_link_tag embed_stylesheet_url(@user,@gist) %>' );
+
+  document.write( '<%= stylesheet_link_tag embed_link_url(@user, @gist, "css") %>' );
   document.write( '<%= j(render @gist).html_safe %>' );
 
-  var editor = this.ace.edit("editor_<%= @gist.id %>");
-       
-      editor.setValue( '<%= j(@gist.content).html_safe %>', 1 );
-      editor.setReadOnly( true );
-      editor.session.setUseWorker( false ) 
-      editor.setTheme( "ace/theme/eclipse" );
-      editor.getSession().setMode( "ace/mode/javascript" );
-
+  var 
+    base  = document.getElementById( 'jw-<%= @gist.url %>' ),
+    body  = base.getElementsByClassName( 'gist-body' )[0],
+    image = body.getElementsByClassName( 'jw_image' )[0],
+    lineNumbers = body.getElementsByClassName( 'line-numbers' )[0];
   
+  lineNumbers.style.height = image.height + 'px';
+  body.style.height        = image.height + 'px';
+
 }).call( this );

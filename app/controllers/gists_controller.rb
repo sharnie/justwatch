@@ -1,65 +1,89 @@
 class GistsController < ApplicationController
-  # sets instance variables @gist & @visual
-  # also assigns attributes passed through params
-  # to the @gist object
+
   protect_from_forgery with: :exception, except: [:embed]
   before_action :set_gist_and_visual, except: [:embed]
-  before_action :authenticate_user!, except: [:new, :create]
+  before_action :authenticate_user!, except: [:new, :create, :show]
 
   def new
   end
 
+  def edit
+  end
+
   def index
-    @gists = Gist.all
-    @visuals = Visual.all
+    @gists = Gist.all   
   end
 
   def create
-    @gist.content = params[:gist][:content]
+    @gist.language = "text" if @gist.language.blank?
+    @gist.user = current_or_guest_user
 
-    if user_signed_in?
+    respond_to do |format|
 
-      @gist.user = current_user
-
-      if @gist.save
-        redirect_to gist_path(@gist)
-      else
-        flash[:notice] = "Ouuups something went wrong, try again..."
-        redirect_to new_gist_path
+      format.html do
+        if params[:preview]
+          render(partial: 'gists/preview', locals: { gist: @gist } ) and return
+        else
+          if @gist.save
+            redirect_to gist_path(@gist)
+          else
+            flash[:alert] = @gist.errors.map do |type, msg|
+              "#{type.capitalize} #{msg}."
+            end.join("\n")
+            redirect_to root_path
+          end
+        end
       end
-    else
-      
-      redirect_to new_user_session_path
     end
+  end
 
+  def update
+    @gist.language = "text" if @gist.language.blank?
+    if @gist.save
+      redirect_to gist_path(@gist)
+    else
+      flash[:alert] = @gist.errors.map do |type, msg|
+        "#{type.capitalize} #{msg}."
+      end.join("\n")
+      redirect_to root_path
+    end
   end
 
   def show
-    
+    unless @gist.user == current_or_guest_user
+      redirect_to root_path
+    end
   end
 
   def embed
-    @user = User.find(params[:user_id])
-    @gist = @user.gists.find(params[:gist_id])
-    respond_to {|format| format.js}
+    @user = User.find( params[:user_id] )
+    @gist = @user.gists.find_by_url( params[:gist_url] )
+
+    respond_to do |format| 
+      if @user.is_authorized_user?
+        format.js
+        format.css
+      else
+        format.js{ render 401 }
+        format.css{ render 401 }
+      end
+    end
   end
 
-  def embed_stylesheet
-    @user = User.find(params[:user_id])
-    @gist = @user.gists.find(params[:gist_id])
-    render file: "gists/embed_stylesheet.css"
+
+  def destroy
+    @gist.destroy 
+    redirect_to gists_path
   end
 
 
 private
 
   def set_gist_and_visual
-    if params[:id]
-      @gist = Gist.find( params[:id] )
-      @visual = @gist.visual
+    if params[:url]
+      @gist = Gist.find_by_url( params[:url] )
     else
       @gist = Gist.new
-      @visual = Visual.new
     end
 
     if params[:gist]
@@ -68,7 +92,7 @@ private
   end
 
   def gist_params
-    params.require(:gist).permit(:name, :content, :visual_attributes => [:url])
+    params.require(:gist).permit(:name, :language, :content, :visual_attributes => [:url])
   end
 
 end

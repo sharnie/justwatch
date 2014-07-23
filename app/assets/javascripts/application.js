@@ -12,7 +12,20 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui/core
 //= require turbolinks
 //= require underscore
 //= require bootstrap
-//= require_tree .
+//= require bootstrap/tooltip
+//= require bootstrap/popover
+//= require bootstrap/collapse
+//= require bootstrap/transition
+//= require ace/ace
+//= require jquery-ui/slider
+//= require zeroclipboard
+//= require canvas
+//= require jw
+
+//= require add_to_clipboard
+//= require gist_helper.js
+//= require tooltips

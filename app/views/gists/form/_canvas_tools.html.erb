@@ -1,0 +1,39 @@
+<div class="col-xs-12 col-sm-1 gist-new" id="canvas-tools">
+  <div class="panel custom-panel"> 
+
+      <%= color_field_tag 'brush-color', '#000000', class: 'canvas-tool-tip', data: {toggle: 'tooltip', placement: 'right'}, title: 'Color' %>
+
+      <%= tool_radio_tag(:text, title: 'Text', icon: 'keyboard-o', checked: true) %>
+      <br>
+      <%= tool_radio_tag(:pencil, title: 'Pencil', icon: 'pencil' ) %>
+      <br>
+      <%= tool_radio_tag(:filled_box, title: 'Filled Box', icon: 'square') %>
+      <br>
+      <%= tool_radio_tag(:empty_box, title: 'Outlined Box', icon: 'square-o') %> 
+      <br>
+      <%= tool_radio_tag(:line, title: 'Line', icon: 'minus') %> 
+      <br>
+      <%= tool_radio_tag(:arrow, title: 'Arrow', icon: 'long-arrow-left') %> 
+      <br>
+      <%= tool_radio_tag(:eraser, title: "Eraser", icon: 'eraser') %>
+      <!-- <%= tool_radio_tag(:crop, title: 'Crop', icon: 'crop') %>  -->
+      <hr>
+
+      <%= content_tag :span, class: 'jw-button canvas-tool-tip', data: {toggle: 'tooltip', placement: 'right'}, title: 'Undo' do %>
+        <% button_tag id: 'undo-button', role:'undo' do %>
+          <%= content_tag :i, '', class: 'fa fa-undo' %>
+        <% end %>
+      <% end %>
+      <br>
+      <br>
+
+      <%= content_tag :span, class: 'jw-slider' do %>        
+        <%= content_tag :div, nil, id: 'opacity-slider' %>
+      <% end %>
+
+      <%= content_tag :span, class: 'jw-slider' do %>        
+        <%= content_tag :div, nil, id: 'brush-slider' %>
+      <% end %>
+
+   </div> 
+</div>

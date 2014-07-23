@@ -1,0 +1,111 @@
+.pull-left {float: left;}
+.pull-right {float: right;}
+.gist {
+  font-family: 'helvetica', sans-serif;
+  position: relative;
+  overflow-x: hidden;
+  background: #232323;
+  border-radius: 4px;
+}
+.gist .gist-body {
+  overflow-x: scroll;
+  overflow-y:auto;
+  position: relative;
+  z-index: 1;
+  max-height: 300px
+}
+.gist .gist-canvas {position: absolute;left: 50px;top: 10px;z-index: -1;}
+.gist .gist-footer {
+  background-color: #2ecc71;
+  padding: 10px;
+  letter-spacing: 0px;
+  word-spacing: -2px;
+}
+.gist .gist-footer a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  vertical-align: middle;
+  display: inline-block;
+}
+.gist .gist-footer a.hosted {padding: 3px 10px;}
+.gist .gist-footer a.hosted .fa-heart {color: #c0392b;}
+.gist .gist-footer .meta a {vertical-align:bottom;}
+.gist .gist-footer .meta a img {
+  margin-left: 3px;
+  margin-right: 10px;
+  border-radius: 50px;
+}
+.gist .gist-footer .meta .gist-title {
+  padding: 3px 0px;
+  display: inline-block;
+}
+.gist pre {
+  display: block;
+  padding: 9.5px;
+  margin: 0 0 15px 0;
+  font-size: 12px;
+  line-height: 1.4;
+  word-break: break-all;
+  word-wrap: break-word;
+  font-family: monospace;
+  color: #fff;
+}
+.gist_show_container{
+  margin-bottom: 40px;
+}
+
+/* CodeRay syntax highlighting */
+.CodeRay {margin: 0px;padding: 0px;}
+.CodeRay pre {background: transparent;border: none;}
+.CodeRay .code {
+  padding-left: 5px;
+  position: absolute;
+  top: 0;
+  left: 32px;
+
+}
+.CodeRay .line-numbers {
+  margin: 0px 0px -2px -2px;
+  display: inline-table;
+}
+.CodeRay .line-numbers pre {
+  padding: 8px 12px;
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 0px;
+  text-align: center;
+}
+.CodeRay .line-numbers pre a {text-decoration: none;color: #fff;}
+
+/* JustWatch default theme */
+.gist-default {background-color: #F5F5F5;border: none !important;overflow-y: hidden;}
+.gist-default pre {color: #333; padding: 8px;}
+.gist-default .line-numbers {background-color: #EBEBEB;margin: -2px 0px -2px -2px; display: inline-table;}
+.gist-default .line-numbers pre a {color: #888888;}
+.gist-default .gist-footer {background-color: #6CCAC9;position: relative;z-index: 2;}
+
+
+/* CodeRay syntax highlighting predefined */
+.CodeRay .symbol { color: #a385fc; }
+.CodeRay .color { color: #a385fc; }
+.CodeRay .class { color: #a7e040; }
+.CodeRay .key { color: #6bd9ed; }
+.CodeRay .value { color: #6bd9ed;}
+.CodeRay .inline-delimiter { color: #f62d73; }
+.CodeRay .type { color: #F62D73;}
+.CodeRay .float { color: #a385fc; }
+.CodeRay .string { color: #e5da7a; }
+.CodeRay .comment { color: #75715f; }
+.CodeRay .keyword { color: #f62d73; }
+.CodeRay .entity { color: #f62d73; }
+.CodeRay .predefined-constant { color: #a7e040; }
+.CodeRay .function { color: #a7e040; }
+.CodeRay .constant { color: #6bd9ed;}
+.CodeRay .regexp .inline-delimiter { color: #e5da7a; }
+.CodeRay .regexp .char { color: #a385fc; }
+.CodeRay .regexp .delimiter { color: #e5da7a; }
+.CodeRay .regexp .content { color: #e5da7a; }
+.CodeRay .regexp .inline { color: #e5da7a; }
+.CodeRay .regexp .inline .delimiter { color: #e5da7a; }
+.CodeRay .regexp .inline .constant { color: #6bd9ed; }
+.CodeRay .regexp .modifier { color: #e5da7a; }
