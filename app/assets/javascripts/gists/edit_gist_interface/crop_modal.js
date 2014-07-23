@@ -19,21 +19,22 @@ JW.CACHE.$document.on('page:change', function(){
   // user must choose canvas size before submitting
   // --------------------------------------------------|  
   $gistForm.on('submit', function( e ){
-
     
-    JW.toggleEditMode( 'canvas' );
-    JW.canvas.use( 'crop' );
+    if( !e.readyToSubmit ){
+      JW.toggleEditMode( 'canvas' );
+      JW.canvas.use( 'crop' );
 
-    $canvasWrapper.addClass( 'modal-crop-state' );
+      $canvasWrapper.addClass( 'modal-crop-state' );
 
-    $cropPanel
-      .append( $canvasWrapper )
-      .collapse( 'show' );
+      $cropPanel
+        .append( $canvasWrapper )
+        .collapse( 'show' );
 
-    $modal.modal();
+      $modal.modal();
 
-    //--------------------------|
-    e.preventDefault();
+      //--------------------------|
+      e.preventDefault();
+    }
   });
   //---------------------------------------------------|
   $modal.on( 'hide.bs.modal', function( e ){
@@ -80,22 +81,23 @@ JW.CACHE.$document.on('page:change', function(){
     }
   };
 
-
   $cropPanel.on( 'show.bs.collapse hide.bs.collapse', toggleRelatedButton);
 
   $previewPanel.on( 'show.bs.collapse hide.bs.collapse', toggleRelatedButton);
   
   $( '#gist_visual_attributes_url' ).on( 'change', function( e ){
     $modalSubmit
-      .removeClass( 'btn-default' )
-      .removeClass( 'disabled' )
-      .removeClass( 'custom-disabled' )
+      .removeClass( 'btn-default disabled custom-disabled' )
       .addClass( 'btn-success' );
   });
 
   $modalSubmit.on( 'click', function( e ){
     e.stopPropagation();
-    $( '#gist-preview' ).trigger( 'submit' );
+    $gistForm.find( '#gist_name' ).val( $( '#preview-name' ).val() );
+    $gistForm.trigger({
+      type: 'submit',
+      readyToSubmit: true
+    } );
   });
 
 });
