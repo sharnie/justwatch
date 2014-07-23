@@ -6,7 +6,11 @@ $( document ).on('page:change', function() {
       $this = $( this ),
       eventData = {};
 
-      _.extend( eventData, _.pick( e, 'offsetX', 'offsetY' ) );
+
+    _.extend( eventData, {
+      offsetX: e.offsetX || e.clientX - $this.offset().left,
+      offsetY: e.offsetY || e.clientY - $this.offset().top
+    });
 
     if( e.type === 'mousedown'){
       $this.data('mousedown', true);

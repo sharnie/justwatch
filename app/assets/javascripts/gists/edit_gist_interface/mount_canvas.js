@@ -24,7 +24,7 @@ JW.CACHE.$document.on( 'page:change', function(){
       context.lineWidth = 1 ;
       context.font = "12px courier";
       context.fillStyle = Canvas.helpers.hexToRGB( '#666' , 1 );
-      context.fillText("(" + currentX +', ' + currentY + ")", currentX, currentY);
+      context.fillText("(" + Math.floor( currentX ) +', ' + Math.floor( currentY ) + ")", currentX, currentY);
       context.strokeStyle = Canvas.helpers.hexToRGB( '#666' , 1 );
       context.strokeRect( 0, 0, currentX, currentY );
     },
