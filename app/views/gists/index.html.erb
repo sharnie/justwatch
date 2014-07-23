@@ -1,41 +1,49 @@
 <% has_page_specific_js! %>
 
-<div class="index_container">
-  <div class="index_title">
-    <span class="headline">
-      <h1>MY PROJECTS</h1>
-    </span>    
-    <%= paginate(current_or_guest_user.gists.recent.page( params[:page] )) %>
+<div class="row">
+  <div class="col-xs-12">
+    <div class="panel">
+      <div class="panel-body">
+        <div class="index_title">
+          <span class="headline">
+            <h1>MY PROJECTS</h1>
+          </span>    
+        </div>
+        <div class="index_list">
+          <ul > 
+
+            <% current_or_guest_user.gists.recent.page(params[:page]).each do |gist| %>
+              <li>
+                <%= render 'gists/gist_display', gist: gist %>
+
+                <div class="compose-btn pull-right" role= "toolbar">
+
+                  <%= link_to gist_path(gist), class: "btn btn-primary", data:{ toggle: 'tooltip', placement: 'top' }, title: 'View' do %>
+                    <%= tag(:span, class: "fa fa-eye") %>
+                  <% end %>
+                  <%= clipboard_tag_for(gist) %>
+
+                  <%= link_to edit_gist_path(gist), class: "btn btn-primary", data:{ toggle: 'tooltip', placement: 'top' }, title: 'Edit' do %>
+                    <%= tag(:span, class: "fa fa-edit") %>
+                  <% end %>
+                  <%= link_to gist_path(gist), method: :delete, class: "btn btn-primary", data: { toggle: 'tooltip', placement: 'top' }, title: 'Delete' do %>
+                    <%= tag(:span, class: 'fa fa-trash-o') %>
+
+                  <% end %>
+                </div><!-- .btn-group -->
+                <div class="line"><hr/></div><br>
+              </li>
+             
+            <% end %>
+            
+          </ul>
+
+        </div><!-- .index_list -->
+        <div class="index_list">
+          <%= paginate(current_or_guest_user.gists.recent.page( params[:page] )) %>    
+        </div>
+      </div><!-- .panel-body -->
+    </div><!-- .panel -->
   </div>
-  <div class="index_list">
-    <ul> 
-
-      <% current_or_guest_user.gists.recent.page(params[:page]).each do |gist| %>
-        <li>
-          <%= render 'gists/gist_display', gist: gist %>
-
-          <div class="compose-btn pull-right" role= "toolbar">
-
-            <%= link_to gist_path(gist), class: "btn btn-primary", data:{ toggle: 'tooltip', placement: 'top' }, title: 'View' do %>
-              <%= tag(:span, class: "fa fa-eye") %>
-            <% end %>
-            <%= clipboard_tag_for(gist) %>
-
-            <%= link_to edit_gist_path(gist), class: "btn btn-primary", data:{ toggle: 'tooltip', placement: 'top' }, title: 'Edit' do %>
-              <%= tag(:span, class: "fa fa-edit") %>
-            <% end %>
-            <%= link_to gist_path(gist), method: :delete, class: "btn btn-primary", data: { toggle: 'tooltip', placement: 'top' }, title: 'Delete' do %>
-              <%= tag(:span, class: 'fa fa-trash-o') %>
-
-            <% end %>
-          </div><!-- .btn-group -->
-        </li>
-       <div class="line"><hr/></div><br>
-      <% end %>
-      
-    </ul>
-
-  </div><!-- .index_list -->
 
 </div>
-
