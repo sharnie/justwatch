@@ -27,7 +27,10 @@ class GistsController < ApplicationController
           if @gist.save
             redirect_to gist_path(@gist)
           else
-            redirect_to root_path, notice: "Ouuups something went wrong, try again..."
+            flash[:alert] = @gist.errors.map do |type, msg|
+              "#{type.capitalize} #{msg}."
+            end.join("\n")
+            redirect_to root_path
           end
         end
       end
@@ -39,7 +42,10 @@ class GistsController < ApplicationController
     if @gist.save
       redirect_to gist_path(@gist)
     else
-      redirect_to root_path, notice: "Ouuups something went wrong, try again..."
+      flash[:alert] = @gist.errors.map do |type, msg|
+        "#{type.capitalize} #{msg}."
+      end.join("\n")
+      redirect_to root_path
     end
   end
 
@@ -64,10 +70,12 @@ class GistsController < ApplicationController
     end
   end
 
+
   def destroy
     @gist.destroy 
     redirect_to gists_path
   end
+
 
 private
 

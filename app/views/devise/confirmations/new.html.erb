@@ -1,10 +1,9 @@
-
-
+<%= render 'devise/errors' %>
 <h2>Resend confirmation instructions</h2>
 
 
 <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
+  <%#= devise_error_messages! %>
 
   <div><%= f.label :email %><br />
   <%= f.email_field :email, autofocus: true %></div>

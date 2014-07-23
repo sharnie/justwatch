@@ -8,7 +8,7 @@ $(document).on('page:change', function(){
       gist_body    = $('.gist-body');
 
   $.each(gists, function(index, gist){
-    // console.log(gist);
+    
     var canvas    = $(this).find('.gist-canvas'),
         lineNum   = $(this).find('.line-numbers'),
         gist_body = $(this).find('.gist-body'),

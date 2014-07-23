@@ -20,7 +20,7 @@
 .devise-container {
   footer {
     a {
-      color: white
+      color: white;
     }
   }
 }
@@ -39,6 +39,7 @@ a.custom-cancel-btn{
 // because it must over-ride the inline 
 // styles that were added to the canvas wrapper
 // with jQuery
+
 .modal-crop-state {
   position: relative !important;
   border: #6CCAC9 1px dashed !important;
