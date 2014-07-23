@@ -16,3 +16,27 @@
     margin-left: 0;
   }
 }
+
+.devise-container {
+  footer {
+    a {
+      color: white
+    }
+  }
+}
+
+.disabled.custom-disabled {
+  background-color: #c7cbd6;
+}
+
+
+// These attributes are forced
+// because it must over-ride the inline 
+// styles that were added to the canvas wrapper
+// with jQuery
+.modal-crop-state {
+  position: relative !important;
+  border: #6CCAC9 1px dashed !important;
+  width: auto !important;
+  overflow: scroll !important;
+}

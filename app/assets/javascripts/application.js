@@ -17,6 +17,9 @@
 //= require underscore
 //= require bootstrap
 //= require bootstrap/tooltip
+//= require bootstrap/popover
+//= require bootstrap/collapse
+//= require bootstrap/transition
 //= require ace/ace
 //= require jquery-ui/slider
 //= require zeroclipboard

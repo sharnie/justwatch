@@ -1,16 +1,11 @@
-<%= render 'gists/gist_display', gist: gist %>
 <%= form_for gist, html: { id: "gist-preview" } do |f| %>
   <%= f.hidden_field :content, id: "preview-content" %>
   <%= f.hidden_field :language, id: 'preview-language' %>
-  <%= f.hidden_field :name, id: 'preview-name' %>
+  <%= f.text_field :name, id: 'preview-name', class: 'form-control', placeholder: "Name this project" %>
   <%= f.fields_for(:visual_attributes, gist.visual) do |ff| %>
     <%= ff.hidden_field :url, id: 'preview-url' %>
   <% end %>
   
-  <%= f.button(name: "commit", id:"preview-submit", class: 'btn btn-default') do %>
-    <%= content_tag(:span, nil, class: 'fa fa-check-square', data: { toggle: 'tooltip', placement: 'top' }, title: 'Confirm') %>
-  <% end %>
-  <%= button_tag( class: 'btn btn-default', id: 'preview-cancel', data: { toggle: 'tooltip', placement: 'top' }, title: 'Cancel') do %>
-    <%= content_tag(:span, nil, class: 'fa fa-trash-o') %>
-  <% end %>
 <% end %>
+<br>
+<%= render 'gists/gist_display', gist: gist %>

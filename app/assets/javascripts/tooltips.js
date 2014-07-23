@@ -1,4 +1,4 @@
-JW.$document.on( 'page:change', function(){
+JW.CACHE.$document.on( 'page:change', function(){
   // enable tooltip for tools and sliders ---------|
   $("*[data-toggle='tooltip']").tooltip();
 
