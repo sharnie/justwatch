@@ -26,7 +26,7 @@
           <%= link_to '#crop-panel', class: 'btn btn-primary', role: 'crop', data: { toggle: 'collapse', parent: '.modal-body' } do %>
             <%= content_tag :span, '',class: 'fa fa-crop' %> Crop
           <% end %>
-          <%= link_to '#preview-panel', class: 'btn btn-default', role: 'preview', data: { toggle: 'collapse', parent: '.modal-body' } do %>
+          <%= link_to '#preview-panel', class: 'btn btn-default disabled custom-disabled', role: 'preview', data: { toggle: 'collapse', parent: '.modal-body' } do %>
             <%= content_tag :span, '',class: 'fa fa-eye' %> Preview
           <% end %>
           <%= link_to '#', class: 'btn btn-default disabled custom-disabled', role: 'submit' do %>

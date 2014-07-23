@@ -7,9 +7,17 @@ module GistsHelper
   end
 
   def coderay(text, lang = :javascript)  
-    CodeRay.scan(text, lang).div(:line_numbers => :table, :code => :pre)
+    sanitized = Hash.new do |hash, key|
+      case key
+      when /C\/C++/i
+        :c
+      else
+        key.to_s.underscore.to_sym
+      end
+    end
+
+    CodeRay.scan(text, sanitized[ lang ]).div( :line_numbers => :table, :code => :pre )
   end
-  
   def supported_languages
     ["text", "C/C++", "Clojure", "CSS", "Groovy", "HAML", "HTML", "Java", "JavaScript", "JSON", "Lua", "PHP", "Python", "Ruby", "Sass", "SQL", "XML", "YAML"]
   end

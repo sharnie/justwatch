@@ -4,7 +4,8 @@
   <div class="index_title">
     <span class="headline">
       <h1>MY PROJECTS</h1>
-    </span>
+    </span>    
+    <%= paginate(current_or_guest_user.gists.recent.page( params[:page] )) %>
   </div>
   <div class="index_list">
     <ul> 
@@ -33,10 +34,8 @@
       <% end %>
       
     </ul>
-    <div class="index_title">
-      <%= paginate(current_or_guest_user.gists.recent.page( params[:page] )) %>
-    </div>
 
   </div><!-- .index_list -->
+
 </div>
 

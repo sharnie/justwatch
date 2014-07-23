@@ -1,7 +1,14 @@
+<% if resource.errors.any? %>
+  <div class = "panel-body">
+    <div class = "alert alert-block alert-danger fade in">
+    <%= devise_error_messages! %>
+    </div>
+  </div>
+<% end %>
+
 <h2>Resend unlock instructions</h2>
 
 <%= form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
 
   <div><%= f.label :email %><br />
   <%= f.email_field :email, autofocus: true %></div>

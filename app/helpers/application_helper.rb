@@ -21,18 +21,4 @@ module ApplicationHelper
     end.join.html_safe
   end
 
-
-  def coderay(text, lang = :javascript)  
-    sanitized = Hash.new do |hash, key|
-      case key
-      when /C\/C++/i
-        :c
-      else
-        key.to_s.underscore.to_sym
-      end
-    end
-
-    CodeRay.scan(text, sanitized[ lang ]).span
-  end
-
 end
