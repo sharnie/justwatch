@@ -16,4 +16,6 @@
  *= require jquery-ui/theme
  *= require jquery-ui/slider
  *= require_tree .
+ *= require_tree ../../../vendor/assets/stylesheets/.
+ *= require_self
  */
