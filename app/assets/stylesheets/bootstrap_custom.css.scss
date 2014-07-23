@@ -1,123 +1,47 @@
-@import "bootstrap";
 @import "http://fonts.googleapis.com/css?family=Open+Sans:400,700,300";
 
-body {
-  font-family: 'Open Sans', sans-serif;
+.panel.custom-panel {
+  padding-bottom: 10px;
+  margin-bottom: 0;
 }
+
 .container{
+  padding-top: 100px;
   max-width: 800px;
 }
-// helper
-.bold {
-  font-weight: bold;
+
+.checkbox.custom-checkbox {
+  input[type=checkbox]{
+    position: initial;
+    margin-left: 0;
+  }
 }
 
-/* bootstrap row gutter */
-.row-10-gutter {
-  margin-left: -10px;
-  margin-right: -10px;
-}
-.col-3-gutter {
-  padding-left: 3px;
-  padding-right: 3px;
+.devise-container {
+  footer {
+    a {
+      color: white
+    }
+  }
 }
 
-// code
-.panel-embed {
-  max-height: 404px !important;
-  overflow-y: scroll;
-}
-.panel-embed .panel-body {
-  padding: 0;
-  margin: 0;
-}
-.panel-embed .panel-body pre[class*="language-"] {
-  background-color: #FAFAFA !important;
-  border-radius: 0px;
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
-  margin: 0 !important;
-  border: none;
-}
-.line-numbers .line-numbers-rows {
-  background-color: #EBEBEB !important;
-  color: #888888 !important;
-  text-shadow: none;
-  margin-top: -2px;
+.disabled.custom-disabled {
+  background-color: #c7cbd6;
 }
 
-// navbar
-.navbar {
-  border: none;
-  border-radius: 0px;
-}
-.navbar-default {
-  text-shadow: 0 1px 0 #fff;
-  background-color: #f3f3f3;
-  background-image: -webkit-linear-gradient(#f9f9f9, #f3f3f3);
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#f9f9f9), to(#f3f3f3));
-  background-image: linear-gradient(#f9f9f9, #f3f3f3);
-  background-repeat: repeat-x;
-  border-bottom: 1px solid #e5e5e5;
+a.custom-cancel-btn{
+  color: white !important;
+  text-decoration: none !important;
 }
 
-a.navbar-brand   { 
-  font-family: 'Helvetica';
-  font-weight: 400;
-}
 
-// form
-.form-control {
-  border-radius: 2px;
-  height: 30px;
-  resize: none;
+// These attributes are forced
+// because it must over-ride the inline 
+// styles that were added to the canvas wrapper
+// with jQuery
+.modal-crop-state {
+  position: relative !important;
+  border: #6CCAC9 1px dashed !important;
+  width: auto !important;
+  overflow: scroll !important;
 }
-.form-control #gist_canvas {
-  background: transparent;
-}
-.form-control:focus {
-  box-shadow: none;
-}
-
-// panel 
-.panel {
-  border-radius: 2px;
-}
-.panel-default > .panel-heading {
-  background-color: #FAFAFA;
-}
-
-// button
-.btn {
-  display: inline-block;
-  padding: 4px 12px;
-  margin-bottom: 0;
-  font-weight: normal;
-  font-size: 14px;
-  line-height: 20px;
-  color: #333333;
-  text-align: center;
-  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
-  vertical-align: middle;
-  cursor: pointer;
-  background-color: #f5f5f5;
-  background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));
-  background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6);
-  background-image: -o-linear-gradient(top, #ffffff, #e6e6e6);
-  background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
-  background-repeat: repeat-x;
-  border: 1px solid #cccccc;
-  border-color: #e6e6e6 #e6e6e6 #bfbfbf;
-  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-  border-bottom-color: #b3b3b3;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe6e6e6', GradientType=0);
-  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
-  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
-  -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
-}
-

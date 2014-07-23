@@ -1,0 +1,45 @@
+.index_container {
+ background-color: #fff;
+ border-radius: 4px 4px 0px 0px;
+}
+
+.index_title {
+  font-family: 'Helvetica';
+  font-weight: 400;
+  margin-left: 10%;
+  color: rgba(105, 118, 128, .9);
+}
+
+.headline {
+  margin: 10%
+}
+
+.index_gist {
+ padding: 0;
+ margin: 15%
+}
+
+.line {
+  padding: 0;
+  margin-top: 70px;
+  margin-bottom: 20px;
+  border: 0;
+  height: 2px;
+  background-image: -webkit-linear-gradient(left, rgba(108,202,201,0), rgba(108,202,201,.75), rgba(108,202,201,0));
+  background-image: -moz-linear-gradient(left, rgba(108,202,201,0), rgba(108,202,201,.75), rgba(108,202,201,0));
+  background-image: -ms-linear-gradient(left, rgba(108,202,201,0), rgba(108,202,201,.75), rgba(108,202,201,0));
+  background-image: -o-linear-gradient(left, rgba(108,202,201,0), rgba(108,202,201,.75), rgba(108,202,201,0));
+}
+
+.index_list ul {
+  padding: 0px 10%;
+  list-style: none;
+}
+
+.bold {
+font-weight: bold;
+}
+
+input#embed_url.form-control[disabled]{
+  cursor: default;
+}
