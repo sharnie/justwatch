@@ -5,33 +5,15 @@
   position: relative;
   overflow-x: hidden;
   background: #232323;
-  border-radius: 2px;
-  margin: 10px 0px;
-  border-radius: 0 0 25px 25px;
+  border-radius: 4px;
 }
-.gist .gist-body {
-  overflow-x: scroll;
-  max-height: 300px;
-  position: relative;
-  z-index: 1;
-  background: white;
-
-}
-
-.gist .gist-image{ 
-  
-  margin-left: 38px;
-  margin-top: 10px;
-  z-index: 2;
-  
-}
-.gist .gist-content {position: absolute;left: 0px;top: 0px;z-index: 1;}
+.gist .gist-body {overflow-x: scroll;overflow-y:hidden;position: relative;z-index: 1;}
+.gist .gist-canvas {position: absolute;left: 50px;top: 10px;z-index: -1;}
 .gist .gist-footer {
-  background-color: #6CCAC9;
+  background-color: #2ecc71;
   padding: 10px;
   letter-spacing: 0px;
   word-spacing: -2px;
-  border-radius: 4px;
 }
 .gist .gist-footer a {
   color: #fff;
@@ -46,7 +28,7 @@
 .gist .gist-footer .meta a img {
   margin-left: 3px;
   margin-right: 10px;
-  border-radius: 4px;
+  border-radius: 50px;
 }
 .gist .gist-footer .meta .gist-title {
   padding: 3px 0px;
@@ -62,6 +44,9 @@
   word-wrap: break-word;
   font-family: monospace;
   color: #fff;
+}
+.gist_show_container{
+  margin-bottom: 40px;
 }
 
 /* CodeRay syntax highlighting */
