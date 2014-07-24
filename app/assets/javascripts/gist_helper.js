@@ -1,7 +1,4 @@
-$(document).on('page:change', function(){
-  // var height      = $('.gist-canvas').height(),
-  //     lineNumbers = $('.line-numbers').height(height + 4),
-  //     body        = $('.gist-body').height(height);
+JW.CACHE.$document.on('page:change', function(){
 
   var lineNumbers  = $('.line-numbers'),
       gists        = $('.gist'),
