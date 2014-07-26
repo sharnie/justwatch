@@ -1,16 +1,11 @@
-JW.CACHE.$document.on( 'page:change', function(){
-
-  // declare canvas 
-  // must execute first -----------------------|
-  JW.canvas = new Canvas( JW.CACHE.$canvas );
-  //-------------------------------------------|
+PC.onLoadEvent(function(){
 
   // create crop tool
   // this tool is specific for our application
   // unlike to tools defined in canvas/canvas_config
   // which are generic tools that do not use
   // any environment information --------------------------------------|
-  JW.canvas.registerTool('crop', {
+  PC.canvas.registerTool('crop', {
     begin: function( e ){},
     move: function( e ){
       var
@@ -46,9 +41,9 @@ JW.CACHE.$document.on( 'page:change', function(){
 
       data = {
         gist: {
-          name: $( '#gist_name' ).val(),
-          content: $( '#gist_content' ).val(),
-          language: $( '#gist_language' ).val(),
+          name: PC.$.gistName.val(),
+          content: PC.$.gistContent.val(),
+          language: PC.$.gistLanguage.val(),
           visual_attributes: {
             url: url
           }
@@ -56,29 +51,21 @@ JW.CACHE.$document.on( 'page:change', function(){
         preview: true
       };
 
-      var 
-        $modal         = $( '#crop-modal' ),
-        $previewPanel  = $modal.find( '#preview-panel' );
-        $cropPanel     = $modal.find( '#crop-panel' );
-
       $.post('/gists', data, function( response ){
 
-        $previewPanel
+        PC.$.previewPanel
           .html( response )
           .collapse( 'show' );
 
-        $cropPanel
+        PC.$.cropPanel
           .collapse( 'hide' );
       });
 
       // set the image url of hidden field
       // this is important for form submission -----|
-      $( '#gist_visual_attributes_url' )
-        .val( url )
-        .trigger( 'change' );
+      PC.$.gistVisualURL.val( url ).trigger( 'change' );
       //--------------------------------------------|
     }
   });
   //--------------------------------------------------------------------|
-
 });

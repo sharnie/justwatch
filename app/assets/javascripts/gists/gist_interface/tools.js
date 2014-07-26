@@ -1,43 +1,35 @@
-JW.CACHE.$document.on( 'page:change', function(){
+PC.onLoadEvent(function(){
 
-  var
-    $tools         = JW.CACHE.$tools,
-    $toolButtons   = $tools.find( 'input:radio[name="tool"]' ),
-    $colorInput    = $tools.find( 'input[type="color"][name="brush-color"]' ),
-    $opacitySlider = $tools.find( '#opacity-slider' ),
-    $brushSlider   = $tools.find( '#brush-slider' ),
-    $undoButton    = $tools.find( '#undo-button[role="undo"]' );
-
-  $toolButtons.on( 'change', function( e ){
+  this.toolButtons.on( 'change', function( e ){
     var
       $this = $( this ),
       tool  = $this.val();
       
     // show that tools are selected by adding '.selected' css class ----------|
-    $( '#canvas-tools span.radio-button.selected' ).removeClass( 'selected' );
+    PC.$.tools.find( '.selected' ).removeClass( 'selected' );
     $this.parent( 'span.radio-button' ).addClass( 'selected' );
     //------------------------------------------------------------------------|
 
     // allow switching of context between writing and drawing
     //-----------------------------|
     if( tool === 'text'){
-      JW.toggleEditMode( 'editor' );
+      PC.changeEditMode( 'editor' );
     } else {
-      JW.toggleEditMode( 'canvas' );
+      PC.changeEditMode( 'canvas' );
 
-      JW.canvas.use( $this.val() );
+      PC.canvas.use( tool );
     }
     //-----------------------------|
   });
 
-  $colorInput.on( 'change', function( e ){
+  this.colorInput.on( 'change', function( e ){
     // change drawing color ---------------------|
-    JW.canvas.changeColor( $( this ).val() );
+    PC.canvas.changeColor( $( this ).val() );
     //-------------------------------------------|
   });
 
   // create opacity slider --------------------------------|
-  $opacitySlider.slider({
+  this.opacitySlider.slider({
     orientation: 'vertical',
     min: 10,
     range: 'min',
@@ -45,15 +37,18 @@ JW.CACHE.$document.on( 'page:change', function(){
     value: 100,
     slide: function( e, ui ){
       // actual opacity change ---------------------|      |
-      JW.canvas.changeOpacity( ui.value / 100 );
+      PC.canvas.changeOpacity( ui.value / 100 );
       //--------------------------------------------|      |
     }
+  }).find('.ui-slider-handle').tooltip({
+    placement: 'right',
+    title: 'Opacity'
   });
   //-------------------------------------------------------|
 
 
   // create brush slider ----------------------------------|
-  $brushSlider.slider({
+  this.brushSlider.slider({
     orientation: 'vertical',
     min: 1,
     range: 'min',
@@ -61,15 +56,18 @@ JW.CACHE.$document.on( 'page:change', function(){
     value: 1,
     slide: function( e, ui ){
       // actual brush size change -----------|             |
-      JW.canvas.changeSize( ui.value );
+      PC.canvas.changeSize( ui.value );
       //-------------------------------------|             |
     }
+  }).find('.ui-slider-handle').tooltip({
+    placement: 'right',
+    title: 'Brush Size'
   });
   //-------------------------------------------------------|
 
   // undo button ---------------------|
-  $undoButton.on( 'click', function(){
-    JW.canvas.undo();
+  this.undoButton.on( 'click', function(){
+    PC.canvas.undo();
   });
   //----------------------------------|
 });

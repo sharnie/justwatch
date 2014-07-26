@@ -24,8 +24,10 @@
 //= require jquery-ui/slider
 //= require zeroclipboard
 //= require canvas
-//= require jw
-
-//= require add_to_clipboard
-//= require gist_helper
+//= require pretty_code
+//= require init
+//= require clipboard
+//= require gist_sizing
 //= require tooltips
+
+PC.onLoadEvent();

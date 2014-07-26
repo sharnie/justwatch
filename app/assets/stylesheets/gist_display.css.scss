@@ -12,7 +12,13 @@
   max-height: 300px;
   overflow: scroll;
 }
-.gist .gist-canvas {position: absolute;left: 50px;z-index: -1;}
+.gist .gist-canvas {
+  position: absolute;
+  left: 39px;
+  top: 10px;
+  z-index: -1;
+
+}
 .gist .gist-footer {
   background-color: #2ecc71;
   padding: 10px;
