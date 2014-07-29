@@ -25,6 +25,10 @@
   max-height: 300px
 }
 #jw-<%= @gist.url %>.jw .jw-canvas {position: absolute;left: 50px;top: 10px;z-index: -1;}
+#jw-<%= @gist.url %>.jw .jw-canvas img {
+  max-width: none;
+}
+
 #jw-<%= @gist.url %>.jw .jw-footer {
   background-color: #2ecc71;
   padding: 10px;
