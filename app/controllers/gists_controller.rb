@@ -11,7 +11,8 @@ class GistsController < ApplicationController
   end
 
   def index
-    @gists = Gist.all   
+    @gists = current_or_guest_user.gists
+    redirect_to root_path unless @gists.any?
   end
 
   def create

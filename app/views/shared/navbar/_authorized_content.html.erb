@@ -11,11 +11,13 @@
         <% end %>
       </li>
 
-      <li id="header_inbox_bar" class="dropdown">
-        <%= link_to gists_path, data: { :toggle => :tooltip, :placement => :bottom }, title: "Projects" do %>
-          <i class="fa fa-folder-open"></i>
-        <% end%>
-      </li>
+      <% if current_user.gists.any? %>
+        <li id="header_inbox_bar" class="dropdown">
+          <%= link_to gists_path, data: { :toggle => :tooltip, :placement => :bottom }, title: "Projects" do %>
+            <i class="fa fa-folder-open"></i>
+          <% end%>
+        </li>
+      <% end %>
 
     </ul>
   </div>
