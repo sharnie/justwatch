@@ -20,6 +20,7 @@
 //= require bootstrap/popover
 //= require bootstrap/collapse
 //= require bootstrap/transition
+
 //= require ace/ace
 //= require ace/theme-eclipse
 //= require ace/mode-ruby
@@ -35,6 +36,7 @@
 //= require ace/mode-sql
 //= require ace/mode-xml
 //= require ace/mode-yaml
+
 
 //= require jquery-ui/slider
 //= require zeroclipboard

@@ -1,17 +1,16 @@
-<div class="gist gist-default" id="jw-<%= @gist.url %>">
-  <div class="gist-body">
-    <div class="gist-canvas">
+<div class="jw jw-default" id="jw-<%= @gist.url %>">
+  <div class="jw-body">
+    <div class="jw-canvas">
       <%= image_tag(@gist.visual.url, class: 'jw_image' ) %>
     </div>
     <%= coderay(@gist.content, @gist.language).html_safe %>
   </div>
 
-  <div class="gist-footer">
-    <span class="meta">
-      <a href="#">
-        <%= gravatar_image_tag_for( gist.user, 25, class: 'pull-left' ) %>
-        <span class="gist-title"><%= @gist.name %></span>
-      </a>
+  <div class="jw-footer clearfix">
+    <span class="jw-meta">
+      <%= link_to gist_url(@gist), target: 'blank' do %>
+        <span class="jw-title"><%= @gist.name %></span>
+      <% end %>
     </span>
     <a href="http://www.prettycode.us" class="hosted pull-right">Hosted with <span style= "color:red">&#10084;</span> by PrettyCode</a>
   </div>
