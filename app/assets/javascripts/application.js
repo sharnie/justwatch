@@ -21,7 +21,21 @@
 //= require bootstrap/collapse
 //= require bootstrap/transition
 //= require ace/ace
+//= require ace/theme-eclipse
 //= require ace/mode-ruby
+//= require ace/mode-c_cpp
+//= require ace/mode-clojure
+//= require ace/mode-groovy
+//= require ace/mode-haml
+//= require ace/mode-java
+//= require ace/mode-javascript
+//= require ace/mode-php
+//= require ace/mode-python
+//= require ace/mode-sass
+//= require ace/mode-sql
+//= require ace/mode-xml
+//= require ace/mode-yaml
+
 //= require jquery-ui/slider
 //= require zeroclipboard
 //= require canvas
