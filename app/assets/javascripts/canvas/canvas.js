@@ -20,11 +20,8 @@ function Canvas( selector ) {
   this.layerStack         = [];
   this.toolHistory        = [];
 
-
-  // THE FOLLOWING CODE SHOULD BE RE-WRITTEN
-
   //wrap in a div to allow resizing
-  var canvasOutterWrapper = $( '<div>', { 
+  this.$canvasWrapper = $( '<div>', { 
     id: 'canvas-wrapper',
     css: {
       position: 'absolute',
@@ -34,60 +31,15 @@ function Canvas( selector ) {
       width: this.$canvas[ 0 ].width,
       maxWidth: this.$canvas[ 0 ].width,
       overflow: 'hidden'
-      // border: '1px solid rgba(80, 149, 199, 1)',
     }
   });
 
-  this.$canvas.wrap( canvasOutterWrapper );
+  this.$canvas.wrap( this.$canvasWrapper );
+  //reset object
+  this.$canvasWrapper = $( 'div#canvas-wrapper' );
 
   this.$canvas[ 0 ].width = 2000;
   this.$canvas[ 0 ].height = 2000;
-
-
-  this.changeCanvasSize = function( sizes ){
-    var
-      height = sizes.height || canvasOutterWrapper.height(),
-      width  = sizes.width || canvasOutterWrapper.width();
-
-
-    $('#canvas-wrapper').css({ height: height, width: width });
-  };
-
-  this.scrollCanvasY = function( pos ){
-    this.$canvas.trigger({
-      type: 'scrollY'
-    }, pos );
-
-    $( '#canvas-wrapper' ).scrollTop( pos );
-  };
-
-  this.scrollCanvasX = function( pos ){
-    this.$canvas.trigger({
-      type: 'scrollX'
-    }, pos );
-    $( '#canvas-wrapper' ).scrollLeft( pos );
-  };
-
-
-  /////////////////////////////////////////////
-
-
-  this.toDataURLcrop = function( obj ){
-    var $tempCanvas = $('<canvas></canvas>'),
-        tempContext = $tempCanvas[ 0 ].getContext( '2d' ),
-        tempImage   = new Image(),
-        x           = obj.x || 0;
-        y           = obj.y || 0;
-
-      if( this.stateStack[ 0 ] ){
-        tempImage.src = this.stateStack[ 0 ].url;  
-        $tempCanvas[ 0 ].width = Math.abs( obj.width );
-        $tempCanvas[ 0 ].height = Math.abs( obj.height );
-        tempContext.drawImage( tempImage, x, y );
-      }
-      
-      return $tempCanvas[ 0 ].toDataURL();
-  };
 
 
   // default event behaviors
@@ -106,7 +58,7 @@ function Canvas( selector ) {
       _this.cacheCanvas();
       _this.clearCache();
     }
-  }
+  };
 
   // cache this(the abstract object) before changing context;
   var 
@@ -297,6 +249,47 @@ Canvas.prototype.clear = function( x, y, width, height ){
   height = height || this.height();
 
   return this.context.clearRect( x, y, width, height );
+};
+
+Canvas.prototype.changeCanvasSize = function( sizes ){
+  var
+    height = sizes.height || this.$canvasWrapper.height(),
+    width  = sizes.width || this.$canvasWrapper.width();
+
+
+  this.$canvasWrapper.css({ height: height, width: width });
+};
+
+Canvas.prototype.scrollCanvasY = function( pos ){
+  this.$canvas.trigger({
+    type: 'scrollY'
+  }, pos );
+
+  this.$canvasWrapper.scrollTop( pos );
+};
+
+Canvas.prototype.scrollCanvasX = function( pos ){
+  this.$canvas.trigger({
+    type: 'scrollX'
+  }, pos );
+  this.$canvasWrapper.scrollLeft( pos );
+};
+
+Canvas.prototype.toDataURLcrop = function( obj ){
+  var $tempCanvas = $('<canvas></canvas>'),
+      tempContext = $tempCanvas[ 0 ].getContext( '2d' ),
+      tempImage   = new Image(),
+      x           = obj.x || 0;
+      y           = obj.y || 0;
+
+    if( this.stateStack[ 0 ] ){
+      tempImage.src = this.stateStack[ 0 ].url;  
+      $tempCanvas[ 0 ].width = Math.abs( obj.width );
+      $tempCanvas[ 0 ].height = Math.abs( obj.height );
+      tempContext.drawImage( tempImage, x, y );
+    }
+    
+    return $tempCanvas[ 0 ].toDataURL();
 };
 
 

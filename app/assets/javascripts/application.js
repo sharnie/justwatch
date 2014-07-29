@@ -21,6 +21,7 @@
 //= require bootstrap/collapse
 //= require bootstrap/transition
 //= require ace/ace
+//= require ace/mode-ruby
 //= require jquery-ui/slider
 //= require zeroclipboard
 //= require canvas
