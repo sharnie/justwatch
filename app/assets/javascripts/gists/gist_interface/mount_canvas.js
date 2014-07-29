@@ -57,6 +57,13 @@ PC.onLoadEvent(function(){
           .html( response )
           .collapse( 'show' );
 
+        PC.adjustGistSize( PC.$.previewPanel.find('.gist'), {
+          image    : '.gist-canvas',
+          lineCount: '.line-numbers',
+          body     : '.gist-body',
+          code     : '.code'
+        });
+
         PC.$.cropPanel
           .collapse( 'hide' );
       });
