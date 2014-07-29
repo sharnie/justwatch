@@ -3,7 +3,7 @@
 
       <%= color_field_tag 'brush-color', '#000000', class: 'canvas-tool-tip', data: {toggle: 'tooltip', placement: 'right'}, title: 'Color' %>
 
-      <%= tool_radio_tag(:text, title: 'Text', icon: 'keyboard-o', checked: true) %>
+      <%= tool_radio_tag(:text, title: 'Text', icon: 'keyboard-o') %>
       <br>
       <%= tool_radio_tag(:pencil, title: 'Pencil', icon: 'pencil' ) %>
       <br>
@@ -16,7 +16,6 @@
       <%= tool_radio_tag(:arrow, title: 'Arrow', icon: 'long-arrow-left') %> 
       <br>
       <%= tool_radio_tag(:eraser, title: "Eraser", icon: 'eraser') %>
-      <!-- <%= tool_radio_tag(:crop, title: 'Crop', icon: 'crop') %>  -->
       <hr>
 
       <%= content_tag :span, class: 'jw-button canvas-tool-tip', data: {toggle: 'tooltip', placement: 'right'}, title: 'Undo' do %>
