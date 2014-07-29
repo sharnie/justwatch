@@ -5,7 +5,7 @@ Devise.setup do |config|
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
   # config.secret_key = '229ee3ba9c30df495a250bf0e2bc8173e88a1c764b6461d6f1732e1b4388d7d3ad7ab0f269b3c2d493931ec3b576844cfcd324e82d7be05a070bd5468a4806c5'
-
+config.secret_key = '88ab51d447e0d6d4e297a7fc30116c3ec85237ec6196dcd87a4f04da11e60008049246af148809c67bd90303073d3884b248fa7370542d66c0c88e61c6724c46'
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
@@ -230,7 +230,9 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
-  config.omniauth :github, ENV['github_client_id'], ENV['github_client_secret'], scope: 'user'
+
+config.omniauth :github, ENV['GITHUB_ID'], ENV['GITHUB_SECRET'], scope: 'user'
+
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.

@@ -70,10 +70,12 @@ class GistsController < ApplicationController
     end
   end
 
+
   def destroy
     @gist.destroy 
     redirect_to gists_path
   end
+
 
 private
 

@@ -1,10 +1,14 @@
-JW.CACHE.$document.on( 'page:change', function(){
+PC.onLoadEvent(function(){
+
   var prevImage = new Image();
 
-  prevImage.src = $( '#gist_visual_attributes_url' ).val();
+  PC.editor.setValue( this.gistContent.val(), 1 ); 
+  PC.editor.getSession().setMode( "ace/mode/" + ( PC.editorHelpers.toAceLang( this.gistLanguage.val() ) || 'text' ) );
 
-  JW.toggleEditMode( 'editor' );
+  prevImage.src = this.gistVisualURL.val();
 
-  JW.canvas.drawImage( prevImage, 0, 0 );
-  JW.canvas.cacheCanvas();
+  PC.changeEditMode( 'editor' );
+
+  PC.canvas.drawImage( prevImage, 0, 0 );
+  PC.canvas.cacheCanvas();
 });

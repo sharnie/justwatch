@@ -20,7 +20,7 @@ function Layer( dataUrl ){
 
   this.changePosition = function( obj ){
     this.position.x = obj.x;
-    this.position.y = obj.y
+    this.position.y = obj.y;
   };
 
   this.resetPosition = function(){

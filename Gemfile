@@ -1,4 +1,7 @@
 source 'https://rubygems.org'
+# ruby '2.0.0'
+
+
 #copy to clipboard gem
 gem 'zeroclipboard-rails', '~> 0.1.0', :git => 'https://github.com/zeroclipboard/zeroclipboard-rails.git'
 #authentication gems
@@ -48,3 +51,5 @@ gem 'kaminari'
 gem 'jquery-ui-rails'
 gem 'ace-rails-ap'
 gem 'underscore-rails'
+gem 'rails_12factor', group: :production
+

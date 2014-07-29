@@ -38,4 +38,5 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
   #from devise
   config.action_mailer.default_url_options = { host: 'localhost:3000' }
+  config.assets.raise_production_errors = true
 end

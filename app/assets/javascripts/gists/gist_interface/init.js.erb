@@ -1,0 +1,48 @@
+PC.onLoadEvent(function(){
+
+  // list of supported languages all live in GistsHelper ---------------|
+  <% environment.context_class.instance_eval { include GistsHelper } %>
+  //--------------------------------------------------------------------|
+  PC.supportedLanguages = JSON.parse('<%= supported_languages.to_json %>');
+
+  PC.canvas = new Canvas( '#main-canvas' );
+  PC.editor = ace.edit( 'editor' );
+
+  // to avoid hitting the dom as much as possible,
+  // here we cache all meaningful html elements for future use
+  // in our app.
+  // using both the $#children and $#find method are
+  // much faster than traversing the dom tree for an element
+
+  this.gistForm          = this.body.find( 'form.new_gist, form.edit_gist' );
+  this.canvasWrapper     = this.gistForm.find( '#canvas-wrapper' );
+  this.canvas            = this.canvasWrapper.find( '#main-canvas' );
+  this.editor            = this.gistForm.find( '#editor' );
+  this.editorContentArea = this.editor.find( '.ace_content' );
+  this.editorScrollBar   = this.editor.find( 'div.ace_scrollbar.ace_scrollbar-h' );
+  this.gistContent       = this.gistForm.find( '#gist_content' );
+  this.gistLanguage      = this.gistForm.find( '#gist_language' );
+  this.gistVisualURL     = this.gistForm.find( '#gist_visual_attributes_url' );
+  this.gistName          = this.gistForm.find( '#gist_name' );
+  this.cropModal         = this.body.find( '#crop-modal' );
+  this.cropModalFooter   = this.cropModal.find( '.modal-footer' );
+  this.cropPanel         = this.cropModal.find( '#crop-panel' );
+  this.cropPanelButton   = this.cropModalFooter.find( this.cropPanel.data( 'related' ) );
+  this.previewPanel      = this.cropModal.find( '#preview-panel' );
+  this.prevPanelButton   = this.cropModalFooter.find( this.previewPanel.data( 'related' ) );
+
+
+  this.tools             = this.body.find( '#canvas-tools' );
+  this.toolButtons       = this.tools.find( 'input:radio[name="tool"]' );
+  this.colorInput        = this.tools.find( 'input[type="color"][name="brush-color"]' );
+  this.opacitySlider     = this.tools.find( '#opacity-slider' );
+  this.brushSlider       = this.tools.find( '#brush-slider' );
+  this.undoButton        = this.tools.find( '#undo-button[role="undo"]' );
+
+  this.cropModalSubmit   = this.cropModalFooter.find( 'a[role="submit"]' );
+  this.cropModalTitle    = this.cropModal.find( 'h4.modal-title' );
+  this.infoPopOver       = this.cropModalFooter.find( '#info-pop' );
+
+  this.originalWrapperDestination = this.canvasWrapper.parent();
+
+});

@@ -7,15 +7,18 @@
   background: #232323;
 }
 .gist .gist-body {
-  // overflow-x: scroll;
-  // overflow-y:auto;
   position: relative;
   z-index: 1;
   max-height: 300px;
   overflow: scroll;
-  // margin-bottom: -10px;
 }
-.gist .gist-canvas {position: absolute;left: 50px;z-index: -1;}
+.gist .gist-canvas {
+  position: absolute;
+  left: 39px;
+  top: 10px;
+  z-index: -1;
+
+}
 .gist .gist-footer {
   background-color: #2ecc71;
   padding: 10px;
@@ -31,7 +34,7 @@
 }
 .gist .gist-footer a.hosted {padding: 3px 10px;}
 .gist .gist-footer a.hosted .fa-heart {color: #c0392b;}
-.gist .gist-footer .meta a {vertical-align:bottom;}
+.gist .gist-footer .meta a {vertical-align: bottom;}
 .gist .gist-footer .meta a img {
   margin-left: 3px;
   margin-right: 10px;
