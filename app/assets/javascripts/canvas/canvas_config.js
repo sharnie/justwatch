@@ -15,8 +15,6 @@ Canvas.registerTool( 'pencil', {
       brushSize = e.canvas.brushSize,
       opacity   = e.canvas.opacity;
 
-
-      canvas.cursor( 'url("icons_png/icon_347.png")' );
       canvas.render();
       canvas.exec( 'arc', [ x, y, 0, 0, 0, false ] );
       canvas.assign( 'lineWidth', brushSize );
@@ -203,6 +201,8 @@ Canvas.registerTool('arrow', {
       color     = e.canvas.color,
       opacity   = e.canvas.opacity;
 
+    canvas.cursor( 'crosshair' );
+
     canvas.render();
     canvas.exec('beginPath');
 
@@ -231,46 +231,78 @@ Canvas.registerTool('arrow', {
 
 });
 
-// // move
-// Canvas.registerTool( 'move', {
-//   begin: function( e ){
-//     var
-//       canvas = e.canvas.mainObject,
-//       x      = e.canvas.x,
-//       y      = e.canvas.y;
-
-//     e.canvas.toolStateData.beginCoordinates = e.canvas.toolStateData.beginCoordinates || [];
-//     e.canvas.toolStateData.beginCoordinates.unshift( { x: x, y: y } );
-    
+//circle tool
+// Canvas.registerTool('circle', {
+//   begin: function(e){
+//     var canvas = e.canvas.mainObject;
+//     var x = e.canvas.x;
+//     var y = e.canvas.y;
 
 //   },
-//   move: function( e ){
-//     var
-//       canvas         = e.canvas.mainObject,
-//       context        = e.canvas.context,
-//       origin         = e.canvas.toolStateData.beginCoordinates[ 0 ],
-//       originX        = origin.x,
-//       originY        = origin.y,
-//       currentX       = e.canvas.x,
-//       currentY       = e.canvas.y,
-//       layers         = canvas.layerStack,
-//       currentLayer   = canvas.currentLayer;
-
-//       currentLayer.changePosition({ x: currentX - originX, y: currentY - originY });
-//       canvas.clear();
-//       layers.forEach(function( layer ){
-//         layer.draw( context );
-//       });
-
-//   },
-//   end: function( e ){    
+//   move: function(e){
 //     var 
-//       canvas = e.canvas.mainObject;
+//       canvas    = e.canvas.mainObject,
+//       origin    = e.canvas.toolStateData.beginCoordinates[ 0 ],
+//       originX   = origin.x,
+//       originY   = origin.y,
+//       currentX  = e.canvas.x,
+//       currentY  = e.canvas.y,
+//       brushSize = e.canvas.brushSize,
+//       color     = e.canvas.color,
+//       opacity   = e.canvas.opacity;
 
-//     canvas.cacheCanvas();
+//   },
+
+//   end: function(e){
+//     var canvas = e.canvas.mainObject;
 
 //   }
+
 // });
+
+// move
+Canvas.registerTool( 'move', {
+  begin: function( e ){
+    var
+      canvas = e.canvas.mainObject,
+      x      = e.canvas.x,
+      y      = e.canvas.y;
+
+    e.canvas.toolStateData.beginCoordinates = e.canvas.toolStateData.beginCoordinates || [];
+    e.canvas.toolStateData.beginCoordinates.unshift( { x: x, y: y } );
+    
+
+  },
+  move: function( e ){
+    var
+      canvas         = e.canvas.mainObject,
+      context        = e.canvas.context,
+      origin         = e.canvas.toolStateData.beginCoordinates[ 0 ],
+      originX        = origin.x,
+      originY        = origin.y,
+      currentX       = e.canvas.x,
+      currentY       = e.canvas.y,
+      layers         = canvas.layerStack,
+      currentLayer   = canvas.currentLayer;
+
+      currentLayer.changePosition({ x: currentX - originX, y: currentY - originY });
+      canvas.clear();
+      layers.forEach(function( layer ){
+        layer.draw( context );
+      });
+
+  },
+  end: function( e ){    
+    var 
+      canvas       = e.canvas.mainObject,
+      currentLayer = canvas.currentLayer;
+
+    currentLayer.resetPosition();
+    
+    canvas.cacheCanvas();
+
+  }
+});
 
 
 

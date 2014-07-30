@@ -51,9 +51,7 @@ class GistsController < ApplicationController
   end
 
   def show
-    unless @gist.user == current_or_guest_user
-      redirect_to root_path
-    end
+    
   end
 
   def embed
