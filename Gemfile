@@ -53,3 +53,7 @@ gem 'ace-rails-ap'
 gem 'underscore-rails'
 gem 'rails_12factor', group: :production
 
+
+
+# authorization gem
+gem 'cancancan'

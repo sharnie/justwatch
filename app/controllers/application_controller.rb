@@ -5,4 +5,11 @@ class ApplicationController < ActionController::Base
 
   include GuestHelper
 
+  def current_ability
+    @current_ability ||= Ability.new(current_or_guest_user)
+  end
+
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_path, alert: "You are not allowed to do that."
+  end
 end

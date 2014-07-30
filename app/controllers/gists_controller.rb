@@ -4,18 +4,24 @@ class GistsController < ApplicationController
   before_action :set_gist_and_visual, except: [:embed]
   before_action :authenticate_user!, except: [:new, :create, :show]
 
+
   def new
+    authorize! :new, @gist
   end
 
   def edit
+    authorize! :edit, @gist
   end
 
   def index
+    authorize! :index, @gist
     @gists = current_or_guest_user.gists
     redirect_to root_path unless @gists.any?
   end
 
   def create
+    authorize! :create, @gist
+
     @gist.language = "text" if @gist.language.blank?
     @gist.user = current_or_guest_user
 
@@ -39,6 +45,8 @@ class GistsController < ApplicationController
   end
 
   def update
+    authorize! :update, @gist
+
     @gist.language = "text" if @gist.language.blank?
     if @gist.save
       redirect_to gist_path(@gist)
@@ -51,6 +59,8 @@ class GistsController < ApplicationController
   end
 
   def show
+    authorize! :show, @gist
+
     
   end
 
@@ -71,6 +81,8 @@ class GistsController < ApplicationController
 
 
   def destroy
+    authorize! :destroy, @gist
+
     @gist.destroy 
     redirect_to gists_path
   end
