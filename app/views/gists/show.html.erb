@@ -14,12 +14,19 @@
         <span class="input-group-btn">
 
           <%= clipboard_tag_for(@gist) %>
-          
-          <%= link_to edit_gist_path(@gist), class: "btn btn-primary", data:{ toggle: 'tooltip', placement: 'top' }, title: 'Edit' do %>
-            <%= tag(:span, class: "fa fa-edit") %>
+
+          <% if can? :edit, @gist %>
+            
+            <%= link_to edit_gist_path(@gist), class: "btn btn-primary", data:{ toggle: 'tooltip', placement: 'top' }, title: 'Edit' do %>
+              <%= tag(:span, class: "fa fa-edit") %>
+            <% end %>
           <% end %>
-          <%= link_to gist_path(@gist), method: :delete, class: "btn btn-primary", data: { toggle: 'tooltip', placement: 'top' }, title: 'Delete' do %>
-            <%= tag(:span, class: 'fa fa-trash-o') %>
+
+          <% if can? :destroy, @gist %>
+
+            <%= link_to gist_path(@gist), method: :delete, class: "btn btn-primary", data: { toggle: 'tooltip', placement: 'top' }, title: 'Delete' do %>
+              <%= tag(:span, class: 'fa fa-trash-o') %>
+            <% end %>
           <% end %>
         </span>
 
