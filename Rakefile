@@ -4,3 +4,8 @@
 require File.expand_path('../config/application', __FILE__)
 
 Rails.application.load_tasks
+
+
+task :drop_guests do |task, *args|
+  Guest.where('created_at < ?', 1.week.ago)
+end

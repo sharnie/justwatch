@@ -6,8 +6,7 @@ class Ability
     
     can [:edit, :update, :destroy], Gist, :user_id => user.id
 
-    can :create, Gist
-    can :read, Gist
+    can [:read, :create], Gist
     # Define abilities for the passed in user here. For example:
     #
     #   user ||= User.new # guest user (not logged in)

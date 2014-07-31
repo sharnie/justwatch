@@ -2,7 +2,7 @@ class GistsController < ApplicationController
 
   protect_from_forgery with: :exception, except: [:embed]
   before_action :set_gist_and_visual, except: [:embed]
-  before_action :authenticate_user!, except: [:new, :create, :show]
+  before_action :authenticate_user!, except: [:new, :create, :show, :embed]
 
 
   def new
