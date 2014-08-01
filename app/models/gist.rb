@@ -1,6 +1,6 @@
 class Gist < ActiveRecord::Base
-  before_save :establish_url
-  before_save :establish_name
+  before_create :establish_url
+  before_create :establish_name
 
   belongs_to :user
   has_one :visual, dependent: :destroy
