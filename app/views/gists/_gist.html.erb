@@ -12,6 +12,8 @@
         <span class="jw-title"><%= @gist.name %></span>
       <% end %>
     </span>
-    <a href="http://www.prettycode.us" class="hosted pull-right">Hosted with <span style= "color:red">&#10084;</span> by PrettyCode</a>
+    <%= link_to root_url, class: 'hosted pull-right', target: 'blank' do %>
+      Hosted with <span style= "color:red">&#10084;</span> by PrettyCode
+    <% end %>
   </div>
 </div>
