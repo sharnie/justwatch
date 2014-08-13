@@ -1,4 +1,4 @@
-@font-face {
+/*@font-face {
 	font-family: 'bucket-ico-font';
 	src:url('../bucket-ico-fonts/bucket-ico-font.eot');
 	src:url('../bucket-ico-fonts/bucket-ico-font.eot?#iefix') format('embedded-opentype'),
@@ -7,7 +7,7 @@
 		url('../bucket-ico-fonts/bucket-ico-font.svg#bucket-ico-font') format('svg');
 	font-weight: normal;
 	font-style: normal;
-}
+}*/
 
 [class^="ico-"], [class*=" ico-"] {
 	font-family: 'bucket-ico-font';
